@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "arrow-body-style": 0,
+    "react/jsx-filename-extension": 0
+  },
+  "settings": {
+    "import/resolver": "webpack"
+  }
+}
