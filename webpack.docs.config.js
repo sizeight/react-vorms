@@ -1,11 +1,17 @@
 const path = require('path');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); /* eslint-disable-line import/no-extraneous-dependencies */
 
 const nodeEnv = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const isProduction = nodeEnv === 'production';
 
 const entryPath = path.join(__dirname, './docs-site/src/index.js');
 const buildPath = path.join(__dirname, './docs-site/');
+
+const plugins = [];
+
+if (process.env.ANALYSE === 'true') {
+  plugins.push(new BundleAnalyzerPlugin());
+}
 
 module.exports = {
   mode: nodeEnv,
@@ -44,9 +50,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new BundleAnalyzerPlugin(),
-  ],
+  plugins,
   resolve: {
     // Needed to direct the docs to the local version of the vinderjs, this is not needed for
     // normal setup.
