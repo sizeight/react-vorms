@@ -1,3 +1,19 @@
+/*
+ * Wrap the <DatePicker> to fix styles
+ * 1. Input containers should have width 100%
+ * 2. Times padding is wrong somehow??
+ */
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  width: 100%;
+}
+.react-datepicker__close-icon::after {
+  background-color: transparent;
+  color: #000;
+}
+
+
 .RichEditor-root {
   background: #fff;
   border: 1px solid #ddd;
@@ -125,9 +141,4 @@
   -o-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
-}
-
-.react-datepicker__close-icon::after {
-  background-color: transparent;
-  color: #000;
 }

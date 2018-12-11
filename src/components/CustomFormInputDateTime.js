@@ -1,26 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
-
-/*
- * Wrap the <DatePicker> to fix styles
- * 1. Input containers should have width 100%
- * 2. Times padding is wrong somehow??
- */
-const DatePickerWrapper = styled.div`
-  .react-datepicker-wrapper,
-  .react-datepicker__input-container {
-    width: 100%;
-  }
-  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
-    padding-left: 0;
-    padding-right: 0;
-  }
-`;
 
 
 const propTypes = {
@@ -105,28 +87,26 @@ class CustomFormInputDateTime extends React.Component {
       };
 
     return (
-      <DatePickerWrapper>
-        <DatePicker
-          className="form-control-sm form-control" // Bootstrap 4
+      <DatePicker
+        className="form-control-sm form-control" // Bootstrap 4
 
-          type={type}
-          name={name}
-          id={`id-${name}`}
-          required={required}
+        type={type}
+        name={name}
+        id={`id-${name}`}
+        required={required}
 
-          selected={value ? new Date(value) : null}
-          onChange={this.handleChange}
-          onChangeRaw={this.handleRawChange}
-          onBlur={this.handleBlur}
+        selected={value ? new Date(value) : null}
+        onChange={this.handleChange}
+        onChangeRaw={this.handleRawChange}
+        onBlur={this.handleBlur}
 
-          autoComplete="off"
-          todayButton="Today"
-          isClearable
-          clearButtonTitle="Clear"
-          shouldCloseOnSelect
-          {...showTime}
-        />
-      </DatePickerWrapper>
+        autoComplete="off"
+        todayButton="Today"
+        isClearable
+        clearButtonTitle="Clear"
+        shouldCloseOnSelect
+        {...showTime}
+      />
     );
   }
 }

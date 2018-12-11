@@ -14,11 +14,12 @@
   "author": "Herman Pretorius (https://github.com/sizeight)",
   "scripts": {
     "webpack-dev": "webpack --watch --progress --color",
-    "webpack-prod-analyse": "NODE_ENV=production ANALYSE=true webpack --watch --progress --color",
     "webpack-prod": "NODE_ENV=production webpack --progress --color",
+    "webpack-prod-analyse": "NODE_ENV=production ANALYSE=true webpack --watch --progress --color",
     "build": "yarn webpack-prod",
     "prepublishOnly": "yarn build",
     "webpack-docs-dev": "webpack --config webpack.docs.config.js --watch --progress --color",
+    "webpack-docs-prod": "NODE_ENV=production webpack --config webpack.docs.config.js --watch --progress --color",
     "webpack-docs-prod-analyse": "NODE_ENV=production ANALYSE=true webpack --config webpack.docs.config.js --watch --progress --color"
   },
   "dependencies": {
@@ -29,7 +30,6 @@
     "prop-types": "^15.6.2",
     "react-datepicker": "^2.0.0",
     "reactstrap": "^6.5.0",
-    "styled-components": "^4.1.2",
     "yup": "^0.26.6"
   },
   "devDependencies": {
