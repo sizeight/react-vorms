@@ -55,8 +55,8 @@ module.exports = {
     // Needed to direct the docs to the local version of the vinderjs, this is not needed for
     // normal setup.
     alias: {
-      // '@vinder/vinderjs': path.resolve('./src/index.js'),
-      '@vinder/vinderjs': path.resolve('./lib/react-vorms.min.js'),
+      '@vinder/vinderjs': path.resolve('./src/index.js'),
+      // '@vinder/vinderjs': path.resolve('./lib/react-vorms.min.js'),
     },
   },
 };

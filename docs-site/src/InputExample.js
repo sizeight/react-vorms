@@ -1,20 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Highlight from 'react-highlight';
 
-// import { forms } from '../../src/components/forms';
-// import { forms } from '../../lib/vinderjs.min';
-// import { CustomForm } from '@vinder/vinderjs';
-import { CustomForm } from '../../lib/react-vorms.min';
+import 'highlight.js/styles/monokai-sublime.css';
 
-/// const { CustomForm } = forms;
+import { CustomForm } from '@vinder/vinderjs'; // set up alias in webpack for this to work
+// import { CustomForm } from '../../lib/react-vorms.min';
 
 
 const propTypes = {
   heading: PropTypes.string.isRequired,
   definition: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
-
 
 class InputExample extends React.Component {
   state = {
@@ -40,23 +38,21 @@ class InputExample extends React.Component {
         </div>
         <div className="row mb-3">
           <div className="col-6">
-            <pre>
-              <code className="javascript">
-                {`
-  const definiton = ${JSON.stringify(definition, null, 2)};
+            <Highlight className="javascript">
+              {`
+const definiton = ${JSON.stringify(definition, null, 2)};
 
-  // ...
+// ...
 
-  <CustomForm
-    definition={definition}
-    onSubmit={this.handleSubmit}
-    onCancel={this.handleBlur} // Optional, include to show Cancel button
-    submitButtonText="Save" // Optional
-    buttonPosition="right" // Optional
-  />
-  `}
-              </code>
-            </pre>
+<CustomForm
+  definition={definition}
+  onSubmit={this.handleSubmit}
+  onCancel={this.handleBlur} // Optional, include to show Cancel button
+  submitButtonText="Save" // Optional
+  buttonPosition="right" // Optional
+/>
+`}
+            </Highlight>
           </div>
           <div className="col-6">
             <div style={{ border: '1px solid #eee', padding: '10px' }}>
@@ -67,11 +63,9 @@ class InputExample extends React.Component {
             </div>
 
 
-            <pre>
-              <code className="json">
-                {JSON.stringify(data, null, 2)}
-              </code>
-            </pre>
+            <Highlight className="json">
+              {JSON.stringify(data, null, 2)}
+            </Highlight>
           </div>
         </div>
         <hr />
