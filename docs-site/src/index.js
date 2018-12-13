@@ -47,6 +47,10 @@ const inputs = [
     path: '/multicheckbox/',
     title: 'Multi Checkbox',
   },
+  {
+    path: '/hidden/',
+    title: 'Hidden',
+  },
 ];
 
 const Demo = () => {
@@ -161,6 +165,27 @@ const Demo = () => {
                   ]}
                 >
                   <p>Text input field</p>
+                </InputExample>
+              )}
+            />
+
+            <Route
+              path="/hidden/"
+              exact
+              component={() => (
+                <InputExample
+                  heading="Hidden Input"
+                  definition={[
+                    [
+                      {
+                        type: 'hidden',
+                        name: 'id',
+                        initialValue: 15,
+                      },
+                    ],
+                  ]}
+                >
+                  <p>Hidden input field</p>
                 </InputExample>
               )}
             />
