@@ -18,7 +18,7 @@ const countryOptions = countries;
 const propTypes = {
   type: PropTypes.oneOf([
     'text', 'textarea', 'checkbox', 'email', 'datetime', 'date', 'file-image',
-    'textarea-wysiwyg',
+    'textarea-wysiwyg', 'hidden',
     'select', 'radio', // select one from multiple optons
     'multi-checkbox', // select many from multiple options
   ]).isRequired,
@@ -86,7 +86,7 @@ const FormInputField = (props) => {
       key={name}
       className={width ? `col-md-${width}` : 'col-md'}
     >
-      {type !== 'checkbox' && (
+      {(['checkbox', 'hidden'].findIndex(x => x === type) === -1) && (
         <Label
           className={hideLabel === true ? 'sr-only' : ''}
           for={`id-${name}`}
@@ -94,8 +94,7 @@ const FormInputField = (props) => {
           {`${label}${required && ' *'}`}
         </Label>)}
 
-
-      {(type === 'text' || type === 'email') && (
+      {(type === 'text' || type === 'email' || type === 'hidden') && (
         <Input
           type={type}
           name={name}
