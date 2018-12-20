@@ -175,7 +175,10 @@ class CustomFormInputTextAreaWYSIWYG extends React.Component {
           </div>
 
 
-          <div className={editorClassName}>
+          <div // eslint-disable-line
+            className={editorClassName}
+            onClick={this.focusEditor}
+          >
             <Editor
               blockStyleFn={getBlockStyle}
               customStyleMap={styleMap}
