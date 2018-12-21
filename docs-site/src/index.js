@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 import InputExample from './InputExample';
 
@@ -46,6 +46,10 @@ const inputs = [
   {
     path: '/multicheckbox/',
     title: 'Multi Checkbox',
+  },
+  {
+    path: '/file/',
+    title: 'File',
   },
   {
     path: '/hidden/',
@@ -473,6 +477,32 @@ const Demo = () => {
                   ]}
                 >
                   <p>Select more than one option checkbox field.</p>
+                </InputExample>
+              )}
+            />
+
+            <Route
+              path="/file/"
+              exact
+              component={() => (
+                <InputExample
+                  heading="File Input"
+                  definition={[
+                    [
+                      {
+                        type: 'file',
+                        name: 'photo',
+                        label: 'Natural photograph',
+                        initialValue: '',
+                        helpText: 'A photo of the plant in it\'s natural environment.',
+                        validation: {
+                          required: true,
+                        },
+                      },
+                    ],
+                  ]}
+                >
+                  <p>Text input field</p>
                 </InputExample>
               )}
             />

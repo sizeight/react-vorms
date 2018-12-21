@@ -4,8 +4,8 @@ import Highlight from 'react-highlight';
 
 import 'highlight.js/styles/monokai-sublime.css';
 
-import { CustomForm } from '@vinder/vinderjs'; // set up alias in webpack for this to work
-// import { CustomForm } from '../../lib/react-vorms.min';
+// import { CustomForm } from '@vinder/vinderjs'; // set up alias in webpack for this to work
+import { CustomForm } from '../../lib/react-vorms';
 
 
 const propTypes = {
