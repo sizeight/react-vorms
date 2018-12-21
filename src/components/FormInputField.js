@@ -17,7 +17,7 @@ const countryOptions = countries;
 
 const propTypes = {
   type: PropTypes.oneOf([
-    'text', 'textarea', 'checkbox', 'email', 'datetime', 'date', 'file-image',
+    'text', 'textarea', 'checkbox', 'email', 'datetime', 'date', 'file',
     'textarea-wysiwyg', 'hidden',
     'select', 'radio', // select one from multiple optons
     'multi-checkbox', // select many from multiple options
@@ -91,8 +91,22 @@ const FormInputField = (props) => {
           className={hideLabel === true ? 'sr-only' : ''}
           for={`id-${name}`}
         >
-          {`${label}${required && ' *'}`}
+          {`${label}${required ? ' *' : ''}`}
         </Label>)}
+
+      {type === 'file' && (
+        <CustomInput
+          type={type}
+          name={name}
+          id={`id-${name}`}
+
+          required={required}
+          label={value.name ? `${value.name}, ${value.size} bytes` : ''}
+          onChange={(e) => setFieldValue(name, e.currentTarget.files[0])}
+          onBlur={onBlur}
+          invalid={hasError}
+
+        />)}
 
       {(type === 'text' || type === 'email' || type === 'hidden') && (
         <Input
