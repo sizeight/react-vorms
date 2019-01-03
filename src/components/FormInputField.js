@@ -101,6 +101,8 @@ const FormInputField = (props) => {
           name={name}
           id={`id-${name}`}
 
+          bsSize="sm"
+
           required={required}
           label={value.name ? `${value.name}, ${value.size} bytes` : ''}
           onChange={e => setFieldValue(name, e.currentTarget.files[0])}

@@ -142,3 +142,19 @@
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
+
+/*
+ * Bootstrap 4 has no styles to make a custom file input small!?!?
+ * Overdide with form-control-sm styles
+ */
+.custom-file-sm .custom-file-label {
+  border-radius: .2rem;
+  font-size: .875rem;
+  height: calc(1.8125rem + 2px);
+  line-height: 1.5;
+  padding: .25rem .5rem;
+}
+.custom-file-sm .custom-file-label::after {
+  height: 1.8125rem;
+  padding: .25rem .5rem;
+}
