@@ -486,7 +486,8 @@ const StyleControls = (props) => {
               control={control}
               preview={preview}
               onTogglePreview={onTogglePreview}
-            />)}
+            />
+          )}
 
           {control.type === 'BLOCK' && (
             <BlockStyleControl
@@ -494,7 +495,8 @@ const StyleControls = (props) => {
               preview={preview}
               editorState={editorState}
               onToggleBlockType={onToggleBlockType}
-            />)}
+            />
+          )}
 
           {control.type === 'INLINE' && (
             <InlineStyleControl
@@ -502,7 +504,8 @@ const StyleControls = (props) => {
               preview={preview}
               editorState={editorState}
               onToggleInlineStyle={onToggleInlineStyle}
-            />)}
+            />
+          )}
 
           {control.type === 'UNDOREDO' && (
             <UndoRedoControl
@@ -511,8 +514,10 @@ const StyleControls = (props) => {
               editorState={editorState}
               onToggleUndo={onToggleUndo}
               onToggleRedo={onToggleRedo}
-            />)}
-        </React.Fragment>))}
+            />
+          )}
+        </React.Fragment>
+      ))}
     </React.Fragment>
   );
 };

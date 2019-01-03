@@ -82,7 +82,8 @@ class DeleteForm extends React.Component {
                 </Button>
               </div>
             </ModalBody>
-          </Modal>)}
+          </Modal>
+        )}
       </div>
     );
   }

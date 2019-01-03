@@ -149,8 +149,10 @@ const CustomForm = (props) => {
               <FormInputField
                 {...field}
                 key={field.name}
-              />))}
-          </div>))}
+              />
+            ))}
+          </div>
+        ))}
         <FormButtons
           submitButtonText={submitButtonText}
           buttonPosition={buttonPosition}

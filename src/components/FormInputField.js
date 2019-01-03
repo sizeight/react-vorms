@@ -57,7 +57,7 @@ const FormInputField = (props) => {
     type, name, label, hideLabel, placeholder, validation, helpText, options, width,
   } = props;
 
-  const { formik } = props;
+  const { formik } = props; // eslint-disable-line react/prop-types
 
   /*
    * Hook into Formik's context so we do not have to explicitly pass in these props. Now my
@@ -92,7 +92,8 @@ const FormInputField = (props) => {
           for={`id-${name}`}
         >
           {`${label}${required ? ' *' : ''}`}
-        </Label>)}
+        </Label>
+      )}
 
       {type === 'file' && (
         <CustomInput
@@ -106,7 +107,8 @@ const FormInputField = (props) => {
           onBlur={onBlur}
           invalid={hasError}
 
-        />)}
+        />
+      )}
 
       {(type === 'text' || type === 'email' || type === 'hidden') && (
         <Input
@@ -122,7 +124,8 @@ const FormInputField = (props) => {
           onChange={onChange}
           onBlur={onBlur}
           invalid={hasError}
-        />)}
+        />
+      )}
 
       {type === 'textarea' && (
         <Input
@@ -138,7 +141,8 @@ const FormInputField = (props) => {
           invalid={hasError}
 
           rows="10"
-        />)}
+        />
+      )}
 
       {type === 'select' && (
         <Input
@@ -160,8 +164,10 @@ const FormInputField = (props) => {
               key={option.value}
             >
               {option.label}
-            </option>))}
-        </Input>)}
+            </option>
+          ))}
+        </Input>
+      )}
 
       {type === 'checkbox' && (
         <CustomInput
@@ -176,7 +182,8 @@ const FormInputField = (props) => {
           onChange={onChange}
           onBlur={onBlur}
           invalid={hasError}
-        />)}
+        />
+      )}
 
       {type === 'radio' && (
         <React.Fragment>
@@ -195,8 +202,10 @@ const FormInputField = (props) => {
               onChange={onChange}
               onBlur={onBlur}
               invalid={hasError}
-            />))}
-        </React.Fragment>)}
+            />
+          ))}
+        </React.Fragment>
+      )}
 
       {type === 'file-image' && (
         <CustomInput
@@ -206,7 +215,8 @@ const FormInputField = (props) => {
           bsSize="sm"
 
           label={value}
-        />)}
+        />
+      )}
 
       {(type === 'datetime' || type === 'date') && (
         <CustomFormInputDateTime
@@ -214,7 +224,8 @@ const FormInputField = (props) => {
           value={value}
           onChange={setFieldValue}
           onBlur={setFieldTouched}
-        />)}
+        />
+      )}
 
       {type === 'multi-checkbox' && (
         <CustomFormInputMultiCheckbox
@@ -222,7 +233,8 @@ const FormInputField = (props) => {
           value={value}
           onChange={setFieldValue}
           onBlur={setFieldTouched}
-        />)}
+        />
+      )}
 
 
       {type === 'textarea-wysiwyg' && (
@@ -231,13 +243,15 @@ const FormInputField = (props) => {
           value={value}
           onChange={setFieldValue}
           onBlur={setFieldTouched}
-        />)}
+        />
+      )}
 
 
       {hasError && (
         <div className="text-danger">
           <small>{error}</small>
-        </div>)}
+        </div>
+      )}
 
       {/*
       hasError &&
@@ -248,7 +262,8 @@ const FormInputField = (props) => {
       {helpText && (
         <FormText color="muted">
           {helpText}
-        </FormText>)}
+        </FormText>
+      )}
     </FormGroup>
   );
 };

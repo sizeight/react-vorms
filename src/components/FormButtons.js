@@ -43,7 +43,8 @@ const FormButtons = (props) => {
           disabled={isSubmitting}
         >
           Cancel
-        </Button>)}
+        </Button>
+      )}
       <Button
         color="primary"
         size="sm"

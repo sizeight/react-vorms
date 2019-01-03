@@ -85,7 +85,8 @@ class CustomFormInputMultiCheckbox extends React.Component {
             label={option.label}
             inline
             key={option.value}
-          />))}
+          />
+        ))}
       </div>
     );
   }
