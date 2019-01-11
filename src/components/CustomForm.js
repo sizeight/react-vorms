@@ -55,11 +55,15 @@ const CustomForm = (props) => {
 
   /*
    * Initial values
+   * A file field does not place initial value in formik state but only displays the value below
+   * the input field.
    */
   const flatDefinition = definition.flat();
   const initialValues = {};
   flatDefinition.forEach((obj) => {
-    initialValues[obj.name] = obj.initialValue;
+    if (obj.type !== 'file') {
+      initialValues[obj.name] = obj.initialValue;
+    }
   });
 
 
