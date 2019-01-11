@@ -8,6 +8,7 @@ import {
 import { connect, getIn } from 'formik';
 
 import CustomFormInputDateTime from './CustomFormInputDateTime';
+import CustomFormInputFile from './CustomFormInputFile';
 import CustomFormInputMultiCheckbox from './CustomFormInputMultiCheckbox';
 import CustomFormInputTextAreaWYSIWYG from './CustomFormInputTextAreaWYSIWYG';
 import countries from '../constants';
@@ -24,6 +25,7 @@ const propTypes = {
   ]).isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  initialValue: PropTypes.node.isRequired,
   hideLabel: PropTypes.bool,
   placeholder: PropTypes.string, // If no placeholder given, we leave out placeholder
   helpText: PropTypes.string,
@@ -72,7 +74,7 @@ const FormInputField = (props) => {
   const setFieldTouched = getIn(formik.setFieldTouched);
 
   // Has this field been touched and does it have an error?
-  const hasError = error && touched;
+  const invalid = error && touched;
 
   const required = validation ? (validation.required) : false;
 
@@ -95,23 +97,6 @@ const FormInputField = (props) => {
         </Label>
       )}
 
-      {type === 'file' && (
-        <CustomInput
-          type={type}
-          name={name}
-          id={`id-${name}`}
-
-          bsSize="sm"
-
-          required={required}
-          label={value.name ? `${value.name}, ${value.size} bytes` : ''}
-          onChange={e => setFieldValue(name, e.currentTarget.files[0])}
-          onBlur={onBlur}
-          invalid={hasError}
-
-        />
-      )}
-
       {(type === 'text' || type === 'email' || type === 'hidden') && (
         <Input
           type={type}
@@ -125,7 +110,7 @@ const FormInputField = (props) => {
           value={value}
           onChange={onChange}
           onBlur={onBlur}
-          invalid={hasError}
+          invalid={invalid}
         />
       )}
 
@@ -140,7 +125,7 @@ const FormInputField = (props) => {
           value={value}
           onChange={onChange}
           onBlur={onBlur}
-          invalid={hasError}
+          invalid={invalid}
 
           rows="10"
         />
@@ -158,7 +143,7 @@ const FormInputField = (props) => {
           value={value}
           onChange={onChange}
           onBlur={onBlur}
-          invalid={hasError}
+          invalid={invalid}
         >
           {selectOptions.map(option => (
             <option
@@ -183,7 +168,7 @@ const FormInputField = (props) => {
           checked={value}
           onChange={onChange}
           onBlur={onBlur}
-          invalid={hasError}
+          invalid={invalid}
         />
       )}
 
@@ -203,20 +188,19 @@ const FormInputField = (props) => {
               checked={value === option.value}
               onChange={onChange}
               onBlur={onBlur}
-              invalid={hasError}
+              invalid={invalid}
             />
           ))}
         </React.Fragment>
       )}
 
-      {type === 'file-image' && (
-        <CustomInput
-          type="file"
-          name={name}
-          id={`id-${name}`}
-          bsSize="sm"
-
-          label={value}
+      {type === 'file' && (
+        <CustomFormInputFile
+          {...props}
+          value={value}
+          invalid={invalid}
+          onChange={setFieldValue}
+          onBlur={setFieldTouched}
         />
       )}
 
@@ -249,7 +233,7 @@ const FormInputField = (props) => {
       )}
 
 
-      {hasError && (
+      {invalid && (
         <div className="text-danger">
           <small>{error}</small>
         </div>
