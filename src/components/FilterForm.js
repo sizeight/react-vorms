@@ -33,7 +33,7 @@ class FilterForm extends React.Component {
         className="form-inline flex-row-reverse"
         onSubmit={e => e.preventDefault()}
       >
-        <div className="input-group mb-3">
+        <div className="input-group">
           <input
             type="text"
             className="form-control form-control-sm"
