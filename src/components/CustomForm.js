@@ -27,6 +27,7 @@ const propTypes = {
           email: PropTypes.bool,
         }),
         width: PropTypes.number,
+        disabled: PropTypes.bool,
       }),
     ),
   ).isRequired,

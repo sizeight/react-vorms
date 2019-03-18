@@ -43,6 +43,7 @@ const propTypes = {
     email: PropTypes.bool,
   }),
   width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  disabled: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -52,11 +53,12 @@ const defaultProps = {
   options: [],
   validation: {},
   width: undefined,
+  disabled: false,
 };
 
 const FormInputField = (props) => {
   const {
-    type, name, label, hideLabel, placeholder, validation, helpText, options, width,
+    type, name, label, hideLabel, placeholder, validation, helpText, options, width, disabled,
   } = props;
 
   const { formik } = props; // eslint-disable-line react/prop-types
@@ -111,6 +113,7 @@ const FormInputField = (props) => {
           onChange={onChange}
           onBlur={onBlur}
           invalid={invalid}
+          disabled={disabled}
         />
       )}
 
@@ -126,6 +129,7 @@ const FormInputField = (props) => {
           onChange={onChange}
           onBlur={onBlur}
           invalid={invalid}
+          disabled={disabled}
 
           rows="10"
         />
@@ -144,6 +148,7 @@ const FormInputField = (props) => {
           onChange={onChange}
           onBlur={onBlur}
           invalid={invalid}
+          disabled={disabled}
         >
           {selectOptions.map(option => (
             <option
@@ -169,6 +174,7 @@ const FormInputField = (props) => {
           onChange={onChange}
           onBlur={onBlur}
           invalid={invalid}
+          disabled={disabled}
         />
       )}
 
@@ -189,6 +195,7 @@ const FormInputField = (props) => {
               onChange={onChange}
               onBlur={onBlur}
               invalid={invalid}
+              disabled={disabled}
             />
           ))}
         </React.Fragment>
