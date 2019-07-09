@@ -341,6 +341,7 @@ BlockStyleControl.propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,
     iconClass: PropTypes.string,
+    style: PropTypes.object,
   }).isRequired,
   preview: PropTypes.bool.isRequired,
   editorState: PropTypes.object.isRequired, /* eslint-disable-line react/forbid-prop-types */
@@ -375,6 +376,7 @@ InlineStyleControl.propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,
     iconClass: PropTypes.string,
+    style: PropTypes.object,
   }).isRequired,
   preview: PropTypes.bool.isRequired,
   editorState: PropTypes.object.isRequired, /* eslint-disable-line react/forbid-prop-types */

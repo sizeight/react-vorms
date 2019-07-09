@@ -44,6 +44,16 @@ const propTypes = {
   }),
   width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   disabled: PropTypes.bool,
+
+  formik: PropTypes.shape({
+    values: PropTypes.object,
+    touched: PropTypes.object,
+    errors: PropTypes.object,
+    handleChange: PropTypes.func,
+    handleBlur: PropTypes.func,
+    setFieldValue: PropTypes.func,
+    setFieldTouched: PropTypes.func,
+  }).isRequired,
 };
 
 const defaultProps = {
