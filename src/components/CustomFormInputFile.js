@@ -33,79 +33,78 @@ const defaultProps = {
 /*
  * Custom file input component.
  */
-class CustomFormInputFile extends React.Component {
-  handleChange = (e) => {
-    const { name, onChange } = this.props;
+const CustomFormInputFile = (props) => {
+  const {
+    name, initialValue, value, invalid, onChange, onBlur,
+  } = props;
+
+  const label = (value && value.name) ? `${value.name}, ${value.size} bytes` : '';
+
+
+  function handleChange(e) {
     onChange(name, e.currentTarget.files[0]);
   }
 
-  handleBlur = () => {
-    const { name, onBlur } = this.props;
+
+  function handleBlur() {
     onBlur(name, true);
   }
 
-  handleClear = (e) => {
-    const { name, onChange } = this.props;
+
+  function handleClear(e) {
     const val = e.target.checked ? null : undefined;
     onChange(name, val);
   }
 
-  render() {
-    const {
-      name, initialValue, value, invalid,
-    } = this.props;
 
-    const label = (value && value.name) ? `${value.name}, ${value.size} bytes` : '';
+  return (
+    <React.Fragment>
+      <div className="custom-file custom-file-sm">
+        <input
+          className={`custom-file-input${invalid ? ' is-invalid' : ''}`}
+          type="file"
+          name={name}
+          id={`id-${name}`}
 
-    return (
-      <React.Fragment>
-        <div className="custom-file custom-file-sm">
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
+        <label /* eslint-disable-line jsx-a11y/label-has-for */
+          className="custom-file-label"
+          htmlFor={`id-${name}`}
+        >
+          {label}
+        </label>
+      </div>
+      <small>
+        <span className="mr-1">
+          Currently:
+        </span>
+        <a
+          href={initialValue}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {initialValue}
+        </a>
+        <div className="custom-control custom-control-inline custom-checkbox clear-file ml-1 mr-1 ">
           <input
-            className={`custom-file-input${invalid ? ' is-invalid' : ''}`}
-            type="file"
-            name={name}
-            id={`id-${name}`}
-
-            onChange={this.handleChange}
-            onBlur={this.handleBlur}
+            className="custom-control-input"
+            type="checkbox"
+            id="clearFile"
+            onClick={handleClear}
           />
-          <label /* eslint-disable-line jsx-a11y/label-has-for */
-            className="custom-file-label"
-            htmlFor={`id-${name}`}
+          <label /* eslint-disable-line */
+            className="custom-control-label"
+            htmlFor="clearFile"
           >
-            {label}
+            Clear
           </label>
         </div>
-        <small>
-          <span className="mr-1">
-            Currently:
-          </span>
-          <a
-            href={initialValue}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {initialValue}
-          </a>
-          <div className="custom-control custom-control-inline custom-checkbox clear-file ml-1 mr-1 ">
-            <input
-              className="custom-control-input"
-              type="checkbox"
-              id="clearFile"
-              onClick={this.handleClear}
-            />
-            <label /* eslint-disable-line */
-              className="custom-control-label"
-              htmlFor="clearFile"
-            >
-              Clear
-            </label>
-          </div>
-        </small>
-      </React.Fragment>
-    );
-  }
-}
+      </small>
+    </React.Fragment>
+  );
+};
 
 CustomFormInputFile.propTypes = propTypes;
 CustomFormInputFile.defaultProps = defaultProps;
