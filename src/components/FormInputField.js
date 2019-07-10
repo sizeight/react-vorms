@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  FormGroup, Label, Input, CustomInput, FormText,
-} from 'reactstrap';
+import { Input, CustomInput } from 'reactstrap';
 
 import { connect, getIn } from 'formik';
 
@@ -96,17 +94,14 @@ const FormInputField = (props) => {
   }
 
   return (
-    <FormGroup
-      key={name}
-      className={width ? `col-md-${width}` : 'col-md'}
-    >
+    <div className={`form-group ${width ? `col-md-${width}` : 'col-md'}`}>
       {(['checkbox', 'hidden'].findIndex(x => x === type) === -1) && (
-        <Label
+        <label /* eslint-disable-line */
           className={hideLabel === true ? 'sr-only' : ''}
-          for={`id-${name}`}
+          htmlFor={`id-${name}`}
         >
           {`${label}${required ? ' *' : ''}`}
-        </Label>
+        </label>
       )}
 
       {(type === 'text' || type === 'email' || type === 'hidden') && (
@@ -263,11 +258,14 @@ const FormInputField = (props) => {
 
 
       {helpText && (
-        <FormText color="muted">
+        <small
+          className="form-text text-muted"
+          id={`id-${name}-helptext`}
+        >
           {helpText}
-        </FormText>
+        </small>
       )}
-    </FormGroup>
+    </div>
   );
 };
 
