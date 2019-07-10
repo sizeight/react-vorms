@@ -20,7 +20,7 @@ const defaultProps = {
 };
 
 /*
- * A reusable delte confirmation form.
+ * A reusable delete confirmation form.
  */
 class DeleteForm extends React.Component {
   state = {
