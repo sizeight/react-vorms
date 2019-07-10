@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CustomInput } from 'reactstrap';
-
 
 const propTypes = {
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool,
   initialValue: PropTypes.string.isRequired,
 
   value: PropTypes.arrayOf(
@@ -30,7 +27,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-  required: false,
   invalid: false,
 };
 
@@ -56,26 +52,30 @@ class CustomFormInputFile extends React.Component {
 
   render() {
     const {
-      name, required, initialValue, value, invalid,
+      name, initialValue, value, invalid,
     } = this.props;
 
     const label = (value && value.name) ? `${value.name}, ${value.size} bytes` : '';
 
     return (
       <React.Fragment>
-        <CustomInput
-          type="file"
-          name={name}
-          id={`id-${name}`}
+        <div className="custom-file custom-file-sm">
+          <input
+            className={`custom-file-input${invalid ? ' is-invalid' : ''}`}
+            type="file"
+            name={name}
+            id={`id-${name}`}
 
-          bsSize="sm"
-
-          required={required}
-          label={label}
-          onChange={this.handleChange}
-          onBlur={this.handleBlur}
-          invalid={invalid}
-        />
+            onChange={this.handleChange}
+            onBlur={this.handleBlur}
+          />
+          <label /* eslint-disable-line jsx-a11y/label-has-for */
+            className="custom-file-label"
+            htmlFor={`id-${name}`}
+          >
+            {label}
+          </label>
+        </div>
         <small>
           <span className="mr-1">
             Currently:
@@ -87,15 +87,20 @@ class CustomFormInputFile extends React.Component {
           >
             {initialValue}
           </a>
-          <CustomInput
-            type="checkbox"
-            className="clear-file ml-1 mr-1"
-            id="clearFile"
-            label="Clear"
-            inline
-
-            onClick={this.handleClear}
-          />
+          <div className="custom-control custom-control-inline custom-checkbox clear-file ml-1 mr-1 ">
+            <input
+              className="custom-control-input"
+              type="checkbox"
+              id="clearFile"
+              onClick={this.handleClear}
+            />
+            <label /* eslint-disable-line */
+              className="custom-control-label"
+              htmlFor="clearFile"
+            >
+              Clear
+            </label>
+          </div>
         </small>
       </React.Fragment>
     );
