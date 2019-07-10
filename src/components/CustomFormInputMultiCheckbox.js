@@ -30,11 +30,13 @@ const defaultProps = {
 /*
  * Custom multiple checkbox component.
  */
-class CustomFormInputMultiCheckbox extends React.Component {
-  handleChange = (e) => {
-    const {
-      name, value, options, onChange,
-    } = this.props;
+const CustomFormInputMultiCheckbox = (props) => {
+  const {
+    name, value, required, options, onChange, onBlur,
+  } = props;
+
+
+  function handleChange(e) {
     const { target } = e;
     const { checked } = target;
     const optionName = target.name;
@@ -57,46 +59,41 @@ class CustomFormInputMultiCheckbox extends React.Component {
     onChange(name, newValue);
   }
 
-  handleBlur = () => {
-    const { name, onBlur } = this.props;
+
+  function handleBlur() {
     onBlur(name, true);
   }
 
-  render() {
-    const {
-      options, name, required, value,
-    } = this.props;
 
-    return (
-      <div>
-        {options.map((option, i) => (
-          <div
-            className="custom-control custom-control-inline custom-checkbox"
-            key={option.value}
+  return (
+    <div>
+      {options.map((option, i) => (
+        <div
+          className="custom-control custom-control-inline custom-checkbox"
+          key={option.value}
+        >
+          <input
+            className="custom-control-input"
+            type="checkbox"
+            name={`${name}:${i}`} // e.g. tags:2
+            id={`id-${name}-${i}`} // e.g. id-tags-2
+
+            required={required}
+            checked={value.findIndex(val => val === option.value) > -1}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          <label /* eslint-disable-line jsx-a11y/label-has-for */
+            className="custom-control-label"
+            htmlFor={`id-${name}-${i}`}
           >
-            <input
-              className="custom-control-input"
-              type="checkbox"
-              name={`${name}:${i}`} // e.g. tags:2
-              id={`id-${name}-${i}`} // e.g. id-tags-2
-
-              required={required}
-              checked={value.findIndex(val => val === option.value) > -1}
-              onChange={this.handleChange}
-              onBlur={this.handleBlur}
-            />
-            <label /* eslint-disable-line jsx-a11y/label-has-for */
-              className="custom-control-label"
-              htmlFor={`id-${name}-${i}`}
-            >
-              {option.label}
-            </label>
-          </div>
-        ))}
-      </div>
-    );
-  }
-}
+            {option.label}
+          </label>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 CustomFormInputMultiCheckbox.propTypes = propTypes;
 CustomFormInputMultiCheckbox.defaultProps = defaultProps;
