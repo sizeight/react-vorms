@@ -12,48 +12,47 @@ const defaultProps = {
   placeHolderText: 'Filter...',
 };
 
-class FilterForm extends React.Component {
-  handleChange = (event) => {
-    const { onChange } = this.props;
-    onChange(event.target.value);
+const FilterForm = (props) => {
+  const { value, placeHolderText, onChange } = props;
+
+
+  function handleChange(e) {
+    onChange(e.target.value);
   }
 
-  handleClear = () => {
-    const { onChange } = this.props;
+
+  function handleClear() {
     onChange('');
   }
 
-  render() {
-    const { value, placeHolderText } = this.props;
 
-    return (
-      <form
-        className="form-inline flex-row-reverse"
-        onSubmit={e => e.preventDefault()}
-      >
-        <div className="input-group">
-          <input
-            type="text"
-            className="form-control form-control-sm"
-            value={value}
-            placeholder={placeHolderText}
-            onChange={this.handleChange}
-          />
-          <div className="input-group-append">
-            <button
-              type="button"
-              className={`btn ${value === '' ? 'btn-secondary' : 'btn-primary'} btn-sm ${value === '' ? 'btn-outline-secondary' : ''}`}
-              disabled={value === ''}
-              onClick={this.handleClear}
-            >
-              &#215;
-            </button>
-          </div>
+  return (
+    <form
+      className="form-inline flex-row-reverse"
+      onSubmit={e => e.preventDefault()}
+    >
+      <div className="input-group">
+        <input
+          type="text"
+          className="form-control form-control-sm"
+          value={value}
+          placeholder={placeHolderText}
+          onChange={handleChange}
+        />
+        <div className="input-group-append">
+          <button
+            type="button"
+            className={`btn ${value === '' ? 'btn-secondary' : 'btn-primary'} btn-sm ${value === '' ? 'btn-outline-secondary' : ''}`}
+            disabled={value === ''}
+            onClick={handleClear}
+          >
+            &#215;
+          </button>
         </div>
-      </form>
-    );
-  }
-}
+      </div>
+    </form>
+  );
+};
 
 FilterForm.propTypes = propTypes;
 FilterForm.defaultProps = defaultProps;
