@@ -8,28 +8,29 @@ import 'react-datepicker/dist/react-datepicker.css';
 const propTypes = {
   type: PropTypes.oneOf(['datetime', 'date']).isRequired,
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
-  required: false,
   value: undefined,
 };
 
 /*
  * Render a datetime or a date only input field the react-datepicker.
  */
-class CustomFormInputDateTime extends React.Component {
+const CustomFormInputDateTime = (props) => {
+  const {
+    name, type, value, onChange, onBlur,
+  } = props;
+
+
   /*
    * If a valid Date object is available, set the state to the string representation, otherwise
    * set to null.
    */
-  handleChange = (date) => {
-    const { name, onChange } = this.props;
-
+  function handleChange(date) {
     let newValue = null;
     if (date instanceof Date) {
       newValue = date.toISOString();
@@ -37,16 +38,14 @@ class CustomFormInputDateTime extends React.Component {
     onChange(name, newValue);
   }
 
-  handleRawChange = (e) => {
-    const { name, onChange } = this.props;
 
+  function handleRawChange(e) {
     const newValue = e.target.value;
     onChange(name, newValue);
   }
 
-  handleBlur = (e) => {
-    const { name, onChange, onBlur } = this.props;
 
+  function handleBlur(e) {
     let date;
     try {
       date = new Date(e.target.value);
@@ -69,47 +68,41 @@ class CustomFormInputDateTime extends React.Component {
     onBlur(name, true);
   }
 
-  render() {
-    const {
-      type, name, required, value,
-    } = this.props;
 
-    // datetime field needs extra props to display time picker
-    const showTime = type === 'datetime'
-      ? {
-        showTimeSelect: true,
-        timeFormat: 'HH:mm',
-        timeIntervals: 15,
-        timeCaption: 'time',
-        dateFormat: 'dd MMMM yyyy HH:mm',
-      } : {
-        dateFormat: 'dd MMMM yyyy',
-      };
+  // datetime field needs extra props to display time picker
+  const showTime = type === 'datetime'
+    ? {
+      showTimeSelect: true,
+      timeFormat: 'HH:mm',
+      timeIntervals: 15,
+      timeCaption: 'time',
+      dateFormat: 'dd MMMM yyyy HH:mm',
+    } : {
+      dateFormat: 'dd MMMM yyyy',
+    };
 
-    return (
-      <DatePicker
-        className="form-control-sm form-control" // Bootstrap 4
+  return (
+    <DatePicker
+      className="form-control-sm form-control" // Bootstrap 4
 
-        type={type}
-        name={name}
-        id={`id-${name}`}
-        required={required}
+      type={type}
+      name={name}
+      id={`id-${name}`}
 
-        selected={value ? new Date(value) : null}
-        onChange={this.handleChange}
-        onChangeRaw={this.handleRawChange}
-        onBlur={this.handleBlur}
+      selected={value ? new Date(value) : null}
+      onChange={handleChange}
+      onChangeRaw={handleRawChange}
+      onBlur={handleBlur}
 
-        autoComplete="off"
-        todayButton="Today"
-        isClearable
-        clearButtonTitle="Clear"
-        shouldCloseOnSelect
-        {...showTime}
-      />
-    );
-  }
-}
+      autoComplete="off"
+      todayButton="Today"
+      isClearable
+      clearButtonTitle="Clear"
+      shouldCloseOnSelect
+      {...showTime}
+    />
+  );
+};
 
 CustomFormInputDateTime.propTypes = propTypes;
 CustomFormInputDateTime.defaultProps = defaultProps;
