@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button } from 'reactstrap';
-
 import { connect, getIn } from 'formik';
 
 const propTypes = {
@@ -35,24 +33,23 @@ const FormButtons = (props) => {
   return (
     <div className={`text-${buttonPosition} mb-2`}>
       {onCancel && (
-        <Button
-          className="mr-2"
-          color="secondary"
-          size="sm"
+        <button
+          type="button"
+          className="btn btn-secondary btn-sm mr-2"
           onClick={onCancel}
           disabled={isSubmitting}
         >
           Cancel
-        </Button>
+        </button>
       )}
-      <Button
-        color="primary"
-        size="sm"
+      <button
+        type="button"
+        className="btn btn-primary btn-sm"
         onClick={onSubmit}
         disabled={isSubmitting}
       >
         {submitButtonText}
-      </Button>
+      </button>
     </div>
   );
 };
