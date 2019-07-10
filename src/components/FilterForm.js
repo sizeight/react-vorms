@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button } from 'reactstrap';
-
 
 const propTypes = {
   value: PropTypes.string.isRequired,
@@ -42,15 +40,14 @@ class FilterForm extends React.Component {
             onChange={this.handleChange}
           />
           <div className="input-group-append">
-            <Button
-              outline={value === ''}
-              color={value === '' ? 'secondary' : 'primary'}
+            <button
+              type="button"
+              className={`btn ${value === '' ? 'btn-secondary' : 'btn-primary'} btn-sm ${value === '' ? 'btn-outline-secondary' : ''}`}
               disabled={value === ''}
-              size="sm"
               onClick={this.handleClear}
             >
               &#215;
-            </Button>
+            </button>
           </div>
         </div>
       </form>
