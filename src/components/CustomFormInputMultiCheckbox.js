@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CustomInput } from 'reactstrap';
-
 
 const propTypes = {
   name: PropTypes.string.isRequired,
@@ -30,7 +28,7 @@ const defaultProps = {
 };
 
 /*
- * My custom multiple checkbox component.
+ * Custom multiple checkbox component.
  */
 class CustomFormInputMultiCheckbox extends React.Component {
   handleChange = (e) => {
@@ -72,20 +70,28 @@ class CustomFormInputMultiCheckbox extends React.Component {
     return (
       <div>
         {options.map((option, i) => (
-          <CustomInput
-            type="checkbox"
-            name={`${name}:${i}`} // e.g. tags:2
-            id={`id-${name}-${i}`} // e.g. id-tags-2
-
-            required={required}
-            checked={value.findIndex(val => val === option.value) > -1}
-            onChange={this.handleChange}
-            onBlur={this.handleBlur}
-
-            label={option.label}
-            inline
+          <div
+            className="custom-control custom-control-inline custom-checkbox"
             key={option.value}
-          />
+          >
+            <input
+              className="custom-control-input"
+              type="checkbox"
+              name={`${name}:${i}`} // e.g. tags:2
+              id={`id-${name}-${i}`} // e.g. id-tags-2
+
+              required={required}
+              checked={value.findIndex(val => val === option.value) > -1}
+              onChange={this.handleChange}
+              onBlur={this.handleBlur}
+            />
+            <label /* eslint-disable-line jsx-a11y/label-has-for */
+              className="custom-control-label"
+              htmlFor={`id-${name}-${i}`}
+            >
+              {option.label}
+            </label>
+          </div>
         ))}
       </div>
     );
