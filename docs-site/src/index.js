@@ -88,7 +88,8 @@ const Demo = () => {
                   >
                     {input.title}
                   </NavLink>
-                </li>))}
+                </li>
+              ))}
             </ul>
 
           </div>
