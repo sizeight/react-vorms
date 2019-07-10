@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button, Modal, ModalBody } from 'reactstrap';
+import { Modal, ModalBody } from 'reactstrap';
 
 
 const propTypes = {
