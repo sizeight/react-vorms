@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Input, CustomInput } from 'reactstrap';
+import { CustomInput } from 'reactstrap';
 
 import { connect, getIn } from 'formik';
 
@@ -105,12 +105,11 @@ const FormInputField = (props) => {
       )}
 
       {(type === 'text' || type === 'email' || type === 'hidden') && (
-        <Input
+        <input
+          className="form-control form-control-sm"
           type={type}
           name={name}
           id={`id-${name}`}
-
-          bsSize="sm"
 
           placeholder={placeholder}
           required={required}
@@ -123,8 +122,8 @@ const FormInputField = (props) => {
       )}
 
       {type === 'textarea' && (
-        <Input
-          type="textarea"
+        <textarea
+          className="form-control"
           name={name}
           id={`id-${name}`}
 
@@ -141,12 +140,11 @@ const FormInputField = (props) => {
       )}
 
       {type === 'select' && (
-        <Input
+        <select
+          className="form-control form-control-sm"
           type="select"
           name={name}
           id={`id-${name}`}
-
-          bsSize="sm"
 
           required={required}
           value={value}
@@ -163,7 +161,7 @@ const FormInputField = (props) => {
               {option.label}
             </option>
           ))}
-        </Input>
+        </select>
       )}
 
       {type === 'checkbox' && (
