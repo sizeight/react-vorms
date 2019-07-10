@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CustomInput } from 'reactstrap';
-
 import { connect, getIn } from 'formik';
 
 import CustomFormInputDateTime from './CustomFormInputDateTime';
@@ -96,7 +94,7 @@ const FormInputField = (props) => {
   return (
     <div className={`form-group ${width ? `col-md-${width}` : 'col-md'}`}>
       {(['checkbox', 'hidden'].findIndex(x => x === type) === -1) && (
-        <label /* eslint-disable-line */
+        <label /* eslint-disable-line jsx-a11y/label-has-for */
           className={hideLabel === true ? 'sr-only' : ''}
           htmlFor={`id-${name}`}
         >
@@ -165,41 +163,56 @@ const FormInputField = (props) => {
       )}
 
       {type === 'checkbox' && (
-        <CustomInput
-          type="checkbox"
-          name={name}
-          id={`id-${name}`}
+        <div className="custom-control custom-checkbox">
+          <input
+            className="custom-control-input"
+            type="checkbox"
+            name={name}
+            id={`id-${name}`}
 
-          label={label}
-
-          required={required}
-          checked={value}
-          onChange={onChange}
-          onBlur={onBlur}
-          invalid={invalid}
-          disabled={disabled}
-        />
+            required={required}
+            checked={value}
+            onChange={onChange}
+            onBlur={onBlur}
+            invalid={invalid}
+            disabled={disabled}
+          />
+          <label /* eslint-disable-line jsx-a11y/label-has-for */
+            className="custom-control-label"
+            htmlFor={`id-${name}`}
+          >
+            {label}
+          </label>
+        </div>
       )}
 
       {type === 'radio' && (
         <React.Fragment>
           {options.map(option => (
-            <CustomInput
-              type="radio"
-              name={name}
-              id={`id-${name}-${option.value}`}
+            <div className="custom-control custom-radio ">
+              <input
+                className="custom-control-input"
+                type="radio"
+                name={name}
+                id={`id-${name}-${option.value}`}
 
-              label={option.label}
-              value={option.value}
-              key={option.value}
+                value={option.value}
+                key={option.value}
 
-              required={required}
-              checked={value === option.value}
-              onChange={onChange}
-              onBlur={onBlur}
-              invalid={invalid}
-              disabled={disabled}
-            />
+                required={required}
+                checked={value === option.value}
+                onChange={onChange}
+                onBlur={onBlur}
+                invalid={invalid}
+                disabled={disabled}
+              />
+              <label /* eslint-disable-line jsx-a11y/label-has-for */
+                className="custom-control-label"
+                htmlFor={`id-${name}-${option.value}`}
+              >
+                {option.label}
+              </label>
+            </div>
           ))}
         </React.Fragment>
       )}
