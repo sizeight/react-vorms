@@ -46,14 +46,14 @@ class DeleteForm extends React.Component {
 
     return (
       <div>
-        <Button
-          color={color}
-          size={size}
+        <button
+          type="button"
+          className={`btn btn-${color} btn-${size}`}
           disabled={isSubmitting}
           onClick={this.toggleModal}
         >
           Delete
-        </Button>
+        </button>
 
         {showModal && (
           <Modal
@@ -65,21 +65,20 @@ class DeleteForm extends React.Component {
                 {`Are you sure you want to delete this${elemType ? ` ${elemType}` : ''}?`}
               </p>
               <div className="text-right mb-2">
-                <Button
-                  className="mr-2"
-                  color="secondary"
-                  size="sm"
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-sm mr-2"
                   onClick={this.toggleModal}
                 >
                   Cancel
-                </Button>
-                <Button
-                  color="primary"
-                  size="sm"
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-sm"
                   onClick={this.onSubmit}
                 >
                   OK
-                </Button>
+                </button>
               </div>
             </ModalBody>
           </Modal>
