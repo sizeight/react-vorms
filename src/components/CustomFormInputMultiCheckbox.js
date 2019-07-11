@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool,
+  invalid: PropTypes.bool.isRequired,
   value: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -19,12 +19,9 @@ const propTypes = {
     label: PropTypes.string,
   })).isRequired,
 
+
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
-};
-
-const defaultProps = {
-  required: false,
 };
 
 /*
@@ -32,7 +29,7 @@ const defaultProps = {
  */
 const CustomFormInputMultiCheckbox = (props) => {
   const {
-    name, value, required, options, onChange, onBlur,
+    name, options, value, invalid, onChange, onBlur,
   } = props;
 
 
@@ -73,12 +70,11 @@ const CustomFormInputMultiCheckbox = (props) => {
           key={option.value}
         >
           <input
-            className="custom-control-input"
+            className={`custom-control-input${invalid ? ' is-invalid' : ''}`}
             type="checkbox"
             name={`${name}:${i}`} // e.g. tags:2
             id={`id-${name}-${i}`} // e.g. id-tags-2
 
-            required={required}
             checked={value.findIndex(val => val === option.value) > -1}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -96,6 +92,5 @@ const CustomFormInputMultiCheckbox = (props) => {
 };
 
 CustomFormInputMultiCheckbox.propTypes = propTypes;
-CustomFormInputMultiCheckbox.defaultProps = defaultProps;
 
 export default CustomFormInputMultiCheckbox;

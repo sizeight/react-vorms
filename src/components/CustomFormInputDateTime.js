@@ -9,6 +9,7 @@ const propTypes = {
   type: PropTypes.oneOf(['datetime', 'date']).isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
+  invalid: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
 };
@@ -22,7 +23,7 @@ const defaultProps = {
  */
 const CustomFormInputDateTime = (props) => {
   const {
-    name, type, value, onChange, onBlur,
+    name, type, value, invalid, onChange, onBlur,
   } = props;
 
 
@@ -83,7 +84,7 @@ const CustomFormInputDateTime = (props) => {
 
   return (
     <DatePicker
-      className="form-control-sm form-control" // Bootstrap 4
+      className={`form-control-sm form-control${invalid ? ' is-invalid' : ''}`}
 
       type={type}
       name={name}
