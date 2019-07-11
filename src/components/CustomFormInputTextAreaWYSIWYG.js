@@ -228,41 +228,38 @@ export default CustomFormInputTextAreaWYSIWYG;
 /*
  * Style button.
  */
-class StyleButton extends React.Component { /* eslint-disable-line */
-  onToggle = (e) => {
-    const { preview, style, onToggle } = this.props;
+const StyleButton = (props) => {
+  const {
+    label, iconClass, active, preview, style, onToggle,
+  } = props;
+
+  function handleToggle(e) {
     e.preventDefault();
     if (!preview) {
       onToggle(style);
     }
-  };
-
-  render() {
-    const {
-      label, iconClass, active, preview,
-    } = this.props;
-    let className = 'RichEditor-styleButton';
-
-    if (preview) {
-      className += ' RichEditor-disabledButton';
-    } else if (active) {
-      className += ' RichEditor-activeButton';
-    }
-
-    return (
-      <span
-        className={className}
-        role="button"
-        tabIndex={-1}
-        onMouseDown={this.onToggle}
-      >
-        <div className={`RichEditor-${iconClass}`}>
-          {label}
-        </div>
-      </span>
-    );
   }
-}
+
+  let className = 'RichEditor-styleButton';
+  if (preview) {
+    className += ' RichEditor-disabledButton';
+  } else if (active) {
+    className += ' RichEditor-activeButton';
+  }
+
+  return (
+    <span
+      className={className}
+      role="button"
+      tabIndex={-1}
+      onMouseDown={handleToggle}
+    >
+      <div className={`RichEditor-${iconClass}`}>
+        {label}
+      </div>
+    </span>
+  );
+};
 
 StyleButton.propTypes = {
   label: PropTypes.string.isRequired,
