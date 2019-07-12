@@ -381,6 +381,22 @@ const Demo = () => {
                     */
                     [
                       {
+                        type: 'text',
+                        name: 'genus-disabled',
+                        label: 'Genus',
+                        hideLabel: true,
+                        initialValue: 'Plectranthus',
+                        helpText: 'A principal taxonomic category that ranks above species and below family, and is denoted by a capitalised Latin name, e.g. Plectranthus.',
+                        disabled: true,
+                        validation: {
+                          required: true,
+                          min: 2,
+                          max: 50,
+                        },
+                      },
+                    ],
+                    [
+                      {
                         type: 'textarea-wysiwyg',
                         name: 'description-alt',
                         label: 'Description',
@@ -427,6 +443,7 @@ const Demo = () => {
                         helpText: 'The species of plant you found.',
                         validation: {
                           required: true,
+                          min: 6,
                         },
                       },
                     ],
@@ -448,6 +465,7 @@ const Demo = () => {
                       {
                         type: 'hidden',
                         name: 'id',
+                        label: 'Id',
                         initialValue: 15,
                       },
                     ],
@@ -560,7 +578,7 @@ const Demo = () => {
                   ]}
                 >
                   <p>
-                    Date input field using
+                    Date input field using&nbsp;
                     <a href="https://reactdatepicker.com/">react-datepicker</a>
                   </p>
                 </InputExample>
@@ -589,7 +607,7 @@ const Demo = () => {
                   ]}
                 >
                   <p>
-                    Date input field using
+                    Date input field using&nbsp;
                     <a href="https://reactdatepicker.com/">react-datepicker</a>
                   </p>
                 </InputExample>
@@ -618,8 +636,7 @@ const Demo = () => {
                   ]}
                 >
                   <p>
-                    A rich text input field with HTML preview/edit, undo/redo.
-                    Uses
+                    A rich text input field with HTML preview/edit, undo/redo. Uses&nbsp;
                     <a href="https://draftjs.org/">Draft.js</a>
                   </p>
                 </InputExample>
@@ -700,7 +717,9 @@ const Demo = () => {
                       },
                     ],
                   ]}
-                />
+                >
+                  <p>Radio input field</p>
+                </InputExample>
               )}
             />
 
@@ -766,7 +785,7 @@ const Demo = () => {
                     ],
                   ]}
                 >
-                  <p>Text input field</p>
+                  <p>File input field</p>
                 </InputExample>
               )}
             />
