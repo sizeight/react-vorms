@@ -1,12 +1,20 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React from 'react';
 import { render } from 'react-dom';
+
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import InputExample from './InputExample';
 
 const inputs = [
+  {
+    path: '/text-hooks/',
+    title: 'Text hooks',
+  },
+  {
+    path: '/dynamic-form/',
+    title: 'Dynamic form',
+  },
   {
     path: '/text/',
     title: 'Text',
@@ -147,6 +155,261 @@ const Demo = () => {
                 </div>
               )}
             />
+
+
+            <Route
+              path="/dynamic-form/"
+              exact
+              component={() => (
+                <InputExample
+                  heading="Dynamic Form"
+                  definition={[
+                    [
+                      {
+                        type: 'radio',
+                        name: 'species',
+                        label: 'Species',
+                        helpText: 'Which species of Plectranthus did you find?',
+                        initialValue: '',
+                        options: [
+                          {
+                            value: 'ecklonii',
+                            label: 'Plectranthus ecklonii',
+                          },
+                          {
+                            value: 'ambiguus',
+                            label: 'Plectranthus ambiguus',
+                          },
+                          {
+                            value: 'ernstii',
+                            label: 'Plectranthus ernstii',
+                          },
+                          {
+                            value: 'oertendahlii',
+                            label: 'Plectranthus oertendahlii',
+                          },
+                        ],
+                      },
+                    ],
+                  ]}
+                >
+                  <p>Dynamic form</p>
+                </InputExample>
+              )}
+            />
+
+            <Route
+              path="/text-hooks/"
+              exact
+              component={() => (
+                <InputExample
+                  heading="Text Input"
+                  definition={[
+                    [
+                      {
+                        type: 'text',
+                        name: 'genus',
+                        label: 'Genus',
+                        initialValue: 'Plectranthus',
+                        helpText: 'A principal taxonomic category that ranks above species and below family, and is denoted by a capitalised Latin name, e.g. Plectranthus.',
+                        validation: {
+                          required: true,
+                          min: 2,
+                          max: 50,
+                        },
+                      },
+                      {
+                        type: 'email',
+                        name: 'email',
+                        label: 'Your email address',
+                        initialValue: '',
+                        validation: {
+                          required: true,
+                          email: true,
+                        },
+                      },
+                      {
+                        type: 'text',
+                        name: 'url',
+                        label: 'Your website URL',
+                        initialValue: '',
+                        helpText: 'Include http:// or https:// e.g. http://www.example.com',
+                        validation: {
+                          url: true,
+                        },
+                      },
+                    ],
+                    [
+                      {
+                        type: 'select',
+                        name: 'species',
+                        label: 'Species',
+                        helpText: 'Which species did you find?',
+                        initialValue: 'ernstii',
+                        validation: {
+                          required: true,
+                        },
+                        options: [
+                          {
+                            value: 'ecklonii',
+                            label: 'Plectranthus ecklonii',
+                          },
+                          {
+                            value: 'ambiguus',
+                            label: 'Plectranthus ambiguus',
+                          },
+                          {
+                            value: 'ernstii',
+                            label: 'Plectranthus ernstii',
+                          },
+                          {
+                            value: 'oertendahlii',
+                            label: 'Plectranthus oertendahlii',
+                          },
+                        ],
+                      },
+                    ],
+                    /*
+                    [
+                      {
+                        type: 'hidden',
+                        name: 'id',
+                        initialValue: 15,
+                      },
+                    ],
+                    [
+                      {
+                        type: 'textarea',
+                        name: 'description',
+                        label: 'Description',
+                        initialValue: '',
+                        placeholder: 'Describe the species characteristics...',
+                        validation: {
+                          required: false,
+                          min: 10,
+                          max: 250,
+                        },
+                      },
+                    ],
+                    [
+                      {
+                        type: 'checkbox',
+                        name: 'endangered',
+                        label: 'Endangered',
+                        helpText: 'Is the species endangered?',
+                        initialValue: true,
+                        validation: {
+                          required: true,
+                        },
+                      },
+                    ],
+                    [
+                      {
+                        type: 'radio',
+                        name: 'cultivar',
+                        label: 'Cultivar',
+                        helpText: 'Which Plectranthus ecklonii cultivar did you find?',
+                        initialValue: 'Medley-Wood',
+                        validation: {
+                          required: true,
+                        },
+                        options: [
+                          {
+                            value: 'Tommy',
+                            label: 'Plectranthus ecklonii Tommy',
+                          },
+                          {
+                            value: 'Medley-Wood',
+                            label: 'Plectranthus ecklonii Medley-Wood',
+                          },
+                          {
+                            value: 'Erma',
+                            label: 'Plectranthus ecklonii Erma',
+                          },
+                        ],
+                      },
+                    ],
+                    [
+                      {
+                        type: 'multi-checkbox',
+                        name: 'species-alt',
+                        label: 'Species',
+                        helpText: 'Which species did you find?',
+                        initialValue: ['ernstii', 'oertendahlii'],
+                        validation: {
+                          required: true,
+                          min: 1,
+                        },
+                        options: [
+                          {
+                            value: 'ambiguus',
+                            label: 'Plectranthus ambiguus',
+                          },
+                          {
+                            value: 'ernstii',
+                            label: 'Plectranthus ernstii',
+                          },
+                          {
+                            value: 'oertendahlii',
+                            label: 'Plectranthus oertendahlii',
+                          },
+                        ],
+                      },
+                    ],
+                    [
+                      {
+                        type: 'date',
+                        name: 'identification_date',
+                        label: 'First identified',
+                        helpText: 'The date on which species was first found.',
+                        initialValue: '',
+                        validation: {
+                          required: true,
+                        },
+                      },
+                      {
+                        type: 'datetime',
+                        name: 'identification_date_and_time',
+                        label: 'First identified',
+                        helpText: 'The date and time on which species was first found.',
+                        initialValue: '',
+                        validation: {
+                          required: true,
+                        },
+                      },
+                    ],
+                    */
+                    [
+                      {
+                        type: 'textarea-wysiwyg',
+                        name: 'description-alt',
+                        label: 'Description',
+                        helpText: 'Decribe the species',
+                        initialValue: '<p>Hello world.</p>',
+                        validation: {
+                          required: true,
+                        },
+                      },
+                    ],
+                    [
+                      {
+                        type: 'file',
+                        name: 'photo',
+                        label: 'Natural photograph',
+                        initialValue: '',
+                        helpText: 'A photo of the plant in it\'s natural environment.',
+                        validation: {
+                          required: true,
+                        },
+                      },
+                    ],
+                  ]}
+                >
+                  <p>Text input field</p>
+                </InputExample>
+              )}
+            />
+
 
             <Route
               path="/text/"
