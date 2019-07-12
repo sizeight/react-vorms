@@ -24,6 +24,8 @@ const propTypes = {
   initialValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
+    PropTypes.bool,
+    PropTypes.array,
   ]).isRequired,
   placeholder: PropTypes.string, // If no placeholder given, we leave out placeholder
   helpText: PropTypes.string,
@@ -49,8 +51,9 @@ const propTypes = {
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool,
+    PropTypes.array,
   ]).isRequired,
-  errors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  errors: PropTypes.arrayOf(PropTypes.string),
   touched: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
@@ -66,9 +69,11 @@ const defaultProps = {
   validation: {},
   width: undefined,
   disabled: false,
+
+  errors: undefined,
 };
 
-const FormInputFieldWithHooks = (props) => {
+const FormInputField = (props) => {
   const {
     type, name, initialValue, label, hideLabel, placeholder, validation, helpText, options, width,
     disabled,
@@ -77,8 +82,8 @@ const FormInputFieldWithHooks = (props) => {
     value, errors, touched, onChange, onBlur, setFieldValue, setFieldTouched,
   } = props;
 
-  // Has this field been touched and does it have any error?
-  const invalid = errors && touched;
+  // Does this field have any errors and has it been touched?
+  const invalid = errors !== undefined && touched;
 
   const required = validation ? (validation.required) : false;
 
@@ -111,7 +116,6 @@ const FormInputFieldWithHooks = (props) => {
           value={value}
           onChange={onChange}
           onBlur={onBlur}
-          invalid={invalid}
           disabled={disabled}
         />
       )}
@@ -128,7 +132,6 @@ const FormInputFieldWithHooks = (props) => {
           value={value}
           onChange={onChange}
           onBlur={onBlur}
-          invalid={invalid}
           disabled={disabled}
 
           rows="10"
@@ -147,7 +150,6 @@ const FormInputFieldWithHooks = (props) => {
           value={value}
           onChange={onChange}
           onBlur={onBlur}
-          invalid={invalid}
           disabled={disabled}
         >
           {selectOptions.map(option => (
@@ -174,7 +176,6 @@ const FormInputFieldWithHooks = (props) => {
             checked={value}
             onChange={onChange}
             onBlur={onBlur}
-            invalid={invalid}
             disabled={disabled}
           />
           <label /* eslint-disable-line jsx-a11y/label-has-for */
@@ -190,7 +191,10 @@ const FormInputFieldWithHooks = (props) => {
       {type === 'radio' && (
         <React.Fragment>
           {options.map(option => (
-            <div className="custom-control custom-radio">
+            <div
+              className="custom-control custom-radio"
+              key={option.value}
+            >
               <input
                 className={`custom-control-input${invalid ? ' is-invalid' : ''}`}
                 type="radio"
@@ -204,7 +208,6 @@ const FormInputFieldWithHooks = (props) => {
                 checked={value === option.value}
                 onChange={onChange}
                 onBlur={onBlur}
-                invalid={invalid}
                 disabled={disabled}
               />
               <label /* eslint-disable-line jsx-a11y/label-has-for */
@@ -282,7 +285,7 @@ const FormInputFieldWithHooks = (props) => {
   );
 };
 
-FormInputFieldWithHooks.propTypes = propTypes;
-FormInputFieldWithHooks.defaultProps = defaultProps;
+FormInputField.propTypes = propTypes;
+FormInputField.defaultProps = defaultProps;
 
-export default FormInputFieldWithHooks;
+export default FormInputField;

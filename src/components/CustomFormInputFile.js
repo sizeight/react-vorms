@@ -6,13 +6,8 @@ const propTypes = {
   name: PropTypes.string.isRequired,
   initialValue: PropTypes.string.isRequired,
 
-  value: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-  ).isRequired,
-  invalid: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  invalid: PropTypes.bool.isRequired,
   /*
   options: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.oneOfType([
@@ -24,10 +19,6 @@ const propTypes = {
   */
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
-};
-
-const defaultProps = {
-  invalid: false,
 };
 
 /*
@@ -107,6 +98,5 @@ const CustomFormInputFile = (props) => {
 };
 
 CustomFormInputFile.propTypes = propTypes;
-CustomFormInputFile.defaultProps = defaultProps;
 
 export default CustomFormInputFile;

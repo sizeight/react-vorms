@@ -44,7 +44,7 @@ const propTypes = {
 /*
  * From the provided definition and react-vorms hook, render a bootstrap form.
  */
-const CustomFormWithHooks = (props) => {
+const CustomForm = (props) => {
   const { definition, withReactVorm } = props;
   const {
     values, errors, touched, onSubmit, onChange, onBlur, setFieldValue, setFieldTouched,
@@ -93,6 +93,6 @@ const CustomFormWithHooks = (props) => {
   );
 };
 
-CustomFormWithHooks.propTypes = propTypes;
+CustomForm.propTypes = propTypes;
 
-export default CustomFormWithHooks;
+export default CustomForm;

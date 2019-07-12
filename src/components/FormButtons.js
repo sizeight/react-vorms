@@ -18,7 +18,7 @@ const defaultProps = {
 };
 
 
-const FormButtonsWithHooks = (props) => {
+const FormButtons = (props) => {
   const {
     submitButtonText, cancelButtonText, buttonsPosition, isSubmitting, onSubmit, onCancel,
   } = props;
@@ -47,7 +47,7 @@ const FormButtonsWithHooks = (props) => {
   );
 };
 
-FormButtonsWithHooks.propTypes = propTypes;
-FormButtonsWithHooks.defaultProps = defaultProps;
+FormButtons.propTypes = propTypes;
+FormButtons.defaultProps = defaultProps;
 
-export default FormButtonsWithHooks;
+export default FormButtons;

@@ -13,6 +13,7 @@ const propTypes = {
   // required: PropTypes.bool,
   value: PropTypes.string,
   placeholder: PropTypes.string,
+  // invalid: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
 };
@@ -351,7 +352,7 @@ BlockStyleControl.propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,
     iconClass: PropTypes.string,
-    style: PropTypes.object,
+    style: PropTypes.string,
   }).isRequired,
   preview: PropTypes.bool.isRequired,
   editorState: PropTypes.object.isRequired, /* eslint-disable-line react/forbid-prop-types */
@@ -386,7 +387,7 @@ InlineStyleControl.propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,
     iconClass: PropTypes.string,
-    style: PropTypes.object,
+    style: PropTypes.string,
   }).isRequired,
   preview: PropTypes.bool.isRequired,
   editorState: PropTypes.object.isRequired, /* eslint-disable-line react/forbid-prop-types */

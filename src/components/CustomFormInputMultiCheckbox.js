@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   name: PropTypes.string.isRequired,
-  invalid: PropTypes.bool.isRequired,
   value: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -18,6 +17,7 @@ const propTypes = {
     ]),
     label: PropTypes.string,
   })).isRequired,
+  invalid: PropTypes.bool.isRequired,
 
 
   onChange: PropTypes.func.isRequired,

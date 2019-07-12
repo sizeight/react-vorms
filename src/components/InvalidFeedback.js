@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  errors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  errors: PropTypes.arrayOf(PropTypes.string),
+};
+
+const defaultProps = {
+  errors: undefined,
 };
 
 const InvalidFeedback = (props) => {
@@ -20,7 +24,11 @@ const InvalidFeedback = (props) => {
     <React.Fragment>
       {errors && errors.length > 0 && (
         <div className="text-danger mt-1">
-          {errors.map(error => <div><small>{error}</small></div>)}
+          {errors.map((error, i) => (
+            <div key={i}/* eslint-disable-line react/no-array-index-key */>
+              <small>{error}</small>
+            </div>
+          ))}
         </div>
       )}
     </React.Fragment>
@@ -28,5 +36,6 @@ const InvalidFeedback = (props) => {
 };
 
 InvalidFeedback.propTypes = propTypes;
+InvalidFeedback.defaultProps = defaultProps;
 
 export default InvalidFeedback;
