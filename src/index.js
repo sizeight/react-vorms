@@ -5,6 +5,8 @@ import FormButtons from './components/FormButtons';
 import FormInputField from './components/FormInputField';
 import ShowFormToggler from './components/ShowFormToggler';
 
+import useReactVorm from './hooks/useReactVorm';
+
 export {
   CustomForm,
   DeleteForm,
@@ -12,4 +14,5 @@ export {
   FormButtons,
   FormInputField,
   ShowFormToggler,
+  useReactVorm,
 };
