@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -40,49 +40,66 @@ function getBlockStyle(block) {
   }
 }
 
-class CustomFormInputTextAreaWYSIWYG extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      editorState: EditorState.createWithContent(stateFromHTML(props.value)),
-      markupState: props.value,
-      preview: false,
-    };
+const CustomFormInputTextAreaWYSIWYG = (props) => {
+  const { value } = props;
+
+
+  const [editorState, setEditorState] = useState(EditorState.createWithContent(
+    stateFromHTML(value),
+  ));
+  const [markupState, setMarkupState] = useState(value);
+  const [preview, setPreview] = useState(false);
+
+  const editorRef = useRef(null);
+  const markupEditorRef = useRef(null);
+
+
+  function handleEditorChange(newEditorState) {
+    const newMarkupState = stateToHTML(newEditorState.getCurrentContent());
+    setEditorState(newEditorState);
+    setMarkupState(newMarkupState);
   }
 
-  handleEditorChange = (editorState) => {
-    const markupState = stateToHTML(editorState.getCurrentContent());
-    this.setState({ editorState, markupState });
-  }
-
-  handleHTMLEditorChange = (e) => {
-    const markupState = e.target.value;
-    const contentState = stateFromHTML(markupState);
-    const editorState = EditorState.createWithContent(contentState);
-    this.setState({ editorState, markupState });
+  function handleHTMLEditorChange(e) {
+    const newMarkupState = e.target.value;
+    const contentState = stateFromHTML(newMarkupState);
+    const newEditorState = EditorState.createWithContent(contentState);
+    setEditorState(newEditorState);
+    setMarkupState(newMarkupState);
   }
 
   /*
-   * Update HTML to Formik state
+   * When value changes on a reset, set editor and markup state to value.
    */
-  handleBlur = () => {
-    const { name, onChange, onBlur } = this.props;
-    const { markupState } = this.state;
-    onBlur(name, true); // Update Formik touched
-    onChange(name, markupState); // Update Formik state
+  useEffect(
+    () => {
+      if (value !== markupState) {
+        setEditorState(EditorState.createWithContent(stateFromHTML(value)));
+        setMarkupState(value);
+      }
+    },
+    [value],
+  );
+
+  /*
+   * On blur update the useForm hook state.
+   */
+  const { name, onChange, onBlur } = props;
+  function handleBlur() {
+    onBlur(name, true); // Set touched to true
+    onChange(name, markupState); // Set value to markup
   }
 
-  handleKeyCommand = (command, editorState) => {
-    const newState = RichUtils.handleKeyCommand(editorState, command);
+  function handleKeyCommand(command, newEditorState) {
+    const newState = RichUtils.handleKeyCommand(newEditorState, command);
     if (newState) {
-      this.handleEditorChange(newState);
+      handleEditorChange(newState);
       return true;
     }
     return false;
   }
 
-  mapKeyToEditorCommand = (e) => {
-    const { editorState } = this.state;
+  function mapKeyToEditorCommand(e) {
     if (e.keyCode === 9 /* TAB */) {
       const newEditorState = RichUtils.onTab(
         e,
@@ -90,134 +107,130 @@ class CustomFormInputTextAreaWYSIWYG extends React.Component {
         4, /* maxDepth */
       );
       if (newEditorState !== editorState) {
-        this.handleEditorChange(newEditorState);
+        handleEditorChange(newEditorState);
       }
       return;
     }
     return getDefaultKeyBinding(e); /* eslint-disable-line consistent-return */
   }
 
-  toggleUndo = () => {
-    const { editorState } = this.state;
+  function toggleUndo() {
     const newEditorState = EditorState.undo(editorState);
-    const markupState = stateToHTML(newEditorState.getCurrentContent());
-    this.setState({ editorState: newEditorState, markupState });
+    const newMarkupState = stateToHTML(newEditorState.getCurrentContent());
+    setEditorState(newEditorState);
+    setMarkupState(newMarkupState);
   }
 
-  toggleRedo = () => {
-    const { editorState } = this.state;
+  function toggleRedo() {
     const newEditorState = EditorState.redo(editorState);
-    const markupState = stateToHTML(newEditorState.getCurrentContent());
-    this.setState({ editorState: newEditorState, markupState });
+    const newMarkupState = stateToHTML(newEditorState.getCurrentContent());
+    setEditorState(newEditorState);
+    setMarkupState(newMarkupState);
   }
 
-  toggleBlockType = (blockType) => {
-    const { editorState } = this.state;
-    this.handleEditorChange(RichUtils.toggleBlockType(editorState, blockType));
+  function toggleBlockType(blockType) {
+    handleEditorChange(RichUtils.toggleBlockType(editorState, blockType));
   }
 
-  toggleInlineStyle = (inlineStyle) => {
-    const { editorState } = this.state;
-    this.handleEditorChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
+  function toggleInlineStyle(inlineStyle) {
+    handleEditorChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
   }
 
-  focusEditor = () => {
-    this.editorRef.focus();
+  function focusOnEditor() {
+    editorRef.current.focus();
   }
 
-  focusMarkupEditor = () => {
-    this.markupEditorRef.focus();
-  }
-
-  focus = () => {
-    const { preview } = this.state;
-    if (preview) {
-      this.focusMarkupEditor();
-    } else {
-      this.focusEditor();
-    }
-  }
-
-  togglePreview = () => {
-    const { preview } = this.state;
-    this.setState({ preview: !preview }, this.focus);
-  }
-
-  render() {
-    const { placeholder } = this.props;
-    const { editorState, markupState, preview } = this.state;
-
-    // If the user changes block type before entering any text, we can
-    // either style the placeholder or hide it. Let's just hide it now.
-
-    let editorClassName = `RichEditor-editor${preview ? ' noshow' : ''}`;
-    const contentState = editorState.getCurrentContent();
-
-    if (!contentState.hasText()) {
-      if (contentState.getBlockMap().first().getType() !== 'unstyled') {
-        editorClassName = `${editorClassName} RichEditor-hidePlaceholder`;
+  /*
+   * When preview changes, set correct focus.
+   */
+  useEffect(
+    () => {
+      if (preview) {
+        markupEditorRef.current.focus();
+      } else {
+        focusOnEditor();
       }
-    }
+    },
+    [preview],
+  );
 
-    return (
-      <React.Fragment>
-        <div className="RichEditor-root">
-          <div className="RichEditor-controls">
-            <StyleControls
-              preview={preview}
-              editorState={editorState}
-              onTogglePreview={this.togglePreview}
-              onToggleBlockType={this.toggleBlockType}
-              onToggleInlineStyle={this.toggleInlineStyle}
-              onToggleUndo={this.toggleUndo}
-              onToggleRedo={this.toggleRedo}
-            />
-          </div>
-
-
-          <div // eslint-disable-line
-            className={editorClassName}
-            onClick={this.focusEditor}
-          >
-            <Editor
-              blockStyleFn={getBlockStyle}
-              customStyleMap={styleMap}
-              editorState={editorState}
-              handleKeyCommand={this.handleKeyCommand}
-              keyBindingFn={this.mapKeyToEditorCommand}
-              onChange={this.handleEditorChange}
-              onBlur={() => this.handleBlur('editor')}
-              placeholder={placeholder}
-
-              ref={(ref) => { this.editorRef = ref; }}
-              spellCheck
-            />
-          </div>
-
-
-          <div className={`MarkupEditor-editor${!preview ? ' noshow' : ''}`}>
-            <textarea
-              type="textarea"
-              // name={name}
-              // id={`id-${name}`}
-
-              placeholder="Editor source"
-              // required={required}
-              value={markupState}
-              onChange={this.handleHTMLEditorChange}
-              onBlur={() => this.handleBlur('markup')}
-
-              ref={(ref) => { this.markupEditorRef = ref; }}
-              // invalid={hasError}
-            />
-          </div>
-
-
-        </div>
-      </React.Fragment>
-    );
+  function togglePreview() {
+    setPreview(!preview);
   }
-}
+
+
+  const { placeholder } = props;
+
+  // If the user changes block type before entering any text, we can
+  // either style the placeholder or hide it. Let's just hide it now.
+
+  let editorClassName = `RichEditor-editor${preview ? ' noshow' : ''}`;
+  const contentState = editorState.getCurrentContent();
+
+  if (!contentState.hasText()) {
+    if (contentState.getBlockMap().first().getType() !== 'unstyled') {
+      editorClassName = `${editorClassName} RichEditor-hidePlaceholder`;
+    }
+  }
+
+  return (
+    <React.Fragment>
+      <div className="RichEditor-root">
+        <div className="RichEditor-controls">
+          <StyleControls
+            preview={preview}
+            editorState={editorState}
+            onTogglePreview={togglePreview}
+            onToggleBlockType={toggleBlockType}
+            onToggleInlineStyle={toggleInlineStyle}
+            onToggleUndo={toggleUndo}
+            onToggleRedo={toggleRedo}
+          />
+        </div>
+
+
+        <div // eslint-disable-line
+          className={editorClassName}
+          onClick={focusOnEditor}
+        >
+          <Editor
+            blockStyleFn={getBlockStyle}
+            customStyleMap={styleMap}
+            editorState={editorState}
+            handleKeyCommand={handleKeyCommand}
+            keyBindingFn={mapKeyToEditorCommand}
+            onChange={handleEditorChange}
+            onBlur={() => handleBlur('editor')}
+            placeholder={placeholder}
+
+            ref={editorRef}
+            spellCheck
+          />
+        </div>
+
+
+        <div className={`MarkupEditor-editor${!preview ? ' noshow' : ''}`}>
+          <textarea
+            type="textarea"
+            // name={name}
+            // id={`id-${name}`}
+
+            placeholder="Editor source"
+            // required={required}
+            value={markupState}
+            onChange={handleHTMLEditorChange}
+            onBlur={() => handleBlur('markup')}
+
+            ref={markupEditorRef}
+            // invalid={hasError}
+          />
+        </div>
+
+
+      </div>
+    </React.Fragment>
+  );
+};
 
 CustomFormInputTextAreaWYSIWYG.propTypes = propTypes;
 CustomFormInputTextAreaWYSIWYG.defaultProps = defaultProps;
