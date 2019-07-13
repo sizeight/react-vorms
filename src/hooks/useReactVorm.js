@@ -208,6 +208,7 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     });
   }
 
+
   function setFieldErrors(name, newErrors) {
     setErrors({
       ...errors,
@@ -272,6 +273,15 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     errors,
     touched,
 
+    setErrors,
+    setValues,
+    setTouched,
+
+    setFieldValue,
+    setFieldErrors,
+    setFieldTouched,
+    setIsSubmitting,
+
     isValidating,
     isSubmitting,
     submitCount,
@@ -283,11 +293,6 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     onBlur,
     onReset,
     onUpdateDefinition,
-
-    setFieldValue,
-    setFieldErrors,
-    setFieldTouched,
-    setIsSubmitting,
   };
 }
 
