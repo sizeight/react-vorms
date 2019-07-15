@@ -1,5 +1,4 @@
 import CustomForm from './components/CustomForm';
-import DeleteForm from './components/DeleteForm';
 import FilterForm from './components/FilterForm';
 import FormButtons from './components/FormButtons';
 import FormInputField from './components/FormInputField';
@@ -9,7 +8,6 @@ import useReactVorm from './hooks/useReactVorm';
 
 export {
   CustomForm,
-  DeleteForm,
   FilterForm,
   FormButtons,
   FormInputField,
