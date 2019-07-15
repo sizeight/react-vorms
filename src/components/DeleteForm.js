@@ -45,7 +45,7 @@ class DeleteForm extends React.Component {
     const { showModal, isSubmitting } = this.state;
 
     return (
-      <div>
+      <React.Fragment>
         <button
           type="button"
           className={`btn btn-${color}`}
@@ -83,7 +83,7 @@ class DeleteForm extends React.Component {
             </ModalBody>
           </Modal>
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }
