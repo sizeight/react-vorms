@@ -60,7 +60,7 @@ function validate(value, validation) {
   Object.keys(validation).forEach((key) => {
     switch (key) {
       case 'required':
-        if (!value) {
+        if (validation[key] && !value) {
           errors.push('Required');
         }
         break;
