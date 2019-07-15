@@ -48,11 +48,11 @@ class DeleteForm extends React.Component {
       <div>
         <button
           type="button"
-          className={`btn btn-${color} btn-${size}`}
+          className={`btn btn-${color}`}
           disabled={isSubmitting}
           onClick={this.toggleModal}
         >
-          Delete
+          {size === 'sm' ? <small>Delete</small> : 'Delete'}
         </button>
 
         {showModal && (
