@@ -51,7 +51,6 @@ function definitionToTouched(definition, isTouched) {
   definition.forEach((obj) => {
     touched[obj.name] = isTouched;
   });
-  console.log(touched);
   return touched;
 }
 
