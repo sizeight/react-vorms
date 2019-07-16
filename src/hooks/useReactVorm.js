@@ -46,11 +46,12 @@ function definitionToValidations(definition) {
  *   last_name: false,
  * }
  */
-function definitionToTouched(definition) {
+function definitionToTouched(definition, isTouched) {
   const touched = {};
   definition.forEach((obj) => {
-    touched[obj.name] = false;
+    touched[obj.name] = isTouched;
   });
+  console.log(touched);
   return touched;
 }
 
@@ -109,7 +110,7 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
 
   const [values, setValues] = useState(definitionToValues(flatDefinition));
   const [errors, setErrors] = useState(definitionToErrors(flatDefinition));
-  const [touched, setTouched] = useState(definitionToTouched(flatDefinition));
+  const [touched, setTouched] = useState(definitionToTouched(flatDefinition, false));
   const validations = definitionToValidations(flatDefinition);
 
   const [submitCount, setSubmitCount] = useState(0);
@@ -144,11 +145,13 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
 
   /*
    * When the form is submitted:
-   * - Set isSubmitting to true (The user will have to set it to false again)
-   * - Increment submitCount
+   * - Touch all fields.
+   * - Set isSubmitting to true (The user will have to set it to false again).
+   * - Increment submitCount.
    * - Validate the fields.
    */
   function onSubmit() {
+    setTouched(definitionToTouched(flatDefinition, true));
     setIsSubmitting(true);
     setSubmitCount(submitCount + 1);
     onValidate();
