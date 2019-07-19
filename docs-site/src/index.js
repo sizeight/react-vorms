@@ -227,6 +227,7 @@ const Demo = () => {
                           required: true,
                           email: true,
                         },
+                        className: 'text-info',
                       },
                       {
                         type: 'text',

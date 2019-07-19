@@ -45,6 +45,7 @@ const propTypes = {
   }),
   width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   disabled: PropTypes.bool,
+  className: PropTypes.string, // optional, eg if you want the input field to display: none
 
   // From hook
   value: PropTypes.oneOfType([
@@ -69,6 +70,7 @@ const defaultProps = {
   validation: {},
   width: undefined,
   disabled: false,
+  className: '',
 
   errors: undefined,
 };
@@ -76,7 +78,7 @@ const defaultProps = {
 const FormInputField = (props) => {
   const {
     type, name, initialValue, label, hideLabel, placeholder, validation, helpText, options, width,
-    disabled,
+    disabled, className,
   } = props;
   const {
     value, errors, touched, onChange, onBlur, setFieldValue, setFieldTouched,
@@ -93,7 +95,7 @@ const FormInputField = (props) => {
   }
 
   return (
-    <div className={`form-group ${width ? `col-md-${width}` : 'col-md'}`}>
+    <div className={`form-group ${width ? `col-md-${width}` : 'col-md'}${className ? ` ${className}` : ''}`}>
       {(['checkbox', 'hidden'].findIndex(x => x === type) === -1) && (
         <label /* eslint-disable-line jsx-a11y/label-has-for */
           className={hideLabel === true ? 'sr-only' : ''}
