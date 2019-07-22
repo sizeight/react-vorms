@@ -1,3 +1,6 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 import CustomForm from './components/CustomForm';
 import FilterForm from './components/FilterForm';
 import FormButtons from './components/FormButtons';
