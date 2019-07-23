@@ -53,8 +53,8 @@
     "react-router-dom": "^5.0.1",
     "serve": "^11.1.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.35.3",
+    "webpack": "^4.37.0",
     "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.6"
   }
 }
