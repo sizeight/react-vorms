@@ -8,15 +8,9 @@ const propTypes = {
 
   value: PropTypes.string.isRequired,
   invalid: PropTypes.bool.isRequired,
-  /*
-  options: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-    label: PropTypes.string,
-  })).isRequired,
-  */
+
+  disabled: PropTypes.bool,
+
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
 };
