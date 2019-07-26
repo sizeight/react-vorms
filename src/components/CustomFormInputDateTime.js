@@ -12,10 +12,13 @@ const propTypes = {
   invalid: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
+
+  disabled: PropTypes.bool,
 };
 
 const defaultProps = {
   value: undefined,
+  disabled: false,
 };
 
 /*
@@ -23,7 +26,7 @@ const defaultProps = {
  */
 const CustomFormInputDateTime = (props) => {
   const {
-    name, type, value, invalid, onChange, onBlur,
+    name, type, value, invalid, disabled, onChange, onBlur,
   } = props;
 
 
@@ -91,6 +94,7 @@ const CustomFormInputDateTime = (props) => {
       id={`id-${name}`}
 
       selected={value ? new Date(value) : null}
+      disabled={disabled}
       onChange={handleChange}
       onChangeRaw={handleRawChange}
       onBlur={handleBlur}

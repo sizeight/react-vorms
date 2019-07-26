@@ -94,6 +94,10 @@ const FormInputField = (props) => {
     selectOptions = countryOptions;
   }
 
+  // Assistive technologies
+  const helpTextId = `id-${name}-helptext`;
+  const ariaDescribedBy = helpText ? helpTextId : null;
+
   return (
     <div className={`form-group ${width ? `col-md-${width}` : 'col-md'}${className ? ` ${className}` : ''}`}>
       {(['checkbox', 'hidden'].findIndex(x => x === type) === -1) && (
@@ -119,6 +123,8 @@ const FormInputField = (props) => {
           onChange={onChange}
           onBlur={onBlur}
           disabled={disabled}
+
+          aria-describedby={ariaDescribedBy}
         />
       )}
 
@@ -137,6 +143,7 @@ const FormInputField = (props) => {
           disabled={disabled}
 
           rows="10"
+          aria-describedby={ariaDescribedBy}
         />
       )}
 
@@ -153,6 +160,7 @@ const FormInputField = (props) => {
           onChange={onChange}
           onBlur={onBlur}
           disabled={disabled}
+          aria-describedby={ariaDescribedBy}
         >
           {selectOptions.map(option => (
             <option
@@ -179,6 +187,8 @@ const FormInputField = (props) => {
             onChange={onChange}
             onBlur={onBlur}
             disabled={disabled}
+
+            aria-describedby={ariaDescribedBy}
           />
           <label /* eslint-disable-line jsx-a11y/label-has-for */
             className="custom-control-label"
@@ -211,6 +221,8 @@ const FormInputField = (props) => {
                 onChange={onChange}
                 onBlur={onBlur}
                 disabled={disabled}
+
+                aria-describedby={ariaDescribedBy}
               />
               <label /* eslint-disable-line jsx-a11y/label-has-for */
                 className="custom-control-label"
@@ -232,6 +244,8 @@ const FormInputField = (props) => {
           invalid={invalid}
           onChange={setFieldValue}
           onBlur={setFieldTouched}
+
+          disabled={disabled}
         />
       )}
 
@@ -244,6 +258,8 @@ const FormInputField = (props) => {
           invalid={invalid}
           onChange={setFieldValue}
           onBlur={setFieldTouched}
+
+          disabled={disabled}
         />
       )}
 
@@ -268,6 +284,8 @@ const FormInputField = (props) => {
           invalid={invalid}
           onChange={setFieldValue}
           onBlur={setFieldTouched}
+
+          disabled={disabled}
         />
       )}
 
@@ -278,7 +296,7 @@ const FormInputField = (props) => {
       {helpText && (
         <small
           className="form-text text-muted"
-          id={`id-${name}-helptext`}
+          id={helpTextId}
         >
           {helpText}
         </small>

@@ -19,9 +19,14 @@ const propTypes = {
   })).isRequired,
   invalid: PropTypes.bool.isRequired,
 
+  disabled: PropTypes.bool,
 
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
+};
+
+const defaultProps = {
+  disabled: false,
 };
 
 /*
@@ -29,7 +34,7 @@ const propTypes = {
  */
 const CustomFormInputMultiCheckbox = (props) => {
   const {
-    name, options, value, invalid, onChange, onBlur,
+    name, options, value, invalid, disabled, onChange, onBlur,
   } = props;
 
 
@@ -74,8 +79,10 @@ const CustomFormInputMultiCheckbox = (props) => {
             type="checkbox"
             name={`${name}:${i}`} // e.g. tags:2
             id={`id-${name}-${i}`} // e.g. id-tags-2
-
             checked={value.findIndex(val => val === option.value) > -1}
+
+            disabled={disabled}
+
             onChange={handleChange}
             onBlur={handleBlur}
           />
@@ -92,5 +99,6 @@ const CustomFormInputMultiCheckbox = (props) => {
 };
 
 CustomFormInputMultiCheckbox.propTypes = propTypes;
+CustomFormInputMultiCheckbox.defaultProps = defaultProps;
 
 export default CustomFormInputMultiCheckbox;

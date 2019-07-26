@@ -21,12 +21,16 @@ const propTypes = {
   onBlur: PropTypes.func.isRequired,
 };
 
+const defaultProps = {
+  disabled: false,
+};
+
 /*
  * Custom file input component.
  */
 const CustomFormInputFile = (props) => {
   const {
-    name, initialValue, value, invalid, onChange, onBlur,
+    name, initialValue, value, invalid, disabled, onChange, onBlur,
   } = props;
 
   const label = (value && value.name) ? `${value.name}, ${value.size} bytes` : '';
@@ -57,6 +61,8 @@ const CustomFormInputFile = (props) => {
           name={name}
           id={`id-${name}`}
 
+          disabled={disabled}
+
           onChange={handleChange}
           onBlur={handleBlur}
         />
@@ -83,6 +89,9 @@ const CustomFormInputFile = (props) => {
             className="custom-control-input"
             type="checkbox"
             id="clearFile"
+
+            disabled={disabled}
+
             onClick={handleClear}
           />
           <label /* eslint-disable-line */
@@ -98,5 +107,6 @@ const CustomFormInputFile = (props) => {
 };
 
 CustomFormInputFile.propTypes = propTypes;
+CustomFormInputFile.defaultProps = defaultProps;
 
 export default CustomFormInputFile;
