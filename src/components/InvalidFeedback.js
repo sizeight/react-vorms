@@ -21,7 +21,7 @@ const InvalidFeedback = (props) => {
   */
 
   return (
-    <React.Fragment>
+    <>
       {errors && errors.length > 0 && (
         <div className="text-danger mt-1">
           {errors.map((error, i) => (
@@ -31,7 +31,7 @@ const InvalidFeedback = (props) => {
           ))}
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

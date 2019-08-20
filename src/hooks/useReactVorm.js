@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
  * Return true if all field names are unique.
  */
 function areFieldNamesUnique(definition) {
-  const names = definition.map(obj => obj.name);
+  const names = definition.map((obj) => obj.name);
   const unique = [...new Set(names)].length === names.length;
   if (!unique) {
     throw new Error('Form definition has duplicate field names, please ensure all field names are unique.');

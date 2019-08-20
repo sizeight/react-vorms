@@ -29,7 +29,7 @@ const FilterForm = (props) => {
   return (
     <form
       className="form-inline flex-row-reverse"
-      onSubmit={e => e.preventDefault()}
+      onSubmit={(e) => e.preventDefault()}
     >
       <div className="input-group">
         <input

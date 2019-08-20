@@ -175,7 +175,7 @@ const CustomFormInputTextAreaWYSIWYG = (props) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <div className="RichEditor-root">
         <div className="RichEditor-controls">
           <StyleControls
@@ -229,7 +229,7 @@ const CustomFormInputTextAreaWYSIWYG = (props) => {
 
 
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -491,8 +491,8 @@ const StyleControls = (props) => {
   } = props;
 
   return (
-    <React.Fragment>
-      {CONTROLS.map(control => (
+    <>
+      {CONTROLS.map((control) => (
         <React.Fragment key={control.id}>
           {control.type === 'PREVIEW' && (
             <PreviewControl
@@ -531,7 +531,7 @@ const StyleControls = (props) => {
           )}
         </React.Fragment>
       ))}
-    </React.Fragment>
+    </>
   );
 };
 

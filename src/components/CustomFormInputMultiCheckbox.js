@@ -52,7 +52,7 @@ const CustomFormInputMultiCheckbox = (props) => {
         optionValue,
       ];
     } else {
-      const idx = value.findIndex(v => v === optionValue);
+      const idx = value.findIndex((v) => v === optionValue);
       newValue = [
         ...value.slice(0, idx),
         ...value.slice(idx + 1),
@@ -79,7 +79,7 @@ const CustomFormInputMultiCheckbox = (props) => {
             type="checkbox"
             name={`${name}:${i}`} // e.g. tags:2
             id={`id-${name}-${i}`} // e.g. id-tags-2
-            checked={value.findIndex(val => val === option.value) > -1}
+            checked={value.findIndex((val) => val === option.value) > -1}
 
             disabled={disabled}
 

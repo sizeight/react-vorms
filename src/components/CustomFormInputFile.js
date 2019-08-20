@@ -47,7 +47,7 @@ const CustomFormInputFile = (props) => {
 
 
   return (
-    <React.Fragment>
+    <>
       <div className="custom-file custom-file-sm">
         <input
           className={`custom-file-input${invalid ? ' is-invalid' : ''}`}
@@ -96,7 +96,7 @@ const CustomFormInputFile = (props) => {
           </label>
         </div>
       </small>
-    </React.Fragment>
+    </>
   );
 };
 

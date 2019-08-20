@@ -13,8 +13,11 @@ const propTypes = {
  * https://tylermcginnis.com/react-render-props/
  */
 class ShowFormToggler extends React.Component {
-  state = {
-    showForm: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      showForm: false,
+    };
   }
 
   toggleForm = () => {

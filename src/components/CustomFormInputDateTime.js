@@ -72,18 +72,8 @@ const CustomFormInputDateTime = (props) => {
     onBlur(name, true);
   }
 
-
   // datetime field needs extra props to display time picker
-  const showTime = type === 'datetime'
-    ? {
-      showTimeSelect: true,
-      timeFormat: 'HH:mm',
-      timeIntervals: 15,
-      timeCaption: 'time',
-      dateFormat: 'dd MMMM yyyy HH:mm',
-    } : {
-      dateFormat: 'dd MMMM yyyy',
-    };
+  const showTime = type === 'datetime';
 
   return (
     <DatePicker
@@ -104,7 +94,12 @@ const CustomFormInputDateTime = (props) => {
       isClearable
       clearButtonTitle="Clear"
       shouldCloseOnSelect
-      {...showTime}
+
+      dateFormat={showTime === 'datetime' ? 'dd MMMM yyyy HH:mm' : 'dd MMMM yyyy'}
+      showTimeSelect={showTime === 'datetime'}
+      timeFormat={showTime === 'datetime' ? 'HH:mm' : null}
+      timeIntervals={showTime === 'datetime' ? 15 : null}
+      timeCaption={showTime === 'datetime' ? 'time' : null}
     />
   );
 };

@@ -27,25 +27,25 @@ const propTypes = {
     PropTypes.bool,
     PropTypes.array,
   ]).isRequired,
-  placeholder: PropTypes.string, // If no placeholder given, we leave out placeholder
-  helpText: PropTypes.string,
-  hideLabel: PropTypes.bool,
+  placeholder: PropTypes.string.isRequired, // If no placeholder given, we leave out placeholder
+  helpText: PropTypes.string.isRequired,
+  hideLabel: PropTypes.bool.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({ // Optional, only for select, multi-checkbox
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
     ]),
     label: PropTypes.string,
-  })),
+  })).isRequired,
   validation: PropTypes.shape({
     required: PropTypes.bool,
     min: PropTypes.number,
     max: PropTypes.number,
     email: PropTypes.bool,
-  }),
-  width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-  disabled: PropTypes.bool,
-  className: PropTypes.string, // optional, eg if you want the input field to display: none
+  }).isRequired,
+  width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).isRequired,
+  disabled: PropTypes.bool.isRequired,
+  className: PropTypes.string.isRequired, // optional, eg if you want field to display: none
 
   // From hook
   value: PropTypes.oneOfType([
@@ -63,15 +63,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-  hideLabel: false,
-  placeholder: '',
-  helpText: '',
-  options: [],
-  validation: {},
-  width: undefined,
-  disabled: false,
-  className: '',
-
   errors: undefined,
 };
 
@@ -100,7 +91,7 @@ const FormInputField = (props) => {
 
   return (
     <div className={`form-group ${width ? `col-md-${width}` : 'col-md'}${className ? ` ${className}` : ''}`}>
-      {(['checkbox', 'hidden'].findIndex(x => x === type) === -1) && (
+      {(['checkbox', 'hidden'].findIndex((x) => x === type) === -1) && (
         <label /* eslint-disable-line jsx-a11y/label-has-for */
           className={hideLabel === true ? 'sr-only' : ''}
           htmlFor={`id-${name}`}
@@ -162,7 +153,7 @@ const FormInputField = (props) => {
           disabled={disabled}
           aria-describedby={ariaDescribedBy}
         >
-          {selectOptions.map(option => (
+          {selectOptions.map((option) => (
             <option
               value={option.value}
               key={option.value}
@@ -201,8 +192,8 @@ const FormInputField = (props) => {
 
 
       {type === 'radio' && (
-        <React.Fragment>
-          {options.map(option => (
+        <>
+          {options.map((option) => (
             <div
               className="custom-control custom-radio"
               key={option.value}
@@ -232,7 +223,7 @@ const FormInputField = (props) => {
               </label>
             </div>
           ))}
-        </React.Fragment>
+        </>
       )}
 
 
