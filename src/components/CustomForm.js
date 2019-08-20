@@ -82,7 +82,7 @@ const CustomForm = (props) => {
               hideLabel={field.hideLabel || false}
               options={field.options || []}
               validation={field.validation || {}}
-              width={field.width || 12}
+              width={field.width || undefined}
               disabled={field.disabled || false}
               className={field.className || ''}
 

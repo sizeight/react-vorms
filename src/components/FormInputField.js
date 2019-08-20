@@ -43,7 +43,7 @@ const propTypes = {
     max: PropTypes.number,
     email: PropTypes.bool,
   }).isRequired,
-  width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).isRequired,
+  width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   disabled: PropTypes.bool.isRequired,
   className: PropTypes.string.isRequired, // optional, eg if you want field to display: none
 
@@ -63,6 +63,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  width: undefined,
   errors: undefined,
 };
 
