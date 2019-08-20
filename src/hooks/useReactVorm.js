@@ -202,7 +202,9 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     setValues(newValues);
   }
 
-
+  /*
+   * Set the value of specified field.
+   */
   function setFieldValue(name, newValue) {
     setValues({
       ...values,
@@ -210,7 +212,9 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     });
   }
 
-
+  /*
+   * Set the errors of specified field.
+   */
   function setFieldErrors(name, newErrors) {
     setErrors({
       ...errors,
@@ -218,10 +222,23 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     });
   }
 
+  /*
+   * Set the touched value of specified field.
+   */
   function setFieldTouched(name, newTouched) {
     setTouched({
       ...touched,
       [name]: newTouched,
+    });
+  }
+
+  /*
+   * Set the values of multiple fields.
+   */
+  function setMultipleFieldValues(newValues) {
+    setValues({
+      ...values,
+      ...newValues,
     });
   }
 
@@ -282,6 +299,7 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     setFieldValue,
     setFieldErrors,
     setFieldTouched,
+    setMultipleFieldValues,
     setIsSubmitting,
 
     isValidating,
