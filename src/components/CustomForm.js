@@ -64,7 +64,6 @@ const CustomForm = (props) => {
     }
   });
 
-  console.log('HEY');
   return (
     <form onSubmit={onSubmit} noValidate>
       {definition.map((formRow, i) => (
