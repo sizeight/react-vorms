@@ -1,4 +1,4 @@
-const countries = [
+const COUNTRIES = [
   {
     label: '--',
     value: '',
@@ -957,4 +957,4 @@ const countries = [
   },
 ];
 
-export default countries;
+export default COUNTRIES;

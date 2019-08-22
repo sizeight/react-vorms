@@ -6,9 +6,7 @@ import CustomFormInputFile from './CustomFormInputFile';
 import CustomFormInputMultiCheckbox from './CustomFormInputMultiCheckbox';
 import CustomFormInputTextAreaWYSIWYG from './CustomFormInputTextAreaWYSIWYG';
 import InvalidFeedback from './InvalidFeedback';
-import countries from '../constants';
-
-const countryOptions = countries;
+import COUNTRIES from '../constants';
 
 
 const propTypes = {
@@ -82,8 +80,11 @@ const FormInputField = (props) => {
   const required = validation ? (validation.required) : false;
 
   let selectOptions = options;
-  if (name === 'country') {
-    selectOptions = countryOptions;
+  /*
+   * I fi field name is 'country' and no options set on the field, use the built in COUNTRIES
+   */
+  if (name === 'country' && options.length === 0) {
+    selectOptions = COUNTRIES;
   }
 
   // Assistive technologies
