@@ -22,16 +22,6 @@
     "webpack-docs-prod": "NODE_ENV=production webpack --config webpack.docs.config.js --watch --progress --color",
     "webpack-docs-prod-analyse": "NODE_ENV=production ANALYSE=true webpack --config webpack.docs.config.js --watch --progress --color"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead"
-    ],
-    "development": [
-      ">0.2%",
-      "not dead"
-    ]
-  },
   "dependencies": {
     "draft-js": "^0.11.0",
     "draft-js-export-html": "^1.4.1",
