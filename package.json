@@ -27,7 +27,7 @@
     "draft-js-export-html": "^1.4.1",
     "draft-js-import-html": "^1.4.1",
     "prop-types": "^15.7.2",
-    "react-datepicker": "^2.8.0"
+    "react-datepicker": "^2.9.6"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
