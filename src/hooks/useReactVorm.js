@@ -119,12 +119,16 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
   const [submitReady, setSubmitReady] = useState(false);
 
   /*
-   * Reset the form state to the initial definition.
+   * Reset the form state to the initial definition and values.
    */
   function onReset() {
     setValues(definitionToValues(flatDefinition));
     setErrors(definitionToErrors(flatDefinition));
     setTouched(definitionToTouched(flatDefinition));
+    setSubmitCount(0);
+    setIsSubmitting(false);
+    setIsValidating(false);
+    setSubmitReady(false);
   }
 
 
