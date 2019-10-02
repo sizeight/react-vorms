@@ -124,7 +124,7 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
   function onReset() {
     setValues(definitionToValues(flatDefinition));
     setErrors(definitionToErrors(flatDefinition));
-    setTouched(definitionToTouched(flatDefinition));
+    setTouched(definitionToTouched(flatDefinition, false));
     setSubmitCount(0);
     setIsSubmitting(false);
     setIsValidating(false);
@@ -132,6 +132,14 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
   }
 
 
+  /*
+   * Validation
+   * - Set isValidating true
+   * - Run all field-level validations
+   * - Has errors? (happens in useEffect below)
+   *   - Yes: Set isValidating to false, set errors, set isSubmitting to false
+   *   - No: Set isValidating to false
+   */
   function onValidate() {
     setIsValidating(true);
     const newErrors = {};
