@@ -673,6 +673,12 @@ const Demo = () => {
                           {
                             value: 'oertendahlii',
                             label: 'Plectranthus oertendahlii',
+                            disabled: true,
+                          },
+                          {
+                            value: 'neochilus',
+                            label: 'Plectranthus neochilus',
+                            disabled: false,
                           },
                         ],
                       },
@@ -713,6 +719,17 @@ const Demo = () => {
                           {
                             value: 'oertendahlii',
                             label: 'Plectranthus oertendahlii',
+                            disabled: false,
+                          },
+                          {
+                            value: 'neochilus',
+                            label: 'Plectranthus neochilus',
+                            disabled: true,
+                          },
+                          {
+                            value: 'madagascariensis',
+                            label: 'Plectranthus madagascariensis',
+                            disabled: true,
                           },
                         ],
                       },
@@ -737,7 +754,7 @@ const Demo = () => {
                         name: 'species',
                         label: 'Species',
                         helpText: 'Which species did you find?',
-                        initialValue: ['ernstii', 'oertendahlii'],
+                        initialValue: ['ernstii', 'oertendahlii', 'madagascariensis'],
                         validation: {
                           required: true,
                           min: 1,
@@ -754,6 +771,17 @@ const Demo = () => {
                           {
                             value: 'oertendahlii',
                             label: 'Plectranthus oertendahlii',
+                            disabled: false,
+                          },
+                          {
+                            value: 'neochilus',
+                            label: 'Plectranthus neochilus',
+                            disabled: true,
+                          },
+                          {
+                            value: 'madagascariensis',
+                            label: 'Plectranthus madagascariensis',
+                            disabled: true,
                           },
                         ],
                       },
