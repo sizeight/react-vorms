@@ -16,6 +16,7 @@ const propTypes = {
       PropTypes.number,
     ]),
     label: PropTypes.string,
+    disabled: PropTypes.bool,
   })).isRequired,
   invalid: PropTypes.bool.isRequired,
 
@@ -81,7 +82,7 @@ const CustomFormInputMultiCheckbox = (props) => {
             id={`id-${name}-${i}`} // e.g. id-tags-2
             checked={value.findIndex((val) => val === option.value) > -1}
 
-            disabled={disabled}
+            disabled={disabled || option.disabled}
 
             onChange={handleChange}
             onBlur={handleBlur}

@@ -28,13 +28,14 @@ const propTypes = {
   placeholder: PropTypes.string.isRequired, // If no placeholder given, we leave out placeholder
   helpText: PropTypes.string.isRequired,
   hideLabel: PropTypes.bool.isRequired,
-  options: PropTypes.arrayOf(PropTypes.shape({ // Optional, only for select, multi-checkbox
+  options: PropTypes.arrayOf(PropTypes.shape({ // Optional, only for select, radio & multi-checkbox
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
-    ]),
-    label: PropTypes.string,
-  })).isRequired,
+    ]).isRequired,
+    label: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+  })),
   validation: PropTypes.shape({
     required: PropTypes.bool,
     min: PropTypes.number,
@@ -61,6 +62,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  options: [],
   width: undefined,
   errors: undefined,
 };
@@ -158,6 +160,7 @@ const FormInputField = (props) => {
           {selectOptions.map((option) => (
             <option
               value={option.value}
+              disabled={option.disabled}
               key={option.value}
             >
               {option.label}
@@ -213,7 +216,7 @@ const FormInputField = (props) => {
                 checked={value === option.value}
                 onChange={onChange}
                 onBlur={onBlur}
-                disabled={disabled}
+                disabled={disabled || option.disabled}
 
                 aria-describedby={ariaDescribedBy}
               />
