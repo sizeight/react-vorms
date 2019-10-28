@@ -91,45 +91,5 @@ module.exports = {
         amd: 'reactstrap',
       },
     },
-    {
-      'react-datepicker': {
-        root: 'react-datepicker',
-        commonjs2: 'react-datepicker',
-        commonjs: 'react-datepicker',
-        amd: 'react-datepicker',
-      },
-    },
-    {
-      'react-datepicker/dist/react-datepicker.css': {
-        root: 'react-datepicker/dist/react-datepicker.css',
-        commonjs2: 'react-datepicker/dist/react-datepicker.css',
-        commonjs: 'react-datepicker/dist/react-datepicker.css',
-        amd: 'react-datepicker/dist/react-datepicker.css',
-      },
-    },
-    {
-      'draft-js': {
-        root: 'draft-js',
-        commonjs2: 'draft-js',
-        commonjs: 'draft-js',
-        amd: 'draft-js',
-      },
-    },
-    {
-      'draft-js-import-html': {
-        root: 'draft-js-import-html',
-        commonjs2: 'draft-js-import-html',
-        commonjs: 'draft-js-import-html',
-        amd: 'draft-js-import-html',
-      },
-    },
-    {
-      'draft-js-export-html': {
-        root: 'draft-js-export-html',
-        commonjs2: 'draft-js-export-html',
-        commonjs: 'draft-js-export-html',
-        amd: 'draft-js-export-html',
-      },
-    },
   ],
 };
