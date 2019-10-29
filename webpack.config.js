@@ -27,6 +27,7 @@ module.exports = {
   context: sourcePath,
   entry: {
     'react-vorms': `${sourcePath}index.js`,
+    'react-vorms-light': `${sourcePath}indexLight.js`,
   },
   output: {
     path: buildPath,
