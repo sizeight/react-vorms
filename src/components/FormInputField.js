@@ -103,7 +103,7 @@ const FormInputField = (props) => {
 
 
   // If field type is `file` and only certain extensions are allowed, include this in the helpText
-  let helpTextExtra;
+  let helpTextExtra = '';
   if (type === 'file' && validation.extensions) {
     const tmp = validation.extensions.join(', ');
     const idx = tmp.lastIndexOf(',');
