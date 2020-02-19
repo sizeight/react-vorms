@@ -30,20 +30,25 @@ const CustomFormInputFile = (props) => {
     name, initialValue, value, invalid, disabled, onChange, onBlur,
   } = props;
 
-
-  let size = `${value.size} bytes`;
-  if (value.size > 1000) {
-    size = `${(value.size / 1000).toFixed(1)} kB`;
-  }
-  if (value.size > (1000 * 1000)) {
-    size = `${(value.size / (1000 * 1000)).toFixed(1)} MB`;
+  let size = '';
+  if (value && value.size) {
+    size = `${value.size} bytes`;
+    if (value.size > 1000) {
+      size = `${(value.size / 1000).toFixed(1)} kB`;
+    }
+    if (value.size > (1000 * 1000)) {
+      size = `${(value.size / (1000 * 1000)).toFixed(1)} MB`;
+    }
   }
 
   const label = (value && value.name) ? `${value.name}, ${size}` : '';
 
 
   function handleChange(e) {
-    onChange(name, e.currentTarget.files[0]);
+    // Do not fire if cancal was clicked
+    if (e.currentTarget.files.length === 1) {
+      onChange(name, e.currentTarget.files[0]);
+    }
   }
 
 
