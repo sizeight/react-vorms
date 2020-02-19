@@ -242,6 +242,12 @@ const Demo = () => {
                     ],
                     [
                       {
+                        type: 'heading',
+                        label: 'A heading inside a from',
+                      },
+                    ],
+                    [
+                      {
                         type: 'select',
                         name: 'species',
                         label: 'Species',
