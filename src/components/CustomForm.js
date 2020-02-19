@@ -73,7 +73,9 @@ const CustomForm = (props) => {
           key={i} /* eslint-disable-line react/no-array-index-key */
         >
           {formRow.map((field, j) => (
-            <React.Fragment key={j}>
+            <React.Fragment
+              key={j} /* eslint-disable-line react/no-array-index-key */
+            >
               {field.type === 'heading' ? (
                 <FormHeading
                   type={field.type}
