@@ -6,7 +6,8 @@ import { FILE_TYPES } from '../constants';
  * Return true if all field names are unique.
  */
 function areFieldNamesUnique(definition) {
-  const names = definition.map((obj) => obj.name);
+  // Filter out any headings and then check field names
+  const names = definition.filter((obj) => obj.type !== 'heading').map((obj) => obj.name);
   const unique = [...new Set(names)].length === names.length;
   if (!unique) {
     throw new Error('Form definition has duplicate field names, please ensure all field names are unique.');
