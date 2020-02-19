@@ -30,7 +30,16 @@ const CustomFormInputFile = (props) => {
     name, initialValue, value, invalid, disabled, onChange, onBlur,
   } = props;
 
-  const label = (value && value.name) ? `${value.name}, ${value.size} bytes` : '';
+
+  let size = `${value.size} bytes`;
+  if (value.size > 1000) {
+    size = `${(value.size / 1000).toFixed(1)} kB`;
+  }
+  if (value.size > (1000 * 1000)) {
+    size = `${(value.size / (1000 * 1000)).toFixed(1)} MB`;
+  }
+
+  const label = (value && value.name) ? `${value.name}, ${size}` : '';
 
 
   function handleChange(e) {
