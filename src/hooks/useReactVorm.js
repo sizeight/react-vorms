@@ -42,7 +42,7 @@ function definitionToValidations(definition) {
       if (obj.validation) {
         validations[obj.name] = {
           ...obj.validation,
-          maxFileSize: 10 * 1000 * 1024,
+          maxFileSize: 10 * 1000 * 1000, // 10 MB
         };
       } else {
         validations[obj.name] = obj.validation;
