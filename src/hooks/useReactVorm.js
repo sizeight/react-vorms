@@ -32,10 +32,22 @@ function definitionToErrors(definition) {
   return errors;
 }
 
+/*
+ * All files get a maxFileSize validation requirement built in.
+ */
 function definitionToValidations(definition) {
   const validations = {};
   definition.forEach((obj) => {
-    if (obj.validation) {
+    if (obj.type === 'file') {
+      if (obj.validation) {
+        validations[obj.name] = {
+          ...obj.validation,
+          maxFileSize: 10 * 1000 * 1024,
+        };
+      } else {
+        validations[obj.name] = obj.validation;
+      }
+    } else if (obj.validation) {
       validations[obj.name] = obj.validation;
     }
   });
@@ -94,7 +106,6 @@ function validate(value, validation) {
           }
         }
         break;
-
       case 'extensions': {
         const found = FILE_TYPES.find((obj) => obj.fileType === value.type);
 
@@ -106,6 +117,11 @@ function validate(value, validation) {
         }
         break;
       }
+      case 'maxFileSize':
+        if (value.size > validation[key]) {
+          errors.push('Maximum 10MB file size allowed');
+        }
+        break;
       default:
         break;
     }
