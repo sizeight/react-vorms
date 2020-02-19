@@ -84,7 +84,7 @@ const CustomForm = (props) => {
                   className={field.className || ''}
                 />
               ) : (
-                <FormInputField
+                <FormInputFieldLight
                   type={field.type}
                   name={field.name}
                   label={field.label}
