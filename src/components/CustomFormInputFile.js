@@ -70,35 +70,37 @@ const CustomFormInputFile = (props) => {
           {label}
         </label>
       </div>
-      <small>
-        <span className="mr-1">
-          Currently:
-        </span>
-        <a
-          href={initialValue}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {initialValue}
-        </a>
-        <div className="custom-control custom-control-inline custom-checkbox clear-file ml-1 mr-1 ">
-          <input
-            className="custom-control-input"
-            type="checkbox"
-            id="clearFile"
-
-            disabled={disabled}
-
-            onClick={handleClear}
-          />
-          <label /* eslint-disable-line */
-            className="custom-control-label"
-            htmlFor="clearFile"
+      {initialValue && (
+        <small>
+          <span className="mr-1">
+            Currently:
+          </span>
+          <a
+            href={initialValue}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Clear
-          </label>
-        </div>
-      </small>
+            {initialValue}
+          </a>
+          <div className="custom-control custom-control-inline custom-checkbox clear-file ml-1 mr-1 ">
+            <input
+              className="custom-control-input"
+              type="checkbox"
+              id="clearFile"
+
+              disabled={disabled}
+
+              onClick={handleClear}
+            />
+            <label /* eslint-disable-line */
+              className="custom-control-label"
+              htmlFor="clearFile"
+            >
+              Clear
+            </label>
+          </div>
+        </small>
+      )}
     </>
   );
 };
