@@ -6,7 +6,7 @@ import CustomFormInputFile from './CustomFormInputFile';
 import CustomFormInputMultiCheckbox from './CustomFormInputMultiCheckbox';
 import CustomFormInputTextAreaWYSIWYG from './CustomFormInputTextAreaWYSIWYG';
 import InvalidFeedback from './InvalidFeedback';
-import COUNTRIES from '../constants';
+import { COUNTRIES } from '../constants';
 
 
 const propTypes = {
@@ -41,6 +41,15 @@ const propTypes = {
     min: PropTypes.number,
     max: PropTypes.number,
     email: PropTypes.bool,
+    extensions: PropTypes.arrayOf(
+      PropTypes.oneOf([
+        'GIF',
+        'ICO',
+        'JPG',
+        'PDF',
+        'PNG',
+      ]),
+    ),
   }).isRequired,
   width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   disabled: PropTypes.bool.isRequired,
@@ -52,6 +61,7 @@ const propTypes = {
     PropTypes.number,
     PropTypes.bool,
     PropTypes.array,
+    PropTypes.object,
   ]).isRequired,
   errors: PropTypes.arrayOf(PropTypes.string),
   touched: PropTypes.bool.isRequired,
@@ -71,8 +81,6 @@ const FormInputField = (props) => {
   const {
     type, name, initialValue, label, hideLabel, placeholder, validation, helpText, options, width,
     disabled, className,
-  } = props;
-  const {
     value, errors, touched, onChange, onBlur, setFieldValue, setFieldTouched,
   } = props;
 
@@ -83,7 +91,7 @@ const FormInputField = (props) => {
 
   let selectOptions = options;
   /*
-   * I fi field name is 'country' and no options set on the field, use the built in COUNTRIES
+   * If field name is `country` and no options set on the field, use the built in COUNTRIES
    */
   if (name === 'country' && options.length === 0) {
     selectOptions = COUNTRIES;
@@ -92,6 +100,16 @@ const FormInputField = (props) => {
   // Assistive technologies
   const helpTextId = `id-${name}-helptext`;
   const ariaDescribedBy = helpText ? helpTextId : null;
+
+
+  // If field type is `file` and only certain extensions are allowed, include this in the helpText
+  let helpTextExtra;
+  if (type === 'file' && validation.extensions) {
+    const tmp = validation.extensions.join(', ');
+    const idx = tmp.lastIndexOf(',');
+    helpTextExtra = ` Only ${tmp.slice(0, idx)} or${tmp.slice(idx + 1)} allowed.`;
+  }
+
 
   return (
     <div className={`form-group ${width ? `col-md-${width}` : 'col-md'}${className ? ` ${className}` : ''}`}>
@@ -294,7 +312,7 @@ const FormInputField = (props) => {
           className="form-text text-muted"
           id={helpTextId}
         >
-          {helpText}
+          {`${helpText}${helpTextExtra}`}
         </small>
       )}
     </div>

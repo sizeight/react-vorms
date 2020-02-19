@@ -1,4 +1,28 @@
-const COUNTRIES = [
+export const FILE_TYPES = [
+  {
+    fileType: 'image/gif',
+    fileExtension: 'GIF',
+  },
+  {
+    fileType: 'image/vnd.microsoft.icon',
+    fileExtension: 'ICO',
+  },
+  {
+    fileType: 'image/jpeg',
+    fileExtension: 'JPG',
+  },
+  {
+    fileType: 'application/pdf',
+    fileExtension: 'PDF',
+  },
+  {
+    fileType: 'image/png',
+    fileExtension: 'PNG',
+  },
+];
+
+
+export const COUNTRIES = [
   {
     label: '--',
     value: '',
@@ -956,5 +980,3 @@ const COUNTRIES = [
     value: 'Zambia',
   },
 ];
-
-export default COUNTRIES;

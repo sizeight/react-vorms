@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import { FILE_TYPES } from '../constants';
+
 /*
  * Return true if all field names are unique.
  */
@@ -92,6 +94,18 @@ function validate(value, validation) {
           }
         }
         break;
+
+      case 'extensions': {
+        const found = FILE_TYPES.find((obj) => obj.fileType === value.type);
+
+        if (validation[key].findIndex((x) => x === found.fileExtension) === -1) {
+          const tmp = validation.extensions.join(', ');
+          const idx = tmp.lastIndexOf(',');
+          const errText = `Invalid file type, only ${tmp.slice(0, idx)} or${tmp.slice(idx + 1)} allowed`;
+          errors.push(errText);
+        }
+        break;
+      }
       default:
         break;
     }

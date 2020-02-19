@@ -6,7 +6,7 @@ import CustomFormInputFile from './CustomFormInputFile';
 import CustomFormInputMultiCheckbox from './CustomFormInputMultiCheckbox';
 // import CustomFormInputTextAreaWYSIWYG from './CustomFormInputTextAreaWYSIWYG';
 import InvalidFeedback from './InvalidFeedback';
-import COUNTRIES from '../constants';
+import { COUNTRIES } from '../constants';
 
 
 const propTypes = {

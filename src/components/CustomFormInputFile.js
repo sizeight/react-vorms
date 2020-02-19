@@ -6,7 +6,10 @@ const propTypes = {
   name: PropTypes.string.isRequired,
   initialValue: PropTypes.string.isRequired,
 
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]).isRequired,
   invalid: PropTypes.bool.isRequired,
 
   disabled: PropTypes.bool,
