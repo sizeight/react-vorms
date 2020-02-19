@@ -243,7 +243,7 @@ const Demo = () => {
                     [
                       {
                         type: 'heading',
-                        label: 'A heading inside a from',
+                        label: 'A heading inside a form',
                       },
                     ],
                     [
@@ -274,6 +274,12 @@ const Demo = () => {
                             label: 'Plectranthus oertendahlii',
                           },
                         ],
+                      },
+                    ],
+                    [
+                      {
+                        type: 'heading',
+                        label: 'A 2nd heading inside a form',
                       },
                     ],
                     /*
