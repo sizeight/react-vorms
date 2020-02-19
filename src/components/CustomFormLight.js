@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FormHeading from './FormHeading';
 import FormInputFieldLight from './FormInputFieldLight';
 
 
@@ -12,9 +13,9 @@ const propTypes = {
     PropTypes.arrayOf(
       PropTypes.shape({
         type: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
+        name: PropTypes.string,
         label: PropTypes.string.isRequired,
-        initialValue: PropTypes.any.isRequired,
+        initialValue: PropTypes.any,
         hideLabel: PropTypes.bool,
         placeholder: PropTypes.string,
         validation: PropTypes.shape({
@@ -71,32 +72,45 @@ const CustomForm = (props) => {
           className="form-row"
           key={i} /* eslint-disable-line react/no-array-index-key */
         >
-          {formRow.map((field) => (
-            <FormInputFieldLight
-              type={field.type}
-              name={field.name}
-              label={field.label}
-              initialValue={field.initialValue}
-              placeholder={field.placeholder || ''}
-              helpText={field.helpText || ''}
-              hideLabel={field.hideLabel || false}
-              options={field.options || []}
-              validation={field.validation || {}}
-              width={field.width || undefined}
-              disabled={field.disabled || false}
-              className={field.className || ''}
+          {formRow.map((field, j) => (
+            <React.Fragment
+              key={j} /* eslint-disable-line react/no-array-index-key */
+            >
+              {field.type === 'heading' ? (
+                <FormHeading
+                  type={field.type}
+                  label={field.label}
+                  width={field.width || undefined}
+                  className={field.className || ''}
+                />
+              ) : (
+                <FormInputField
+                  type={field.type}
+                  name={field.name}
+                  label={field.label}
+                  initialValue={field.initialValue}
+                  placeholder={field.placeholder || ''}
+                  helpText={field.helpText || ''}
+                  hideLabel={field.hideLabel || false}
+                  options={field.options || []}
+                  validation={field.validation || {}}
+                  width={field.width || undefined}
+                  disabled={field.disabled || false}
+                  className={field.className || ''}
 
-              key={field.name}
+                  key={field.name}
 
-              value={values[field.name]}
-              errors={errors[field.name]}
-              touched={touched[field.name]}
-              onChange={onChange}
-              onBlur={onBlur}
+                  value={values[field.name]}
+                  errors={errors[field.name]}
+                  touched={touched[field.name]}
+                  onChange={onChange}
+                  onBlur={onBlur}
 
-              setFieldValue={setFieldValue}
-              setFieldTouched={setFieldTouched}
-            />
+                  setFieldValue={setFieldValue}
+                  setFieldTouched={setFieldTouched}
+                />
+              )}
+            </React.Fragment>
           ))}
         </div>
       ))}
