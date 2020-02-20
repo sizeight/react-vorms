@@ -18,7 +18,9 @@ function areFieldNamesUnique(definition) {
 function definitionToValues(definition) {
   const values = {};
   definition.forEach((obj) => {
-    values[obj.name] = obj.initialValue;
+    if (obj.type !== 'heading') {
+      values[obj.name] = obj.initialValue;
+    }
   });
   return values;
 }
@@ -64,7 +66,9 @@ function definitionToValidations(definition) {
 function definitionToTouched(definition, isTouched) {
   const touched = {};
   definition.forEach((obj) => {
-    touched[obj.name] = isTouched;
+    if (obj.type !== 'heading') {
+      touched[obj.name] = isTouched;
+    }
   });
   return touched;
 }
