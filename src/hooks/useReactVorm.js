@@ -152,6 +152,7 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
   const [submitCount, setSubmitCount] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isValidating, setIsValidating] = useState(false);
+  const isValid = Object.keys(errors).length === 0;
 
   const [submitReady, setSubmitReady] = useState(false);
 
@@ -351,6 +352,7 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     setMultipleFieldValues,
     setIsSubmitting,
 
+    isValid,
     isValidating,
     isSubmitting,
     submitCount,
