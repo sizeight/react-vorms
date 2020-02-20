@@ -35,13 +35,13 @@ const InputExample = (props) => {
    */
   useEffect(
     () => {
-      if (reactVorm.values.species === 'ecklonii') {
+      if (reactVorm.values.dynamic_form_species === 'ecklonii') {
         const newDefinition = [
           ...definition,
           [
             {
               type: 'radio',
-              name: 'cultivar',
+              name: 'dynamic_form_cultivar',
               label: 'Cultivar',
               helpText: 'Which Plectranthus ecklonii cultivar did you find?',
               initialValue: 'Medley-Wood',
@@ -73,7 +73,7 @@ const InputExample = (props) => {
         setDefinitionState(newDefinition);
       }
     },
-    [reactVorm.values.species],
+    [reactVorm.values.dynamic_form_species],
   );
 
   /*
@@ -103,15 +103,17 @@ const InputExample = (props) => {
         <div className="col-6">
           <Highlight className="javascript">
             {`
-import { CustomForm, FormButtons, useForm } from 'react-vorms';
+import { CustomForm, FormButtons, useReactVorm } from 'react-vorms';
 
 // ...
+
 const MyComponent = () => {
   const myFormDefiniton = ${JSON.stringify(definition, null, 2)};
   const myFormOptions = {
-    validateOnChange: true,
+    validateOnChange: false,
+    validateOnBlur: false,
   };
-  const myReactVorm = useForm(myFormdefinition, myFormOptions);
+  const myReactVorm = useReactVorm(myFormdefinition, myFormOptions);
 
 // ...
 
@@ -166,9 +168,16 @@ const MyComponent = () => {
             </button>
           </div>
 
-          <p>isSubmitting</p>
           <Highlight className="javascript">
             {`isSubmitting = ${reactVorm.isSubmitting}`}
+          </Highlight>
+
+          <Highlight className="javascript">
+            {`isValidating = ${reactVorm.isValidatingg}`}
+          </Highlight>
+
+          <Highlight className="javascript">
+            {`isValid = ${reactVorm.isValid}`}
           </Highlight>
 
           <p>values</p>

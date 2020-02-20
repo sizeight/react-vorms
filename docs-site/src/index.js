@@ -167,7 +167,7 @@ const Demo = () => {
                     [
                       {
                         type: 'radio',
-                        name: 'species',
+                        name: 'dynamic_form_species',
                         label: 'Species',
                         helpText: 'Which species of Plectranthus did you find?',
                         initialValue: '',
@@ -450,10 +450,10 @@ const Demo = () => {
                     [
                       {
                         type: 'text',
-                        name: 'species',
+                        name: 'text_species',
                         label: 'Species',
                         initialValue: 'Oertendahlii',
-                        helpText: 'The species of plant you found.',
+                        helpText: 'The species of plant you found',
                         validation: {
                           required: true,
                           min: 6,
@@ -467,6 +467,7 @@ const Demo = () => {
               )}
             />
 
+
             <Route
               path="/hidden/"
               exact
@@ -477,7 +478,7 @@ const Demo = () => {
                     [
                       {
                         type: 'hidden',
-                        name: 'id',
+                        name: 'hidden_id',
                         label: 'Id',
                         initialValue: 15,
                       },
@@ -489,6 +490,7 @@ const Demo = () => {
               )}
             />
 
+
             <Route
               path="/textarea/"
               exact
@@ -499,7 +501,7 @@ const Demo = () => {
                     [
                       {
                         type: 'textarea',
-                        name: 'description',
+                        name: 'textarea_description',
                         label: 'Description',
                         initialValue: '',
                         placeholder: 'Describe the species characteristics...',
@@ -512,10 +514,11 @@ const Demo = () => {
                     ],
                   ]}
                 >
-                  <p>Text input field</p>
+                  <p>TextArea input field</p>
                 </InputExample>
               )}
             />
+
 
             <Route
               path="/email/"
@@ -527,7 +530,7 @@ const Demo = () => {
                     [
                       {
                         type: 'email',
-                        name: 'email',
+                        name: 'email_email',
                         label: 'Your email address',
                         initialValue: '',
                         validation: {
@@ -543,6 +546,7 @@ const Demo = () => {
               )}
             />
 
+
             <Route
               path="/checkbox/"
               exact
@@ -553,7 +557,7 @@ const Demo = () => {
                     [
                       {
                         type: 'checkbox',
-                        name: 'endangered',
+                        name: 'checkbox_endangered',
                         label: 'Endangered',
                         helpText: 'Is the species endangered?',
                         initialValue: true,
@@ -569,6 +573,7 @@ const Demo = () => {
               )}
             />
 
+
             <Route
               path="/date/"
               exact
@@ -579,7 +584,7 @@ const Demo = () => {
                     [
                       {
                         type: 'date',
-                        name: 'identification_date',
+                        name: 'date_identification_date',
                         label: 'First identified',
                         helpText: 'The date on which species was first found.',
                         initialValue: '',
@@ -598,6 +603,7 @@ const Demo = () => {
               )}
             />
 
+
             <Route
               path="/datetime/"
               exact
@@ -608,7 +614,7 @@ const Demo = () => {
                     [
                       {
                         type: 'datetime',
-                        name: 'identification_date_and_time',
+                        name: 'datetime_identification_date_and_time',
                         label: 'First identified',
                         helpText: 'The date and time on which species was first found.',
                         initialValue: '',
@@ -627,6 +633,7 @@ const Demo = () => {
               )}
             />
 
+
             <Route
               path="/richtextarea/"
               exact
@@ -637,7 +644,7 @@ const Demo = () => {
                     [
                       {
                         type: 'textarea-wysiwyg',
-                        name: 'endangered',
+                        name: 'richtextarea_endangered',
                         label: 'Endangered',
                         helpText: 'Is the species endangered?',
                         initialValue: '<p>Hello world.</p>',
@@ -656,6 +663,7 @@ const Demo = () => {
               )}
             />
 
+
             <Route
               path="/select/"
               exact
@@ -666,7 +674,7 @@ const Demo = () => {
                     [
                       {
                         type: 'select',
-                        name: 'species',
+                        name: 'select_species',
                         label: 'Species',
                         helpText: 'Which species did you find?',
                         initialValue: 'ernstii',
@@ -702,6 +710,7 @@ const Demo = () => {
               )}
             />
 
+
             <Route
               path="/radio/"
               exact
@@ -712,7 +721,7 @@ const Demo = () => {
                     [
                       {
                         type: 'radio',
-                        name: 'species',
+                        name: 'radio_species',
                         label: 'Species',
                         helpText: 'Which species did you find?',
                         initialValue: 'ernstii',
@@ -753,6 +762,7 @@ const Demo = () => {
               )}
             />
 
+
             <Route
               path="/multicheckbox/"
               exact
@@ -763,7 +773,7 @@ const Demo = () => {
                     [
                       {
                         type: 'multi-checkbox',
-                        name: 'species',
+                        name: 'multi-checkbox_species',
                         label: 'Species',
                         helpText: 'Which species did you find?',
                         initialValue: ['ernstii', 'oertendahlii', 'madagascariensis'],
@@ -805,6 +815,7 @@ const Demo = () => {
               )}
             />
 
+
             <Route
               path="/file/"
               exact
@@ -815,7 +826,7 @@ const Demo = () => {
                     [
                       {
                         type: 'file',
-                        name: 'photo',
+                        name: 'file_photo',
                         label: 'Natural photograph',
                         initialValue: '',
                         helpText: 'A photo of the plant in it\'s natural environment.',
