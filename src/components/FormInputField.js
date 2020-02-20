@@ -98,10 +98,6 @@ const FormInputField = (props) => {
     selectOptions = COUNTRIES;
   }
 
-  // Assistive technologies
-  const helpTextId = `id-${name}-helptext`;
-  const ariaDescribedBy = helpText ? helpTextId : null;
-
 
   /*
    * If field type is `file`:
@@ -117,6 +113,12 @@ const FormInputField = (props) => {
       helpTextExtra = ` ${helpTextExtra} Only ${tmp.slice(0, idx)} or${tmp.slice(idx + 1)} allowed.`;
     }
   }
+
+  const helpTextExtended = `${helpText || ''}${helpTextExtra || ''}`;
+
+  // Assistive technologies
+  const helpTextId = `id-${name}-helptext`;
+  const ariaDescribedBy = helpTextExtended ? helpTextId : null;
 
 
   return (
@@ -315,12 +317,12 @@ const FormInputField = (props) => {
       <InvalidFeedback errors={errors} />
 
 
-      {helpText && (
+      {helpTextExtended && (
         <small
           className="form-text text-muted"
           id={helpTextId}
         >
-          {`${helpText}${helpTextExtra}`}
+          {helpTextExtended}
         </small>
       )}
     </div>
