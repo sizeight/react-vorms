@@ -36,19 +36,22 @@ function definitionToErrors(definition) {
 }
 
 /*
- * All files get a maxFileSize validation requirement built in.
+ * All files get a maxFileSize validation of 2MB built in. This can be overridden up to 20MB.
  */
 function definitionToValidations(definition) {
   const validations = {};
   definition.forEach((obj) => {
     if (obj.type === 'file') {
+      const maxFileSize = 2; // 2 MB
+      const maxLimit = 20; // 20 MB
       if (obj.validation) {
         validations[obj.name] = {
           ...obj.validation,
-          maxFileSize: 10 * 1000 * 1000, // 10 MB
+          maxFileSize: (obj.validation.maxFileSize && obj.validation.maxFileSize <= maxLimit)
+            ? obj.validation.maxFileSize : maxFileSize,
         };
       } else {
-        validations[obj.name] = obj.validation;
+        validations[obj.name] = { maxFileSize };
       }
     } else if (obj.validation) {
       validations[obj.name] = obj.validation;
@@ -124,11 +127,13 @@ function validate(value, validation) {
         }
         break;
       }
-      case 'maxFileSize':
-        if (value.size > validation[key]) {
-          errors.push('Maximum 10MB file size allowed');
+      case 'maxFileSize': {
+        const maxBytes = validation[key] * 1000 * 1000;
+        if (value.size > maxBytes) {
+          errors.push(`Maximum ${validation[key]} MB file size allowed`);
         }
         break;
+      }
       default:
         break;
     }

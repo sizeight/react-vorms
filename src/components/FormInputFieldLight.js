@@ -50,6 +50,7 @@ const propTypes = {
         'PNG',
       ]),
     ),
+    maxFileSize: PropTypes.number,
   }).isRequired,
   width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   disabled: PropTypes.bool.isRequired,
@@ -102,12 +103,19 @@ const FormInputField = (props) => {
   const ariaDescribedBy = helpText ? helpTextId : null;
 
 
-  // If field type is `file` and only certain extensions are allowed, include this in the helpText
+  /*
+   * If field type is `file`:
+   * - Include max file size in helpText
+   * - Check if only certain extensions are allowed and include this info in the helpText
+   */
   let helpTextExtra = '';
-  if (type === 'file' && validation.extensions) {
-    const tmp = validation.extensions.join(', ');
-    const idx = tmp.lastIndexOf(',');
-    helpTextExtra = ` Only ${tmp.slice(0, idx)} or${tmp.slice(idx + 1)} allowed.`;
+  if (type === 'file') {
+    helpTextExtra = ` Maximun file size ${validation.maxFileSize} MB.`;
+    if (validation.extensions) {
+      const tmp = validation.extensions.join(', ');
+      const idx = tmp.lastIndexOf(',');
+      helpTextExtra = ` ${helpTextExtra} Only ${tmp.slice(0, idx)} or${tmp.slice(idx + 1)} allowed.`;
+    }
   }
 
 
