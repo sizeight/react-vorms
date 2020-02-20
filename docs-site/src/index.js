@@ -429,6 +429,7 @@ const Demo = () => {
                         helpText: 'A photo of the plant in it\'s natural environment.',
                         validation: {
                           required: true,
+                          maxFileSize: 5
                         },
                       },
                     ],
