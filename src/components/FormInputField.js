@@ -6,7 +6,7 @@ import CustomFormInputFile from './CustomFormInputFile';
 import CustomFormInputMultiCheckbox from './CustomFormInputMultiCheckbox';
 import CustomFormInputTextAreaWYSIWYG from './CustomFormInputTextAreaWYSIWYG';
 import InvalidFeedback from './InvalidFeedback';
-import { COUNTRIES } from '../constants';
+import { MAX_FILE_SIZE, COUNTRIES } from '../constants';
 
 
 const propTypes = {
@@ -106,7 +106,7 @@ const FormInputField = (props) => {
    */
   let helpTextExtra = '';
   if (type === 'file') {
-    helpTextExtra = ` Maximun file size ${validation.maxFileSize} MB.`;
+    helpTextExtra = ` Maximun file size ${validation.maxFileSize || MAX_FILE_SIZE} MB.`;
     if (validation.extensions) {
       const tmp = validation.extensions.join(', ');
       const idx = tmp.lastIndexOf(',');

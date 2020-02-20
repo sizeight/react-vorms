@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { FILE_TYPES } from '../constants';
+import { MAX_FILE_SIZE, FILE_TYPES } from '../constants';
 
 /*
  * Return true if all field names are unique.
@@ -42,7 +42,7 @@ function definitionToValidations(definition) {
   const validations = {};
   definition.forEach((obj) => {
     if (obj.type === 'file') {
-      const maxFileSize = 2; // 2 MB
+      const maxFileSize = MAX_FILE_SIZE; // 2 MB
       const maxLimit = 20; // 20 MB
       if (obj.validation) {
         validations[obj.name] = {

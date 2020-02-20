@@ -1,3 +1,6 @@
+export const MAX_FILE_SIZE = 2; // 2 MB
+
+
 export const FILE_TYPES = [
   {
     fileType: 'image/gif',
