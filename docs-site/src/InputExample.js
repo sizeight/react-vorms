@@ -92,7 +92,7 @@ const InputExample = (props) => {
 
 
   return (
-    <React.Fragment>
+    <>
       <div className="row mt-3">
         <div className="col-12">
           <h2>{heading}</h2>
@@ -188,7 +188,7 @@ const MyComponent = () => {
         </div>
       </div>
       <hr />
-    </React.Fragment>
+    </>
   );
 };
 
