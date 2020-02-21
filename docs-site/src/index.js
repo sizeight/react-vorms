@@ -422,13 +422,107 @@ const Demo = () => {
                     [
                       {
                         type: 'text',
-                        name: 'text_species',
-                        label: 'Species',
+                        name: 'text_string',
+                        label: 'Any string',
                         initialValue: 'Oertendahlii',
-                        helpText: 'The species of plant you found',
                         validation: {
                           required: true,
-                          min: 6,
+                        },
+                        width: 6,
+                      },
+                    ],
+                    [
+                      {
+                        type: 'text',
+                        name: 'text_number',
+                        label: 'A number',
+                        initialValue: 'Not a number',
+                        helpText: 'This must be a number',
+                        validation: {
+                          number: true,
+                        },
+                      },
+                      {
+                        type: 'text',
+                        name: 'text_number_min',
+                        label: 'A number with minimum 100',
+                        initialValue: '89',
+                        validation: {
+                          number: {
+                            min: 100,
+                          },
+                        },
+                      },
+                      {
+                        type: 'text',
+                        name: 'text_number_max',
+                        label: 'A number with maximum 100',
+                        initialValue: '120',
+                        validation: {
+                          number: {
+                            max: 100,
+                          },
+                        },
+                      },
+                      {
+                        type: 'text',
+                        name: 'text_number_lessThan',
+                        label: 'A number less than 100',
+                        initialValue: '120',
+                        validation: {
+                          number: {
+                            lessThan: 100,
+                          },
+                        },
+                      },
+                    ],
+                    [
+                      {
+                        type: 'text',
+                        name: 'text_number_moreThan',
+                        label: 'A number greater than 100',
+                        initialValue: '80',
+                        validation: {
+                          required: true,
+                          number: {
+                            moreThan: 100,
+                          },
+                        },
+                      },
+                      {
+                        type: 'text',
+                        name: 'text_number_positive',
+                        label: 'A positive number',
+                        initialValue: '-10',
+                        validation: {
+                          required: true,
+                          number: {
+                            positive: true,
+                          },
+                        },
+                      },
+                      {
+                        type: 'text',
+                        name: 'text_number_negative',
+                        label: 'A negative number',
+                        initialValue: '10',
+                        validation: {
+                          required: true,
+                          number: {
+                            negative: true,
+                          },
+                        },
+                      },
+                      {
+                        type: 'text',
+                        name: 'text_number_integer',
+                        label: 'An integer',
+                        initialValue: '100.789',
+                        validation: {
+                          required: true,
+                          number: {
+                            integer: true,
+                          },
                         },
                       },
                     ],
