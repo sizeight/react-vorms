@@ -436,7 +436,7 @@ const Demo = () => {
                         type: 'text',
                         name: 'text_number',
                         label: 'A number',
-                        initialValue: 'Not a number',
+                        initialValue: '9a',
                         helpText: 'This must be a number',
                         validation: {
                           number: true,
