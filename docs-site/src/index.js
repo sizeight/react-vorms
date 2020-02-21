@@ -8,8 +8,8 @@ import InputExample from './InputExample';
 
 const inputs = [
   {
-    path: '/text-hooks/',
-    title: 'Text hooks',
+    path: '/large-example/',
+    title: 'Large example',
   },
   {
     path: '/dynamic-form/',
@@ -68,55 +68,48 @@ const inputs = [
 const Demo = () => {
   return (
     <Router>
-      <div className="container-fluid">
-        <div className="row flex-xl-nowrap">
-          <div className="col-12 col-md-3 col-xl-2">
-
-            <ul className="nav flex-column">
-              <li className="nav-item">
-                <NavLink
-                  to="/"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  Getting Started
-                </NavLink>
-              </li>
-            </ul>
-
-            <p>Inputs</p>
-
-            <ul className="nav nav-pills flex-column">
-              {inputs.map(input => (
-                <li className="nav-item" key={input.path}>
-                  <NavLink
-                    to={input.path}
-                    className="nav-link"
-                    activeClassName="active"
-                  >
-                    {input.title}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-
+      <div className="navigation    bs4 bg-light my-3">
+        <h1>
+          <div style={{ display: 'inline-block', border: '3px solid #212529', padding: '0px 10px 6px' }}>
+            react-
+            <em>vorms</em>
           </div>
+        </h1>
+        <p>Batteries included, minimal setup reusable forms for React & Bootstrap combo apps.</p>
 
-          <main className="col-12 col-md-9 col-xl-10">
-            <div className="row mb-5 mt-5">
-              <div className="col">
-                <h1>
-                  <div style={{ display: 'inline-block', border: '3px solid #212529', padding: '0px 10px 6px' }}>
-                    react-
-                    <em>vorms</em>
-                  </div>
-                </h1>
-                <p>
-                  Batteries included, minimal setup reusable forms for React & Bootstrap combo apps.
-                </p>
-              </div>
-            </div>
+        <ul className="nav flex-column">
+          <li className="nav-item">
+            <NavLink
+              to="/"
+              className="nav-link"
+              activeClassName="active"
+            >
+              Getting Started
+            </NavLink>
+          </li>
+        </ul>
 
+        <p>Inputs</p>
+
+        <ul className="nav nav-pills flex-column">
+          {inputs.map((input) => (
+            <li className="nav-item" key={input.path}>
+              <NavLink
+                to={input.path}
+                className="nav-link"
+                activeClassName="active"
+              >
+                {input.title}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+
+      </div>
+
+      <main className="main" role="main">
+        <div className="main-content">
+          <div className="main-section bs4 col-12">
             <Route
               path="/"
               exact
@@ -198,17 +191,18 @@ const Demo = () => {
               )}
             />
 
+
             <Route
-              path="/text-hooks/"
+              path="/large-example/"
               exact
               component={() => (
                 <InputExample
-                  heading="Text Input"
+                  heading="Large example"
                   definition={[
                     [
                       {
                         type: 'text',
-                        name: 'genus',
+                        name: 'large_genus',
                         label: 'Genus',
                         initialValue: 'Plectranthus',
                         helpText: 'A principal taxonomic category that ranks above species and below family, and is denoted by a capitalised Latin name, e.g. Plectranthus.',
@@ -220,7 +214,7 @@ const Demo = () => {
                       },
                       {
                         type: 'email',
-                        name: 'email',
+                        name: 'large_email',
                         label: 'Your email address',
                         initialValue: '',
                         validation: {
@@ -231,7 +225,7 @@ const Demo = () => {
                       },
                       {
                         type: 'text',
-                        name: 'url',
+                        name: 'large_url',
                         label: 'Your website URL',
                         initialValue: '',
                         helpText: 'Include http:// or https:// e.g. http://www.example.com',
@@ -249,7 +243,7 @@ const Demo = () => {
                     [
                       {
                         type: 'select',
-                        name: 'species',
+                        name: 'large_species',
                         label: 'Species',
                         helpText: 'Which species did you find?',
                         initialValue: 'ernstii',
@@ -282,18 +276,18 @@ const Demo = () => {
                         label: 'A 2nd heading inside a form',
                       },
                     ],
-                    /*
                     [
                       {
                         type: 'hidden',
-                        name: 'id',
-                        initialValue: 15,
+                        name: 'large_hidden_message',
+                        label: 'Hidden label',
+                        initialValue: "This is a secret that the user won't see",
                       },
                     ],
                     [
                       {
                         type: 'textarea',
-                        name: 'description',
+                        name: 'large_description',
                         label: 'Description',
                         initialValue: '',
                         placeholder: 'Describe the species characteristics...',
@@ -307,7 +301,7 @@ const Demo = () => {
                     [
                       {
                         type: 'checkbox',
-                        name: 'endangered',
+                        name: 'large_endangered',
                         label: 'Endangered',
                         helpText: 'Is the species endangered?',
                         initialValue: true,
@@ -319,7 +313,7 @@ const Demo = () => {
                     [
                       {
                         type: 'radio',
-                        name: 'cultivar',
+                        name: 'large_cultivar',
                         label: 'Cultivar',
                         helpText: 'Which Plectranthus ecklonii cultivar did you find?',
                         initialValue: 'Medley-Wood',
@@ -345,7 +339,7 @@ const Demo = () => {
                     [
                       {
                         type: 'multi-checkbox',
-                        name: 'species-alt',
+                        name: 'large_species-alt',
                         label: 'Species',
                         helpText: 'Which species did you find?',
                         initialValue: ['ernstii', 'oertendahlii'],
@@ -371,31 +365,8 @@ const Demo = () => {
                     ],
                     [
                       {
-                        type: 'date',
-                        name: 'identification_date',
-                        label: 'First identified',
-                        helpText: 'The date on which species was first found.',
-                        initialValue: '',
-                        validation: {
-                          required: true,
-                        },
-                      },
-                      {
-                        type: 'datetime',
-                        name: 'identification_date_and_time',
-                        label: 'First identified',
-                        helpText: 'The date and time on which species was first found.',
-                        initialValue: '',
-                        validation: {
-                          required: true,
-                        },
-                      },
-                    ],
-                    */
-                    [
-                      {
                         type: 'text',
-                        name: 'genus-disabled',
+                        name: 'large_genus-disabled',
                         label: 'Genus',
                         hideLabel: true,
                         initialValue: 'Plectranthus',
@@ -411,7 +382,7 @@ const Demo = () => {
                     [
                       {
                         type: 'textarea-wysiwyg',
-                        name: 'description-alt',
+                        name: 'large_description-alt',
                         label: 'Description',
                         helpText: 'Decribe the species',
                         initialValue: '<p>Hello world.</p>',
@@ -423,7 +394,7 @@ const Demo = () => {
                     [
                       {
                         type: 'file',
-                        name: 'photo',
+                        name: 'large_photo',
                         label: 'Natural photograph',
                         initialValue: '',
                         helpText: 'A photo of the plant in it\'s natural environment.',
@@ -847,9 +818,10 @@ const Demo = () => {
                 </InputExample>
               )}
             />
-          </main>
+
+          </div>
         </div>
-      </div>
+      </main>
     </Router>
   );
 };
