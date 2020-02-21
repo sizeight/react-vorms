@@ -86,6 +86,55 @@ function validate(value, validation) {
           errors.push('Required');
         }
         break;
+      case 'number': {
+        // min, max. lessThan, moreThan, positive, negative, integer
+        if (value && Number.isNaN(Number.parseFloat(value))) {
+          errors.push('Must be a number');
+        }
+
+        Object.keys(validation[key]).forEach((key2) => {
+          switch (key2) {
+            case 'min':
+              if (Number.parseFloat(value) < validation[key][key2]) {
+                errors.push(`Minimun ${validation[key][key2]}`);
+              }
+              break;
+            case 'max':
+              if (Number.parseFloat(value) > validation[key][key2]) {
+                errors.push(`Maximum ${validation[key][key2]}`);
+              }
+              break;
+            case 'lessThan':
+              if (Number.parseFloat(value) >= validation[key][key2]) {
+                errors.push(`Must be less than ${validation[key][key2]}`);
+              }
+              break;
+            case 'moreThan':
+              if (Number.parseFloat(value) <= validation[key][key2]) {
+                errors.push(`Must be more than ${validation[key][key2]}`);
+              }
+              break;
+            case 'positive':
+              if (Number.parseFloat(value) < 0) {
+                errors.push('Must be a positive number');
+              }
+              break;
+            case 'negative':
+              if (Number.parseFloat(value) > 0) {
+                errors.push('Must be a negative number');
+              }
+              break;
+            case 'integer':
+              if (!Number.isInteger(Number.parseFloat(value))) {
+                errors.push('Must be ainteger');
+              }
+              break;
+            default:
+              break;
+          }
+        });
+        break;
+      }
       case 'min':
         if (value.length < validation[key]) {
           errors.push(`Minimum ${validation[key]} characters required`);
