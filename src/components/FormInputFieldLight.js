@@ -89,7 +89,7 @@ const FormInputField = (props) => {
   // Does this field have any errors and has it been touched?
   const invalid = errors !== undefined && touched;
 
-  const required = validation ? (validation.required) : false;
+  const required = (validation && validation.required !== undefined) ? validation.required : false;
 
   let selectOptions = options;
   /*
@@ -317,6 +317,7 @@ const FormInputField = (props) => {
           onChange={setFieldValue}
           onBlur={setFieldTouched}
 
+          required={required}
           disabled={disabled}
         />
       )}

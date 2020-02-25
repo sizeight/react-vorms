@@ -15,6 +15,7 @@ const propTypes = {
   ]),
   invalid: PropTypes.bool.isRequired,
 
+  required: PropTypes.bool.isRequired,
   disabled: PropTypes.bool,
 
   onChange: PropTypes.func.isRequired,
@@ -31,7 +32,7 @@ const defaultProps = {
  */
 const CustomFormInputFile = (props) => {
   const {
-    name, initialValue, value, invalid, disabled, onChange, onBlur,
+    name, initialValue, value, invalid, disabled, required, onChange, onBlur,
   } = props;
 
 
@@ -121,25 +122,27 @@ const CustomFormInputFile = (props) => {
           >
             {checkedInitialValue}
           </a>
-          <div className="custom-control custom-control-inline custom-checkbox clear-file ml-1 mr-1 ">
-            <input
-              className="custom-control-input"
-              type="checkbox"
-              id="clearFile"
+          {!required && (
+            <div className="custom-control custom-control-inline custom-checkbox clear-file ml-1 mr-1 ">
+              <input
+                className="custom-control-input"
+                type="checkbox"
+                id="clearFile"
 
-              disabled={disabled}
+                disabled={disabled}
 
-              onClick={handleClear}
+                onClick={handleClear}
 
-              ref={clearCheckBox}
-            />
-            <label /* eslint-disable-line */
-              className="custom-control-label"
-              htmlFor="clearFile"
-            >
-              Clear
-            </label>
-          </div>
+                ref={clearCheckBox}
+              />
+              <label /* eslint-disable-line */
+                className="custom-control-label"
+                htmlFor="clearFile"
+              >
+                Clear
+              </label>
+            </div>
+          )}
         </small>
       )}
     </>
