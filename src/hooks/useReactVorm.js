@@ -181,7 +181,7 @@ function validate(value, validation) {
       }
       case 'maxFileSize': {
         const maxBytes = validation[key] * 1000 * 1000;
-        if (value.size > maxBytes) {
+        if (value && value.size > maxBytes) {
           errors.push(`Maximum ${validation[key]} MB file size allowed`);
         }
         break;
