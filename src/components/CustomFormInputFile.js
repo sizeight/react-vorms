@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { validateURL } from '../utils';
@@ -57,12 +57,15 @@ const CustomFormInputFile = (props) => {
     }
   }
 
+
+  const clearCheckBox = useRef(undefined);
+
+
   const label = (value && value.name) ? `${value.name}, ${size}` : '';
-
-
   function handleChange(e) {
     // Do not fire if cancel was clicked
     if (e.currentTarget.files.length === 1) {
+      clearCheckBox.current.checked = false; // If a file is chosen, then uncheck th eclear box
       onChange(name, e.currentTarget.files[0]);
     }
   }
@@ -127,6 +130,8 @@ const CustomFormInputFile = (props) => {
               disabled={disabled}
 
               onClick={handleClear}
+
+              ref={clearCheckBox}
             />
             <label /* eslint-disable-line */
               className="custom-control-label"
