@@ -109,9 +109,14 @@ const FormInputField = (props) => {
   if (type === 'file') {
     helpTextExtra = ` Maximun file size ${validation.maxFileSize || MAX_FILE_SIZE} MB.`;
     if (validation.extensions) {
-      const tmp = validation.extensions.join(', ');
-      const idx = tmp.lastIndexOf(',');
-      helpTextExtra = ` ${helpTextExtra} Only ${tmp.slice(0, idx)} or${tmp.slice(idx + 1)} allowed.`;
+      const extensionCount = validation.extensions.length;
+      if (extensionCount > 1) {
+        const tmp = validation.extensions.join(', ');
+        const idx = tmp.lastIndexOf(',');
+        helpTextExtra = ` ${helpTextExtra} Only ${tmp.slice(0, idx)} or${tmp.slice(idx + 1)} allowed.`;
+      } else if (extensionCount === 1) {
+        helpTextExtra = ` ${helpTextExtra} Only ${validation.extensions[0]} allowed.`;
+      }
     }
   }
 
