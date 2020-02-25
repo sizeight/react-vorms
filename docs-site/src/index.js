@@ -914,9 +914,7 @@ const Demo = () => {
                         validation: {
                           required: true,
                           extensions: [
-                            'PNG',
-                            'PDF',
-                            'ICO',
+                            'JPG',
                           ],
                         },
                       },
@@ -930,8 +928,7 @@ const Demo = () => {
                           required: true,
                           extensions: [
                             'PNG',
-                            'PDF',
-                            'ICO',
+                            'JPG',
                           ],
                         },
                       },
