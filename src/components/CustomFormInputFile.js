@@ -66,7 +66,9 @@ const CustomFormInputFile = (props) => {
   function handleChange(e) {
     // Do not fire if cancel was clicked
     if (e.currentTarget.files.length === 1) {
-      clearCheckBox.current.checked = false; // If a file is chosen, then uncheck th eclear box
+      if (clearCheckBox.current) {
+        clearCheckBox.current.checked = false; // If a file is chosen, then uncheck the clear box
+      }
       onChange(name, e.currentTarget.files[0]);
     }
   }
