@@ -909,8 +909,24 @@ const Demo = () => {
                         type: 'file',
                         name: 'file_photo_2',
                         label: 'Natural photograph #2',
+                        initialValue: 'image.jpg',
+                        helpText: 'Another photo with invalid initialValue. Check console warning.',
+                        validation: {
+                          required: true,
+                          extensions: [
+                            'PNG',
+                            'JPG',
+                          ],
+                        },
+                      },
+                    ],
+                    [
+                      {
+                        type: 'file',
+                        name: 'file_photo_3',
+                        label: 'Natural photograph #3',
                         initialValue: 'http://www.example.com/image.jpg',
-                        helpText: 'Another photo of the plant in it\'s natural environment.',
+                        helpText: 'Required, so we can not clear',
                         validation: {
                           required: true,
                           extensions: [
@@ -920,14 +936,12 @@ const Demo = () => {
                       },
                       {
                         type: 'file',
-                        name: 'file_photo_3',
-                        label: 'Natural photograph #3',
-                        initialValue: 'image.jpg',
-                        helpText: 'Another photo with invalid initialValue. Check console warning.',
+                        name: 'file_photo_4',
+                        label: 'Natural photograph #4',
+                        initialValue: 'http://www.example.com/image.jpg',
+                        helpText: 'Another photo of the plant in it\'s natural environment.',
                         validation: {
-                          required: true,
                           extensions: [
-                            'PNG',
                             'JPG',
                           ],
                         },
