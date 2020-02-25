@@ -171,9 +171,15 @@ function validate(value, validation) {
           const found = FILE_TYPES.find((obj) => obj.fileType === value.type);
 
           if (!found || validation[key].findIndex((x) => x === found.fileExtension) === -1) {
-            const tmp = validation.extensions.join(', ');
-            const idx = tmp.lastIndexOf(',');
-            const errText = `Invalid file type, only ${tmp.slice(0, idx)} or${tmp.slice(idx + 1)} allowed`;
+            const extensionCount = validation.extensions.length;
+            let errText = 'Inavlid file type';
+            if (extensionCount > 1) {
+              const tmp = validation.extensions.join(', ');
+              const idx = tmp.lastIndexOf(',');
+              errText = `Invalid file type, only ${tmp.slice(0, idx)} or${tmp.slice(idx + 1)} allowed`;
+            } else if (extensionCount === 1) {
+              errText = `Invalid file type, only ${validation.extensions[0]} allowed`;
+            }
             errors.push(errText);
           }
         }
