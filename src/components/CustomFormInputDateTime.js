@@ -95,11 +95,11 @@ const CustomFormInputDateTime = (props) => {
       clearButtonTitle="Clear"
       shouldCloseOnSelect
 
-      dateFormat={showTime === 'datetime' ? 'dd MMMM yyyy HH:mm' : 'dd MMMM yyyy'}
-      showTimeSelect={showTime === 'datetime'}
-      timeFormat={showTime === 'datetime' ? 'HH:mm' : null}
-      timeIntervals={showTime === 'datetime' ? 15 : null}
-      timeCaption={showTime === 'datetime' ? 'time' : null}
+      dateFormat={showTime ? 'dd MMMM yyyy HH:mm' : 'dd MMMM yyyy'}
+      showTimeSelect={showTime}
+      timeFormat={showTime ? 'HH:mm' : null}
+      timeIntervals={showTime ? 15 : null}
+      timeCaption={showTime ? 'time' : null}
     />
   );
 };
