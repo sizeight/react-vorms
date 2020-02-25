@@ -63,7 +63,7 @@ const propTypes = {
     PropTypes.bool,
     PropTypes.array,
     PropTypes.object,
-  ]).isRequired,
+  ]),
   errors: PropTypes.arrayOf(PropTypes.string),
   touched: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -76,6 +76,7 @@ const defaultProps = {
   options: [],
   width: undefined,
   errors: undefined,
+  value: undefined,
 };
 
 const FormInputField = (props) => {
