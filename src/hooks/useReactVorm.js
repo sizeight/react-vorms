@@ -149,7 +149,7 @@ function validate(value, validation) {
         break;
       case 'max':
         if (value.length > validation[key]) {
-          errors.push(`Maximum ${validation[key]} characters required`);
+          errors.push(`Maximum ${validation[key]} characters allowed`);
         }
         break;
       case 'email':
