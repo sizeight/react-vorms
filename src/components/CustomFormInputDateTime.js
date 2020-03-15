@@ -37,7 +37,11 @@ const CustomFormInputDateTime = (props) => {
   function handleChange(date) {
     let newValue = null;
     if (date instanceof Date) {
-      newValue = date.toISOString();
+      try {
+        newValue = date.toISOString();
+      } catch (err) {
+        newValue = null;
+      }
     }
     onChange(name, newValue);
   }
