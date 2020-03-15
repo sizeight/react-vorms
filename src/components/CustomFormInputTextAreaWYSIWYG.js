@@ -9,6 +9,7 @@ import { stateToHTML } from 'draft-js-export-html';
 
 
 const propTypes = {
+  // id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   // required: PropTypes.bool,
   value: PropTypes.string,

@@ -11,6 +11,7 @@ import { MAX_FILE_SIZE, COUNTRIES } from '../constants';
 
 const propTypes = {
   // From definition
+  idSuffix: PropTypes.number.isRequired,
   type: PropTypes.oneOf([
     'text', 'textarea', 'checkbox', 'email', 'datetime', 'date', 'file',
     'textarea-wysiwyg', 'hidden',
@@ -81,6 +82,7 @@ const defaultProps = {
 
 const FormInputField = (props) => {
   const {
+    idSuffix,
     type, name, initialValue, label, hideLabel, placeholder, validation, helpText, options, width,
     disabled, className,
     value, errors, touched, onChange, onBlur, setFieldValue, setFieldTouched,
@@ -123,7 +125,7 @@ const FormInputField = (props) => {
   const helpTextExtended = `${helpText || ''}${helpTextExtra || ''}`;
 
   // Assistive technologies
-  const helpTextId = `id-${name}-helptext`;
+  const helpTextId = `id_${name}_helptext__${idSuffix}`;
   const ariaDescribedBy = helpTextExtended ? helpTextId : null;
 
 
@@ -132,7 +134,7 @@ const FormInputField = (props) => {
       {(['checkbox', 'hidden'].findIndex((x) => x === type) === -1) && (
         <label /* eslint-disable-line jsx-a11y/label-has-for */
           className={hideLabel === true ? 'sr-only' : ''}
-          htmlFor={`id-${name}`}
+          htmlFor={`id_${name}__${idSuffix}`}
         >
           {`${label}${required ? ' *' : ''}`}
         </label>
@@ -144,7 +146,7 @@ const FormInputField = (props) => {
           className={`form-control form-control-sm${invalid ? ' is-invalid' : ''}`}
           type={type}
           name={name}
-          id={`id-${name}`}
+          id={`id_${name}__${idSuffix}`}
 
           placeholder={placeholder}
           required={required}
@@ -162,7 +164,7 @@ const FormInputField = (props) => {
         <textarea
           className={`form-control form-control-sm${invalid ? ' is-invalid' : ''}`}
           name={name}
-          id={`id-${name}`}
+          id={`id_${name}__${idSuffix}`}
 
           placeholder={placeholder}
           required={required}
@@ -182,7 +184,7 @@ const FormInputField = (props) => {
           className={`form-control form-control-sm${invalid ? ' is-invalid' : ''}`}
           type="select"
           name={name}
-          id={`id-${name}`}
+          id={`id_${name}__${idSuffix}`}
 
           required={required}
           value={value}
@@ -210,7 +212,7 @@ const FormInputField = (props) => {
             className={`custom-control-input${invalid ? ' is-invalid' : ''}`}
             type="checkbox"
             name={name}
-            id={`id-${name}`}
+            id={`id_${name}__${idSuffix}`}
 
             required={required}
             checked={value}
@@ -222,7 +224,7 @@ const FormInputField = (props) => {
           />
           <label /* eslint-disable-line jsx-a11y/label-has-for */
             className="custom-control-label"
-            htmlFor={`id-${name}`}
+            htmlFor={`id_${name}__${idSuffix}`}
           >
             {label}
           </label>
@@ -241,7 +243,7 @@ const FormInputField = (props) => {
                 className={`custom-control-input${invalid ? ' is-invalid' : ''}`}
                 type="radio"
                 name={name}
-                id={`id-${name}-${option.value}`}
+                id={`id_${name}_${option.value}__${idSuffix}`}
 
                 value={option.value}
                 key={option.value}
@@ -256,7 +258,7 @@ const FormInputField = (props) => {
               />
               <label /* eslint-disable-line jsx-a11y/label-has-for */
                 className="custom-control-label"
-                htmlFor={`id-${name}-${option.value}`}
+                htmlFor={`id_${name}_${option.value}__${idSuffix}`}
               >
                 {option.label}
               </label>
@@ -268,6 +270,7 @@ const FormInputField = (props) => {
 
       {type === 'multi-checkbox' && (
         <CustomFormInputMultiCheckbox
+          id={`id_${name}__${idSuffix}`}
           name={name}
           options={options}
           value={value}
@@ -282,6 +285,7 @@ const FormInputField = (props) => {
 
       {(type === 'datetime' || type === 'date') && (
         <CustomFormInputDateTime
+          id={`id_${name}__${idSuffix}`}
           type={type}
           name={name}
           value={value}
@@ -296,6 +300,7 @@ const FormInputField = (props) => {
 
       {type === 'textarea-wysiwyg' && (
         <CustomFormInputTextAreaWYSIWYG
+          id={`id_${name}__${idSuffix}`}
           name={name}
           placeholder={placeholder}
           value={value}
@@ -308,6 +313,7 @@ const FormInputField = (props) => {
 
       {type === 'file' && (
         <CustomFormInputFile
+          id={`id_${name}__${idSuffix}`}
           name={name}
           initialValue={initialValue}
           value={value}

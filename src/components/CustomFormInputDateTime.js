@@ -6,6 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 
 const propTypes = {
+  id: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['datetime', 'date']).isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
@@ -26,7 +27,7 @@ const defaultProps = {
  */
 const CustomFormInputDateTime = (props) => {
   const {
-    name, type, value, invalid, disabled, onChange, onBlur,
+    id, name, type, value, invalid, disabled, onChange, onBlur,
   } = props;
 
 
@@ -85,7 +86,7 @@ const CustomFormInputDateTime = (props) => {
 
       type={type}
       name={name}
-      id={`id-${name}`}
+      id={id}
 
       selected={value ? new Date(value) : null}
       disabled={disabled}

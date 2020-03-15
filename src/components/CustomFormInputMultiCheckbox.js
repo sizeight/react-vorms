@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 
 const propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.arrayOf(
     PropTypes.oneOfType([
@@ -35,7 +36,7 @@ const defaultProps = {
  */
 const CustomFormInputMultiCheckbox = (props) => {
   const {
-    name, options, value, invalid, disabled, onChange, onBlur,
+    id, name, options, value, invalid, disabled, onChange, onBlur,
   } = props;
 
 
@@ -79,7 +80,7 @@ const CustomFormInputMultiCheckbox = (props) => {
             className={`custom-control-input${invalid ? ' is-invalid' : ''}`}
             type="checkbox"
             name={`${name}:${i}`} // e.g. tags:2
-            id={`id-${name}-${i}`} // e.g. id-tags-2
+            id={`${id}__${i}`} // e.g. id-tags-2
             checked={value.findIndex((val) => val === option.value) > -1}
 
             disabled={disabled || option.disabled}
@@ -89,7 +90,7 @@ const CustomFormInputMultiCheckbox = (props) => {
           />
           <label /* eslint-disable-line jsx-a11y/label-has-for */
             className="custom-control-label"
-            htmlFor={`id-${name}-${i}`}
+            htmlFor={`${id}__${i}`}
           >
             {option.label}
           </label>

@@ -65,6 +65,16 @@ const CustomForm = (props) => {
     }
   });
 
+
+  /*
+   * Generate a unique id suffix for field id`s to ensure more than one form can be used on same
+   * page with unique id`s.`
+   */
+  const array = new Uint32Array(1);
+  window.crypto.getRandomValues(array);
+  const idSuffix = array[0];
+
+
   return (
     <form onSubmit={onSubmit} noValidate>
       {definition.map((formRow, i) => (
@@ -85,6 +95,7 @@ const CustomForm = (props) => {
                 />
               ) : (
                 <FormInputField
+                  idSuffix={idSuffix}
                   type={field.type}
                   name={field.name}
                   label={field.label}

@@ -5,6 +5,7 @@ import { validateURL } from '../utils';
 
 
 const propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   initialValue: PropTypes.string.isRequired, // Must be a valid URL to file OR empty string
 
@@ -32,7 +33,7 @@ const defaultProps = {
  */
 const CustomFormInputFile = (props) => {
   const {
-    name, initialValue, value, invalid, disabled, required, onChange, onBlur,
+    id, name, initialValue, value, invalid, disabled, required, onChange, onBlur,
   } = props;
 
 
@@ -98,7 +99,7 @@ const CustomFormInputFile = (props) => {
           className={`custom-file-input${invalid ? ' is-invalid' : ''}`}
           type="file"
           name={name}
-          id={`id-${name}`}
+          id={id}
 
           disabled={disabled}
 
@@ -107,7 +108,7 @@ const CustomFormInputFile = (props) => {
         />
         <label /* eslint-disable-line jsx-a11y/label-has-for */
           className="custom-file-label"
-          htmlFor={`id-${name}`}
+          htmlFor={id}
         >
           {label}
         </label>
@@ -129,7 +130,7 @@ const CustomFormInputFile = (props) => {
               <input
                 className="custom-control-input"
                 type="checkbox"
-                id="clearFile"
+                id={`clearFile__${id}`}
 
                 disabled={disabled}
 
@@ -139,7 +140,7 @@ const CustomFormInputFile = (props) => {
               />
               <label /* eslint-disable-line */
                 className="custom-control-label"
-                htmlFor="clearFile"
+                htmlFor={`clearFile__${id}`}
               >
                 Clear
               </label>
