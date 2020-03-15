@@ -12,7 +12,11 @@
   background-color: transparent;
   color: #000;
 }
-
+/* Display bug fix with time and today button */
+.react-datepicker__time-container--with-today-button {
+  right: -90px;
+  top: -1px;
+}
 
 .RichEditor-root {
   background: #fff;
