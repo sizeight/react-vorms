@@ -83,6 +83,16 @@ function definitionToTouched(definition, isTouched) {
   return touched;
 }
 
+function definitionToDefaultEmptyValues(definition) {
+  const emptyValues = {};
+  definition.forEach((obj) => {
+    if (Object.prototype.hasOwnProperty.call(obj, 'emptyValue')) {
+      emptyValues[obj.name] = obj.emptyValue;
+    }
+  });
+  return emptyValues;
+}
+
 
 function validate(value, validation) {
   const errors = [];
@@ -210,6 +220,9 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
   const [values, setValues] = useState(definitionToValues(flatDefinition));
   const [errors, setErrors] = useState(definitionToErrors(flatDefinition));
   const [touched, setTouched] = useState(definitionToTouched(flatDefinition, false));
+  const [defaultEmptyValues, setDefaultEmptyValues] = useState(
+    definitionToDefaultEmptyValues(flatDefinition),
+  );
   const validations = definitionToValidations(flatDefinition);
 
   const [submitCount, setSubmitCount] = useState(0);
@@ -226,6 +239,7 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     setValues(definitionToValues(flatDefinition));
     setErrors(definitionToErrors(flatDefinition));
     setTouched(definitionToTouched(flatDefinition, false));
+    setDefaultEmptyValues(definitionToDefaultEmptyValues(flatDefinition));
     setSubmitCount(0);
     setIsSubmitting(false);
     setIsValidating(false);
@@ -275,7 +289,12 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
    */
   function onChange(e) {
     const { name, type } = e.target;
-    const value = type === 'checkbox' ? e.target.checked : e.target.value;
+    let value = type === 'checkbox' ? e.target.checked : e.target.value;
+
+    if (value === '' && Object.prototype.hasOwnProperty.call(defaultEmptyValues, name)) {
+      value = defaultEmptyValues[name];
+    }
+
     setValues({
       ...values,
       [name]: value,
