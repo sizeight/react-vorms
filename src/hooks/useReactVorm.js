@@ -25,14 +25,20 @@ function areFieldNamesUnique(definition) {
 function definitionToValues(definition) {
   const values = {};
   definition.forEach((obj) => {
-    if (obj.type === 'text' && obj.validation && Object.prototype.hasOwnProperty.call(obj.validation, 'number')) {
+    if (obj.type === 'text' && obj.validation && obj.validation.number) {
+      // Numbers have empty value of `null` out of the box
       if (obj.initialValue === '') {
         values[obj.name] = null;
       } else {
         values[obj.name] = obj.initialValue;
       }
     } else if (obj.type !== 'heading' && obj.type !== 'file') {
-      values[obj.name] = obj.initialValue;
+      // We can specify empty values if required
+      if (obj.emptyValue !== undefined && obj.initialValue === '') {
+        values[obj.name] = obj.emptyValue;
+      } else {
+        values[obj.name] = obj.initialValue;
+      }
     }
   });
   return values;
