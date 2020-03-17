@@ -428,7 +428,28 @@ const Demo = () => {
                         validation: {
                           required: true,
                         },
-                        width: 6,
+                        width: 4,
+                      },
+                      {
+                        type: 'text',
+                        name: 'text_string_empty',
+                        label: 'Any string',
+                        initialValue: 'Clear this',
+                        emptyValue: null,
+                        validation: {
+                          required: true,
+                        },
+                        width: 4,
+                      },
+                      {
+                        type: 'text',
+                        name: 'text_number_A',
+                        label: 'Any number',
+                        initialValue: '',
+                        validation: {
+                          number: true,
+                        },
+                        width: 4,
                       },
                     ],
                     [

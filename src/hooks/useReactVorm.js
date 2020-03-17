@@ -25,7 +25,13 @@ function areFieldNamesUnique(definition) {
 function definitionToValues(definition) {
   const values = {};
   definition.forEach((obj) => {
-    if (obj.type !== 'heading' && obj.type !== 'file') {
+    if (obj.type === 'text' && obj.validation && Object.prototype.hasOwnProperty.call(obj.validation, 'number')) {
+      if (obj.initialValue === '') {
+        values[obj.name] = null;
+      } else {
+        values[obj.name] = obj.initialValue;
+      }
+    } else if (obj.type !== 'heading' && obj.type !== 'file') {
       values[obj.name] = obj.initialValue;
     }
   });
@@ -66,6 +72,18 @@ function definitionToValidations(definition) {
   });
   return validations;
 }
+
+
+function definitionToDefaultEmptyValues(definition) {
+  const emptyValues = {};
+  definition.forEach((obj) => {
+    if (Object.prototype.hasOwnProperty.call(obj, 'emptyValue')) {
+      emptyValues[obj.name] = obj.emptyValue;
+    }
+  });
+  return emptyValues;
+}
+
 
 /* e.g.
  * {
@@ -210,6 +228,9 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
   const [values, setValues] = useState(definitionToValues(flatDefinition));
   const [errors, setErrors] = useState(definitionToErrors(flatDefinition));
   const [touched, setTouched] = useState(definitionToTouched(flatDefinition, false));
+  const [defaultEmptyValues, setDefaultEmptyValues] = useState(
+    definitionToDefaultEmptyValues(flatDefinition),
+  );
   const validations = definitionToValidations(flatDefinition);
 
   const [submitCount, setSubmitCount] = useState(0);
@@ -226,6 +247,7 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     setValues(definitionToValues(flatDefinition));
     setErrors(definitionToErrors(flatDefinition));
     setTouched(definitionToTouched(flatDefinition, false));
+    setDefaultEmptyValues(definitionToDefaultEmptyValues(flatDefinition));
     setSubmitCount(0);
     setIsSubmitting(false);
     setIsValidating(false);
@@ -276,6 +298,17 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
   function onChange(e) {
     const { name, type } = e.target;
     let value = type === 'checkbox' ? e.target.checked : e.target.value;
+
+    if (validations[name] && validations[name].number) {
+      if (value === '') {
+        value = null;
+      }
+    }
+
+    // if (value === '' && Object.prototype.hasOwnProperty.call(defaultEmptyValues, name)) {
+    if (value === '' && defaultEmptyValues[name] !== undefined) {
+      value = defaultEmptyValues[name];
+    }
 
     setValues({
       ...values,

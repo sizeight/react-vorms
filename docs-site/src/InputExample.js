@@ -35,49 +35,55 @@ const InputExample = (props) => {
    */
   useEffect(
     () => {
-      if (reactVorm.values.dynamic_form_species === 'ecklonii') {
-        const newDefinition = [
-          ...definition,
-          [
-            {
-              type: 'radio',
-              name: 'dynamic_form_cultivar',
-              label: 'Cultivar',
-              helpText: 'Which Plectranthus ecklonii cultivar did you find?',
-              initialValue: 'Medley-Wood',
-              validation: {
-                required: true,
+      function modifyDefinition() {
+        if (reactVorm.values.dynamic_form_species === 'ecklonii') {
+          const newDefinition = [
+            ...definition,
+            [
+              {
+                type: 'radio',
+                name: 'dynamic_form_cultivar',
+                label: 'Cultivar',
+                helpText: 'Which Plectranthus ecklonii cultivar did you find?',
+                initialValue: 'Medley-Wood',
+                validation: {
+                  required: true,
+                },
+                options: [
+                  {
+                    value: 'Tommy',
+                    label: 'Plectranthus ecklonii Tommy',
+                  },
+                  {
+                    value: 'Medley-Wood',
+                    label: 'Plectranthus ecklonii Medley-Wood',
+                  },
+                  {
+                    value: 'Erma',
+                    label: 'Plectranthus ecklonii Erma',
+                  },
+                ],
               },
-              options: [
-                {
-                  value: 'Tommy',
-                  label: 'Plectranthus ecklonii Tommy',
-                },
-                {
-                  value: 'Medley-Wood',
-                  label: 'Plectranthus ecklonii Medley-Wood',
-                },
-                {
-                  value: 'Erma',
-                  label: 'Plectranthus ecklonii Erma',
-                },
-              ],
-            },
-          ],
-        ];
-        reactVorm.onUpdateDefinition(newDefinition);
-        setDefinitionState(newDefinition);
-      } else {
-        const newDefinition = [...definition];
-        reactVorm.onUpdateDefinition(newDefinition);
-        setDefinitionState(newDefinition);
+            ],
+          ];
+          reactVorm.onUpdateDefinition(newDefinition);
+          setDefinitionState(newDefinition);
+        } else {
+          const newDefinition = [...definition];
+          reactVorm.onUpdateDefinition(newDefinition);
+          setDefinitionState(newDefinition);
+        }
+      }
+
+      if (reactVorm.values.dynamic_form_species !== undefined) {
+        modifyDefinition();
       }
     },
     [reactVorm.values.dynamic_form_species],
   );
 
   /*
-   * Whenever submitReady, we can go ahead ond submit our API calls etc.
+   * Whenever submitReady, we can go ahead and submit our API calls etc.
    * When we are done, remember to setIsSubmitting to false.
    */
   useEffect(

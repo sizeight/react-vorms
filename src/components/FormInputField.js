@@ -150,7 +150,7 @@ const FormInputField = (props) => {
 
           placeholder={placeholder}
           required={required}
-          value={value}
+          value={value === null ? '' : value}
           onChange={onChange}
           onBlur={onBlur}
           disabled={disabled}
