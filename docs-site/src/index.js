@@ -428,7 +428,18 @@ const Demo = () => {
                         validation: {
                           required: true,
                         },
-                        width: 4,
+                        width: 3,
+                      },
+                      {
+                        type: 'text',
+                        name: 'text_string_empty_initial',
+                        label: 'Any string',
+                        initialValue: '',
+                        emptyValue: null,
+                        validation: {
+                          required: true,
+                        },
+                        width: 3,
                       },
                       {
                         type: 'text',
@@ -439,7 +450,7 @@ const Demo = () => {
                         validation: {
                           required: true,
                         },
-                        width: 4,
+                        width: 3,
                       },
                       {
                         type: 'text',
@@ -449,7 +460,7 @@ const Demo = () => {
                         validation: {
                           number: true,
                         },
-                        width: 4,
+                        width: 3,
                       },
                     ],
                     [
