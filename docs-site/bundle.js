@@ -156,38 +156,44 @@ var InputExample = function InputExample(props) {
    */
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    if (reactVorm.values.dynamic_form_species === 'ecklonii') {
-      var newDefinition = [].concat(_toConsumableArray(definition), [[{
-        type: 'radio',
-        name: 'dynamic_form_cultivar',
-        label: 'Cultivar',
-        helpText: 'Which Plectranthus ecklonii cultivar did you find?',
-        initialValue: 'Medley-Wood',
-        validation: {
-          required: true
-        },
-        options: [{
-          value: 'Tommy',
-          label: 'Plectranthus ecklonii Tommy'
-        }, {
-          value: 'Medley-Wood',
-          label: 'Plectranthus ecklonii Medley-Wood'
-        }, {
-          value: 'Erma',
-          label: 'Plectranthus ecklonii Erma'
-        }]
-      }]]);
-      reactVorm.onUpdateDefinition(newDefinition);
-      setDefinitionState(newDefinition);
-    } else {
-      var _newDefinition = _toConsumableArray(definition);
+    function modifyDefinition() {
+      if (reactVorm.values.dynamic_form_species === 'ecklonii') {
+        var newDefinition = [].concat(_toConsumableArray(definition), [[{
+          type: 'radio',
+          name: 'dynamic_form_cultivar',
+          label: 'Cultivar',
+          helpText: 'Which Plectranthus ecklonii cultivar did you find?',
+          initialValue: 'Medley-Wood',
+          validation: {
+            required: true
+          },
+          options: [{
+            value: 'Tommy',
+            label: 'Plectranthus ecklonii Tommy'
+          }, {
+            value: 'Medley-Wood',
+            label: 'Plectranthus ecklonii Medley-Wood'
+          }, {
+            value: 'Erma',
+            label: 'Plectranthus ecklonii Erma'
+          }]
+        }]]);
+        reactVorm.onUpdateDefinition(newDefinition);
+        setDefinitionState(newDefinition);
+      } else {
+        var _newDefinition = _toConsumableArray(definition);
 
-      reactVorm.onUpdateDefinition(_newDefinition);
-      setDefinitionState(_newDefinition);
+        reactVorm.onUpdateDefinition(_newDefinition);
+        setDefinitionState(_newDefinition);
+      }
+    }
+
+    if (reactVorm.values.dynamic_form_species !== undefined) {
+      modifyDefinition();
     }
   }, [reactVorm.values.dynamic_form_species]);
   /*
-   * Whenever submitReady, we can go ahead ond submit our API calls etc.
+   * Whenever submitReady, we can go ahead and submit our API calls etc.
    * When we are done, remember to setIsSubmitting to false.
    */
 
@@ -576,7 +582,26 @@ var Demo = function Demo() {
           validation: {
             required: true
           },
-          width: 6
+          width: 4
+        }, {
+          type: 'text',
+          name: 'text_string_empty',
+          label: 'Any string',
+          initialValue: 'Clear this',
+          emptyValue: null,
+          validation: {
+            required: true
+          },
+          width: 4
+        }, {
+          type: 'text',
+          name: 'text_number_A',
+          label: 'Any number',
+          initialValue: '',
+          validation: {
+            number: true
+          },
+          width: 4
         }], [{
           type: 'text',
           name: 'text_number',
@@ -3402,7 +3427,7 @@ function (modules) {
         id: "id_".concat(name, "__").concat(idSuffix),
         placeholder: placeholder,
         required: required,
-        value: value,
+        value: value === null ? '' : value,
         onChange: onChange,
         onBlur: onBlur,
         disabled: disabled,
@@ -4730,7 +4755,13 @@ function (modules) {
     function definitionToValues(definition) {
       var values = {};
       definition.forEach(function (obj) {
-        if (obj.type !== 'heading' && obj.type !== 'file') {
+        if (obj.type === 'text' && obj.validation && Object.prototype.hasOwnProperty.call(obj.validation, 'number')) {
+          if (obj.initialValue === '') {
+            values[obj.name] = null;
+          } else {
+            values[obj.name] = obj.initialValue;
+          }
+        } else if (obj.type !== 'heading' && obj.type !== 'file') {
           values[obj.name] = obj.initialValue;
         }
       });
@@ -4773,6 +4804,16 @@ function (modules) {
         }
       });
       return validations;
+    }
+
+    function definitionToDefaultEmptyValues(definition) {
+      var emptyValues = {};
+      definition.forEach(function (obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, 'emptyValue')) {
+          emptyValues[obj.name] = obj.emptyValue;
+        }
+      });
+      return emptyValues;
     }
     /* e.g.
      * {
@@ -4972,29 +5013,34 @@ function (modules) {
           touched = _useState6[0],
           setTouched = _useState6[1];
 
+      var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(definitionToDefaultEmptyValues(flatDefinition)),
+          _useState8 = _slicedToArray(_useState7, 2),
+          defaultEmptyValues = _useState8[0],
+          setDefaultEmptyValues = _useState8[1];
+
       var validations = definitionToValidations(flatDefinition);
 
-      var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
-          _useState8 = _slicedToArray(_useState7, 2),
-          submitCount = _useState8[0],
-          setSubmitCount = _useState8[1];
-
-      var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
           _useState10 = _slicedToArray(_useState9, 2),
-          isSubmitting = _useState10[0],
-          setIsSubmitting = _useState10[1];
+          submitCount = _useState10[0],
+          setSubmitCount = _useState10[1];
 
       var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
           _useState12 = _slicedToArray(_useState11, 2),
-          isValidating = _useState12[0],
-          setIsValidating = _useState12[1];
-
-      var isValid = Object.keys(errors).length === 0;
+          isSubmitting = _useState12[0],
+          setIsSubmitting = _useState12[1];
 
       var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
           _useState14 = _slicedToArray(_useState13, 2),
-          submitReady = _useState14[0],
-          setSubmitReady = _useState14[1];
+          isValidating = _useState14[0],
+          setIsValidating = _useState14[1];
+
+      var isValid = Object.keys(errors).length === 0;
+
+      var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+          _useState16 = _slicedToArray(_useState15, 2),
+          submitReady = _useState16[0],
+          setSubmitReady = _useState16[1];
       /*
        * Reset the form state to the initial definition and values.
        */
@@ -5004,6 +5050,7 @@ function (modules) {
         setValues(definitionToValues(flatDefinition));
         setErrors(definitionToErrors(flatDefinition));
         setTouched(definitionToTouched(flatDefinition, false));
+        setDefaultEmptyValues(definitionToDefaultEmptyValues(flatDefinition));
         setSubmitCount(0);
         setIsSubmitting(false);
         setIsValidating(false);
@@ -5057,6 +5104,18 @@ function (modules) {
             name = _e$target.name,
             type = _e$target.type;
         var value = type === 'checkbox' ? e.target.checked : e.target.value;
+
+        if (validations[name] && validations[name].number) {
+          if (value === '') {
+            value = null;
+          }
+        } // if (value === '' && Object.prototype.hasOwnProperty.call(defaultEmptyValues, name)) {
+
+
+        if (value === '' && defaultEmptyValues[name] !== undefined) {
+          value = defaultEmptyValues[name];
+        }
+
         setValues(_objectSpread({}, values, _defineProperty({}, name, value)));
       }
       /*
