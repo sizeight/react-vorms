@@ -582,7 +582,17 @@ var Demo = function Demo() {
           validation: {
             required: true
           },
-          width: 4
+          width: 3
+        }, {
+          type: 'text',
+          name: 'text_string_empty_initial',
+          label: 'Any string',
+          initialValue: '',
+          emptyValue: null,
+          validation: {
+            required: true
+          },
+          width: 3
         }, {
           type: 'text',
           name: 'text_string_empty',
@@ -592,7 +602,7 @@ var Demo = function Demo() {
           validation: {
             required: true
           },
-          width: 4
+          width: 3
         }, {
           type: 'text',
           name: 'text_number_A',
@@ -601,7 +611,7 @@ var Demo = function Demo() {
           validation: {
             number: true
           },
-          width: 4
+          width: 3
         }], [{
           type: 'text',
           name: 'text_number',
@@ -4755,14 +4765,20 @@ function (modules) {
     function definitionToValues(definition) {
       var values = {};
       definition.forEach(function (obj) {
-        if (obj.type === 'text' && obj.validation && Object.prototype.hasOwnProperty.call(obj.validation, 'number')) {
+        if (obj.type === 'text' && obj.validation && obj.validation.number) {
+          // Numbers have empty value of `null` out of the box
           if (obj.initialValue === '') {
             values[obj.name] = null;
           } else {
             values[obj.name] = obj.initialValue;
           }
         } else if (obj.type !== 'heading' && obj.type !== 'file') {
-          values[obj.name] = obj.initialValue;
+          // We can specify empty values if required
+          if (obj.emptyValue !== undefined && obj.initialValue === '') {
+            values[obj.name] = obj.emptyValue;
+          } else {
+            values[obj.name] = obj.initialValue;
+          }
         }
       });
       return values;
