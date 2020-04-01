@@ -13,7 +13,7 @@ const propTypes = {
 const defaultProps = {
   placeHolderText: 'Filter...',
   onSubmit: undefined,
-  onSubmit: undefined,
+  onReset: undefined,
 };
 
 const FilterForm = (props) => {
