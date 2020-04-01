@@ -6,30 +6,42 @@ const propTypes = {
   value: PropTypes.string.isRequired,
   placeHolderText: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
 };
 
 const defaultProps = {
   placeHolderText: 'Filter...',
+  onSubmit: undefined,
 };
 
 const FilterForm = (props) => {
-  const { value, placeHolderText, onChange } = props;
+  const {
+    value, placeHolderText, onChange, onSubmit,
+  } = props;
 
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     onChange(e.target.value);
-  }
+  };
 
 
-  function handleClear() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (onSubmit !== undefined) {
+      onSubmit(e.target.value);
+    }
+  };
+
+
+  const handleClear = () => {
     onChange('');
-  }
+  };
 
 
   return (
     <form
       className="form-inline flex-row-reverse"
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={handleSubmit}
     >
       <div className="input-group">
         <input
