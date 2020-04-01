@@ -7,16 +7,18 @@ const propTypes = {
   placeHolderText: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func,
+  onReset: PropTypes.func,
 };
 
 const defaultProps = {
   placeHolderText: 'Filter...',
   onSubmit: undefined,
+  onSubmit: undefined,
 };
 
 const FilterForm = (props) => {
   const {
-    value, placeHolderText, onChange, onSubmit,
+    value, placeHolderText, onChange, onSubmit, onReset,
   } = props;
 
 
@@ -28,13 +30,16 @@ const FilterForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (onSubmit !== undefined) {
-      onSubmit(e.target.value);
+      onSubmit();
     }
   };
 
 
-  const handleClear = () => {
+  const handleReset = () => {
     onChange('');
+    if (onReset !== undefined) {
+      onReset();
+    }
   };
 
 
@@ -56,7 +61,7 @@ const FilterForm = (props) => {
             type="button"
             className={`btn ${value === '' ? 'btn-secondary' : 'btn-primary'} btn-sm ${value === '' ? 'btn-outline-secondary' : ''}`}
             disabled={value === ''}
-            onClick={handleClear}
+            onClick={handleReset}
           >
             &#215;
           </button>
