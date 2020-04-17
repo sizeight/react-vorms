@@ -223,6 +223,39 @@ function validate(value, validation) {
   return errors;
 }
 
+/*
+ * Translates the flat values to indented JSON for form submission.
+ */
+export const valuesToData = (values) => {
+  function tmp(data, keys, value) {
+    if (keys.length === 1) {
+      const d = { ...data };
+      d[keys[0]] = value;
+      return d;
+    }
+
+
+    const d2 = { ...data };
+    if (d2[keys[0]] === undefined) {
+      d2[keys[0]] = tmp({}, keys.slice(1), value);
+    } else {
+      d2[keys[0]] = {
+        ...d2[keys[0]],
+        ...tmp(d2[keys[0]], keys.slice(1), value),
+      };
+    }
+    return d2;
+  }
+
+  let finalData;
+  Object.keys(values).forEach((key) => {
+    const keys = key.split('__');
+    finalData = tmp(finalData, keys, values[key]);
+  });
+
+  return finalData;
+};
+
 
 // Custom hook
 function useReactVorm(definition, { validateOnChange = false, validateOnBlur = false } = {}) {
@@ -446,6 +479,7 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     values,
     errors,
     touched,
+    valuesToData: valuesToData(values),
 
     setErrors,
     setValues,
