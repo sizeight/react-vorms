@@ -3,17 +3,18 @@ import { useState, useEffect } from 'react';
 import { validateURL, validateEmail } from '../utils';
 import { MAX_FILE_SIZE, FILE_TYPES } from '../constants';
 
+
 /*
  * Return true if all field names are unique.
  */
-function areFieldNamesUnique(definition) {
+export const areFieldNamesUnique = (flatDefinition) => {
   // Filter out any headings and then check field names
-  const names = definition.filter((obj) => obj.type !== 'heading').map((obj) => obj.name);
+  const names = flatDefinition.filter((obj) => obj.type !== 'heading').map((obj) => obj.name);
   const unique = [...new Set(names)].length === names.length;
   if (!unique) {
     throw new Error('Form definition has duplicate field names, please ensure all field names are unique.');
   }
-}
+};
 
 
 /*
@@ -22,9 +23,9 @@ function areFieldNamesUnique(definition) {
  *              to PATCH it on update except if it is a new file or we want to delete/clear existing
  *              file
  */
-function definitionToValues(definition) {
+export const definitionToValues = (flatDefinition) => {
   const values = {};
-  definition.forEach((obj) => {
+  flatDefinition.forEach((obj) => {
     if (obj.type === 'text' && obj.validation && obj.validation.number) {
       // Numbers have empty value of `null` out of the box
       if (obj.initialValue === '') {
@@ -42,24 +43,31 @@ function definitionToValues(definition) {
     }
   });
   return values;
-}
+};
 
-function definitionToErrors(definition) {
+
+/*
+ * It is currently possibel to spec an initial error in form definition. Do we want this to be
+ * correct behaviour, or should this always just return an empty object, bacause initially a form
+ * should have no errors?
+ */
+export const definitionToErrors = (flatDefinition) => {
   const errors = {};
-  definition.forEach((obj) => {
+  flatDefinition.forEach((obj) => {
     if (obj.error) {
       errors[obj.name] = obj.error;
     }
   });
   return errors;
-}
+};
+
 
 /*
  * All files get a maxFileSize validation of 2MB built in. This can be overridden up to 20MB.
  */
-function definitionToValidations(definition) {
+export const definitionToValidations = (flatDefinition) => {
   const validations = {};
-  definition.forEach((obj) => {
+  flatDefinition.forEach((obj) => {
     if (obj.type === 'file') {
       const maxFileSize = MAX_FILE_SIZE; // 2 MB
       const maxLimit = 20; // 20 MB
@@ -77,10 +85,13 @@ function definitionToValidations(definition) {
     }
   });
   return validations;
-}
+};
 
 
-function definitionToDefaultEmptyValues(definition) {
+/*
+ *
+ */
+export const definitionToDefaultEmptyValues = (definition) => {
   const emptyValues = {};
   definition.forEach((obj) => {
     if (Object.prototype.hasOwnProperty.call(obj, 'emptyValue')) {
@@ -88,7 +99,7 @@ function definitionToDefaultEmptyValues(definition) {
     }
   });
   return emptyValues;
-}
+};
 
 
 /* e.g.
@@ -97,7 +108,7 @@ function definitionToDefaultEmptyValues(definition) {
  *   last_name: false,
  * }
  */
-function definitionToTouched(definition, isTouched) {
+export const definitionToTouched = (definition, isTouched) => {
   const touched = {};
   definition.forEach((obj) => {
     if (obj.type !== 'heading') {
@@ -105,10 +116,10 @@ function definitionToTouched(definition, isTouched) {
     }
   });
   return touched;
-}
+};
 
 
-function validate(value, validation) {
+export const validate = (value, validation) => {
   const errors = [];
   Object.keys(validation).forEach((key) => {
     switch (key) {
@@ -221,7 +232,8 @@ function validate(value, validation) {
     }
   });
   return errors;
-}
+};
+
 
 /*
  * Translates the flat values to indented JSON for form submission.
