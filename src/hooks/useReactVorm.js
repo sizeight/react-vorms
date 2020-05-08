@@ -336,8 +336,8 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
    * - Validate the fields.
    */
   function onSubmit(e) {
+    // Prevent form submission when pressing enter on text input if ony 1 text input in form
     e.preventDefault();
-    console.log(flatDefinition.length, e);
 
     setTouched(definitionToTouched(flatDefinition, true));
     setIsSubmitting(true);
