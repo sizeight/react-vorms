@@ -335,7 +335,10 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
    * - Increment submitCount.
    * - Validate the fields.
    */
-  function onSubmit() {
+  function onSubmit(e) {
+    e.preventDefault();
+    console.log(flatDefinition.length, e);
+
     setTouched(definitionToTouched(flatDefinition, true));
     setIsSubmitting(true);
     setSubmitCount(submitCount + 1);
