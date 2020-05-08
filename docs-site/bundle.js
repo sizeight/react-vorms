@@ -105,19 +105,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var highlight_js_styles_monokai_sublime_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(highlight_js_styles_monokai_sublime_css__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _lib_react_vorms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/react-vorms */ "./lib/react-vorms.js");
 /* harmony import */ var _lib_react_vorms__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_lib_react_vorms__WEBPACK_IMPORTED_MODULE_4__);
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -203,60 +207,60 @@ var InputExample = function InputExample(props) {
       reactVorm.setIsSubmitting(false);
     }
   }, [reactVorm.submitReady]);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row mt-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-12"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, heading), children)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, heading), children)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row mb-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-6"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
     className: "javascript"
-  }, "\nimport { CustomForm, FormButtons, useReactVorm } from 'react-vorms';\n\n// ...\n\nconst MyComponent = () => {\n  const myFormDefiniton = ".concat(JSON.stringify(definition, null, 2), ";\n  const myFormOptions = {\n    validateOnChange: false,\n    validateOnBlur: false,\n  };\n  const myReactVorm = useReactVorm(myFormdefinition, myFormOptions);\n\n// ...\n\n  <CustomForm\n    definition={myFormDefinition}\n    withReactVorm={myReactVorm}\n  />\n}\n"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "\nimport { CustomForm, FormButtons, useReactVorm } from 'react-vorms';\n\n// ...\n\nconst MyComponent = () => {\n  const myFormDefiniton = ".concat(JSON.stringify(definition, null, 2), ";\n  const myFormOptions = {\n    validateOnChange: false,\n    validateOnBlur: false,\n  };\n  const myReactVorm = useReactVorm(myFormdefinition, myFormOptions);\n\n// ...\n\n  <CustomForm\n    definition={myFormDefinition}\n    withReactVorm={myReactVorm}\n  />\n}\n"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-6"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: {
       border: '1px solid #eee',
       padding: '10px'
     }
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_lib_react_vorms__WEBPACK_IMPORTED_MODULE_4__["CustomForm"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_lib_react_vorms__WEBPACK_IMPORTED_MODULE_4__["CustomForm"], {
     definition: definitionState,
     withReactVorm: reactVorm
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_lib_react_vorms__WEBPACK_IMPORTED_MODULE_4__["FormButtons"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_lib_react_vorms__WEBPACK_IMPORTED_MODULE_4__["FormButtons"], {
     submitButtonText: "Go",
     buttonsPosition: "left",
     isSubmitting: reactVorm.isSubmitting,
     onSubmit: reactVorm.onSubmit,
     onCancel: reactVorm.onReset
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     className: "btn btn-success btn-sm mr-2",
     disabled: reactVorm.isSubmitting,
     onClick: reactVorm.onSubmit
-  }, "Submit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     className: "btn btn-success btn-sm mr-2",
     disabled: reactVorm.isSubmitting,
     onClick: reactVorm.onReset
-  }, "Reset"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "Reset"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     className: "btn btn-success btn-sm mr-2",
     disabled: reactVorm.isSubmitting,
     onClick: reactVorm.onValidate
-  }, "Validate")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, "Validate")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
     className: "javascript"
-  }, "isSubmitting = ".concat(reactVorm.isSubmitting)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, "isSubmitting = ".concat(reactVorm.isSubmitting)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
     className: "javascript"
-  }, "isValidating = ".concat(reactVorm.isValidatingg)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, "isValidating = ".concat(reactVorm.isValidatingg)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
     className: "javascript"
-  }, "isValid = ".concat(reactVorm.isValid)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "values"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, "isValid = ".concat(reactVorm.isValid)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "values"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
     className: "json"
-  }, JSON.stringify(reactVorm.values, null, 2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "errors"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, JSON.stringify(reactVorm.values, null, 2)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "errors"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
     className: "json"
-  }, JSON.stringify(reactVorm.errors, null, 2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "touched"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, JSON.stringify(reactVorm.errors, null, 2)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "touched"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highlight__WEBPACK_IMPORTED_MODULE_2___default.a, {
     className: "json"
-  }, JSON.stringify(reactVorm.touched, null, 2)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
+  }, JSON.stringify(reactVorm.touched, null, 2)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
 };
 
 InputExample.propTypes = propTypes;
@@ -331,57 +335,57 @@ var inputs = [{
 }];
 
 var Demo = function Demo() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "navigation    bs4 bg-light my-3"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: {
       display: 'inline-block',
       border: '3px solid #212529',
       padding: '0px 10px 6px'
     }
-  }, "react-", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "vorms"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Batteries included, minimal setup reusable forms for React & Bootstrap combo apps."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }, "react-", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("em", null, "vorms"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Batteries included, minimal setup reusable forms for React & Bootstrap combo apps."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "nav flex-column"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
     to: "/",
     className: "nav-link",
     activeClassName: "active"
-  }, "Getting Started"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Inputs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }, "Getting Started"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Inputs"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "nav nav-pills flex-column"
   }, inputs.map(function (input) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       className: "nav-item",
       key: input.path
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
       to: input.path,
       className: "nav-link",
       activeClassName: "active"
     }, input.title));
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     className: "main",
     role: "main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-content"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-section bs4 col-12"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row mb-5 mt-5"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Installation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Installation"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("pre", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("code", {
         className: "javascript"
-      }, "$ yarn add react-vorms bootstrap")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Usage"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Features"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Easily setup a form in JSON", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Input types"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Layout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Validation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Initial values"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Slick advanced components", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Date/time picker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Rich Text editor with HTML preview"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "File uploads"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Multiple checkbox"))))));
+      }, "$ yarn add react-vorms bootstrap")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Usage"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Features"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Easily setup a form in JSON", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Input types"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Layout"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Validation"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Initial values"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Slick advanced components", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Date/time picker"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Rich Text editor with HTML preview"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "File uploads"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Multiple checkbox"))))));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/dynamic-form/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "Dynamic Form",
         definition: [[{
           type: 'radio',
@@ -403,13 +407,13 @@ var Demo = function Demo() {
             label: 'Plectranthus oertendahlii'
           }]
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Dynamic form"));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Dynamic form"));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/large-example/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "Large example",
         definition: [[{
           type: 'text',
@@ -566,13 +570,13 @@ var Demo = function Demo() {
             maxFileSize: 5
           }
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Text input field"));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Text input field"));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/text/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "Text Input",
         definition: [[{
           type: 'text',
@@ -696,13 +700,13 @@ var Demo = function Demo() {
             }
           }
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Text input field"));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Text input field"));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/hidden/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "Hidden Input",
         definition: [[{
           type: 'hidden',
@@ -710,13 +714,13 @@ var Demo = function Demo() {
           label: 'Id',
           initialValue: 15
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Hidden input field"));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Hidden input field"));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/textarea/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "TextArea Input",
         definition: [[{
           type: 'textarea',
@@ -730,13 +734,13 @@ var Demo = function Demo() {
             max: 250
           }
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "TextArea input field"));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "TextArea input field"));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/email/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "Email Input",
         definition: [[{
           type: 'email',
@@ -748,13 +752,13 @@ var Demo = function Demo() {
             email: true
           }
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Email control"));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Email control"));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/checkbox/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "Checkbox Input",
         definition: [[{
           type: 'checkbox',
@@ -766,13 +770,13 @@ var Demo = function Demo() {
             required: true
           }
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Checkbox input field"));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Checkbox input field"));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/date/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "Date Input",
         definition: [[{
           type: 'date',
@@ -784,15 +788,15 @@ var Demo = function Demo() {
             required: true
           }
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Date input field using\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Date input field using\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://reactdatepicker.com/"
       }, "react-datepicker")));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/datetime/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "DateTime Input",
         definition: [[{
           type: 'datetime',
@@ -804,15 +808,15 @@ var Demo = function Demo() {
             required: true
           }
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Date input field using\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Date input field using\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://reactdatepicker.com/"
       }, "react-datepicker")));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/richtextarea/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "RichTextArea Input",
         definition: [[{
           type: 'textarea-wysiwyg',
@@ -824,15 +828,15 @@ var Demo = function Demo() {
             required: true
           }
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "A rich text input field with HTML preview/edit, undo/redo. Uses\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "A rich text input field with HTML preview/edit, undo/redo. Uses\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://draftjs.org/"
       }, "Draft.js")));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/select/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "Select Input",
         definition: [[{
           type: 'select',
@@ -859,13 +863,13 @@ var Demo = function Demo() {
             disabled: false
           }]
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Select input field."));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Select input field."));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/radio/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "Radio Input",
         definition: [[{
           type: 'radio',
@@ -896,13 +900,13 @@ var Demo = function Demo() {
             disabled: true
           }]
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Radio input field"));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Radio input field"));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/multicheckbox/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "Multi Checkbox Input",
         definition: [[{
           type: 'multi-checkbox',
@@ -934,13 +938,13 @@ var Demo = function Demo() {
             disabled: true
           }]
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Select more than one option checkbox field."));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Select more than one option checkbox field."));
     }
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/file/",
     exact: true,
     component: function component() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InputExample__WEBPACK_IMPORTED_MODULE_4__["default"], {
         heading: "File Input",
         definition: [[{
           type: 'file',
@@ -982,12 +986,12 @@ var Demo = function Demo() {
             extensions: ['JPG']
           }
         }]]
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "File input field"));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "File input field"));
     }
   })))));
 };
 
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Demo, null), document.getElementById('app'));
+Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Demo, null), document.getElementById('app'));
 
 /***/ }),
 
@@ -1822,26 +1826,26 @@ function (modules) {
       var array = new Uint32Array(1);
       window.crypto.getRandomValues(array);
       var idSuffix = array[0];
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: onSubmit,
         noValidate: true
       }, definition.map(function (formRow, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "form-row",
           key: i
           /* eslint-disable-line react/no-array-index-key */
 
         }, formRow.map(function (field, j) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
             key: j
             /* eslint-disable-line react/no-array-index-key */
 
-          }, field.type === 'heading' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormHeading__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          }, field.type === 'heading' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormHeading__WEBPACK_IMPORTED_MODULE_2__["default"], {
             type: field.type,
             label: field.label,
             width: field.width || undefined,
             className: field.className || ''
-          }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormInputField__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormInputField__WEBPACK_IMPORTED_MODULE_3__["default"], {
             idSuffix: idSuffix,
             type: field.type,
             name: field.name,
@@ -2007,7 +2011,7 @@ function (modules) {
 
 
       var showTime = type === 'datetime';
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_datepicker__WEBPACK_IMPORTED_MODULE_2___default.a, {
         className: "form-control-sm form-control".concat(invalid ? ' is-invalid' : ''),
         type: type,
         name: name,
@@ -2166,9 +2170,9 @@ function (modules) {
         onChange(name, val);
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "custom-file custom-file-sm"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "custom-file-input".concat(invalid ? ' is-invalid' : ''),
         type: "file",
         name: name,
@@ -2176,26 +2180,26 @@ function (modules) {
         disabled: disabled,
         onChange: handleChange,
         onBlur: handleBlur
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         /* eslint-disable-line jsx-a11y/label-has-for */
         className: "custom-file-label",
         htmlFor: id
-      }, label)), checkedInitialValue && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, label)), checkedInitialValue && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "mr-1"
-      }, "Currently:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, "Currently:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: checkedInitialValue,
         target: "_blank",
         rel: "noopener noreferrer"
-      }, checkedInitialValue), !required && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, checkedInitialValue), !required && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "custom-control custom-control-inline custom-checkbox clear-file ml-1 mr-1 "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "custom-control-input",
         type: "checkbox",
         id: "clearFile__".concat(id),
         disabled: disabled,
         onClick: handleClear,
         ref: clearCheckBox
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         /* eslint-disable-line */
         className: "custom-control-label",
         htmlFor: "clearFile__".concat(id)
@@ -2245,25 +2249,38 @@ function (modules) {
     var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 
     function _toConsumableArray(arr) {
-      return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+      return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
     }
 
     function _nonIterableSpread() {
-      throw new TypeError("Invalid attempt to spread non-iterable instance");
+      throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o) return;
+      if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor) n = o.constructor.name;
+      if (n === "Map" || n === "Set") return Array.from(n);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
     }
 
     function _iterableToArray(iter) {
-      if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+      if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
     }
 
     function _arrayWithoutHoles(arr) {
-      if (Array.isArray(arr)) {
-        for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-          arr2[i] = arr[i];
-        }
+      if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+    }
 
-        return arr2;
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length) len = arr.length;
+
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
       }
+
+      return arr2;
     }
 
     var propTypes = {
@@ -2321,11 +2338,11 @@ function (modules) {
         onBlur(name, true);
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, options.map(function (option, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, options.map(function (option, i) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "custom-control custom-control-inline custom-checkbox",
           key: option.value
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "custom-control-input".concat(invalid ? ' is-invalid' : ''),
           type: "checkbox",
           name: "".concat(name, ":").concat(i) // e.g. tags:2
@@ -2338,7 +2355,7 @@ function (modules) {
           disabled: disabled || option.disabled,
           onChange: handleChange,
           onBlur: handleBlur
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           /* eslint-disable-line jsx-a11y/label-has-for */
           className: "custom-control-label",
           htmlFor: "".concat(id, "__").concat(i)
@@ -2419,18 +2436,34 @@ function (modules) {
     var draft_js_export_html__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(draft_js_export_html__WEBPACK_IMPORTED_MODULE_4__);
 
     function _slicedToArray(arr, i) {
-      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
     }
 
     function _nonIterableRest() {
-      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o) return;
+      if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor) n = o.constructor.name;
+      if (n === "Map" || n === "Set") return Array.from(n);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+    }
+
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length) len = arr.length;
+
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+
+      return arr2;
     }
 
     function _iterableToArrayLimit(arr, i) {
-      if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
-        return;
-      }
-
+      if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
       var _arr = [];
       var _n = true;
       var _d = false;
@@ -2638,11 +2671,11 @@ function (modules) {
         }
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RichEditor-root"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RichEditor-controls"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyleControls, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyleControls, {
         preview: preview,
         editorState: editorState,
         onTogglePreview: togglePreview,
@@ -2650,11 +2683,11 @@ function (modules) {
         onToggleInlineStyle: toggleInlineStyle,
         onToggleUndo: toggleUndo,
         onToggleRedo: toggleRedo
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         // eslint-disable-line
         className: editorClassName,
         onClick: focusOnEditor
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(draft_js__WEBPACK_IMPORTED_MODULE_2__["Editor"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(draft_js__WEBPACK_IMPORTED_MODULE_2__["Editor"], {
         blockStyleFn: getBlockStyle,
         customStyleMap: styleMap,
         editorState: editorState,
@@ -2667,9 +2700,9 @@ function (modules) {
         placeholder: placeholder,
         ref: editorRef,
         spellCheck: true
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "MarkupEditor-editor".concat(!preview ? ' noshow' : '')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         type: "textarea" // name={name}
         // id={`id-${name}`}
         ,
@@ -2718,12 +2751,12 @@ function (modules) {
         className += ' RichEditor-activeButton';
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: className,
         role: "button",
         tabIndex: -1,
         onMouseDown: handleToggle
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RichEditor-".concat(iconClass)
       }, label));
     };
@@ -2744,7 +2777,7 @@ function (modules) {
       var control = props.control,
           preview = props.preview,
           onTogglePreview = props.onTogglePreview;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "RichEditor-styleButton".concat(preview ? ' RichEditor-activeButton' : ''),
         role: "button",
         tabIndex: -1,
@@ -2752,7 +2785,7 @@ function (modules) {
           e.preventDefault();
           onTogglePreview();
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RichEditor-".concat(control.iconClass)
       }, '>_'));
     };
@@ -2778,7 +2811,7 @@ function (modules) {
           onToggleBlockType = props.onToggleBlockType;
       var selection = editorState.getSelection();
       var blockType = editorState.getCurrentContent().getBlockForKey(selection.getStartKey()).getType();
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyleButton, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyleButton, {
         active: control.style === blockType,
         preview: preview,
         label: control.label,
@@ -2812,7 +2845,7 @@ function (modules) {
           editorState = props.editorState,
           onToggleInlineStyle = props.onToggleInlineStyle;
       var currentStyle = editorState.getCurrentInlineStyle();
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyleButton, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyleButton, {
         active: currentStyle.has(control.style),
         preview: preview,
         label: control.label,
@@ -2846,7 +2879,7 @@ function (modules) {
           onToggleUndo = props.onToggleUndo,
           onToggleRedo = props.onToggleRedo;
       var disabled = control.id === 'undo' ? editorState.getUndoStack().count() === 0 : editorState.getRedoStack().count() === 0;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "RichEditor-styleButton".concat(disabled ? ' RichEditor-disabledButton' : ''),
         role: "button",
         tabIndex: -1,
@@ -2859,7 +2892,7 @@ function (modules) {
             onToggleRedo();
           }
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "RichEditor-".concat(control.iconClass)
       }));
     };
@@ -2970,24 +3003,24 @@ function (modules) {
           onToggleInlineStyle = props.onToggleInlineStyle,
           onToggleUndo = props.onToggleUndo,
           onToggleRedo = props.onToggleRedo;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, CONTROLS.map(function (control) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, CONTROLS.map(function (control) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
           key: control.id
-        }, control.type === 'PREVIEW' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PreviewControl, {
+        }, control.type === 'PREVIEW' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PreviewControl, {
           control: control,
           preview: preview,
           onTogglePreview: onTogglePreview
-        }), control.type === 'BLOCK' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockStyleControl, {
+        }), control.type === 'BLOCK' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BlockStyleControl, {
           control: control,
           preview: preview,
           editorState: editorState,
           onToggleBlockType: onToggleBlockType
-        }), control.type === 'INLINE' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InlineStyleControl, {
+        }), control.type === 'INLINE' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InlineStyleControl, {
           control: control,
           preview: preview,
           editorState: editorState,
           onToggleInlineStyle: onToggleInlineStyle
-        }), control.type === 'UNDOREDO' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(UndoRedoControl, {
+        }), control.type === 'UNDOREDO' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(UndoRedoControl, {
           control: control,
           preview: preview,
           editorState: editorState,
@@ -3048,45 +3081,61 @@ function (modules) {
     var propTypes = {
       value: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
       placeHolderText: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-      onChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+      onChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
+      onSubmit: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+      onReset: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
     };
     var defaultProps = {
-      placeHolderText: 'Filter...'
+      placeHolderText: 'Filter...',
+      onSubmit: undefined,
+      onReset: undefined
     };
 
     var FilterForm = function FilterForm(props) {
       var value = props.value,
           placeHolderText = props.placeHolderText,
-          onChange = props.onChange;
+          onChange = props.onChange,
+          onSubmit = props.onSubmit,
+          onReset = props.onReset;
 
-      function handleChange(e) {
+      var handleChange = function handleChange(e) {
         onChange(e.target.value);
-      }
+      };
 
-      function handleClear() {
-        onChange('');
-      }
+      var handleSubmit = function handleSubmit(e) {
+        e.preventDefault();
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "form-inline flex-row-reverse",
-        onSubmit: function onSubmit(e) {
-          return e.preventDefault();
+        if (onSubmit !== undefined) {
+          onSubmit();
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      };
+
+      var handleReset = function handleReset() {
+        onChange('');
+
+        if (onReset !== undefined) {
+          onReset();
+        }
+      };
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "form-inline flex-row-reverse",
+        onSubmit: handleSubmit
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "form-control form-control-sm",
         value: value,
         placeholder: placeHolderText,
         onChange: handleChange
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-group-append"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "btn ".concat(value === '' ? 'btn-secondary' : 'btn-primary', " btn-sm ").concat(value === '' ? 'btn-outline-secondary' : ''),
         disabled: value === '',
-        onClick: handleClear
+        onClick: handleReset
       }, "\xD7"))));
     };
 
@@ -3154,14 +3203,14 @@ function (modules) {
           isSubmitting = props.isSubmitting,
           onSubmit = props.onSubmit,
           onCancel = props.onCancel;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "text-".concat(buttonsPosition, " mb-2")
-      }, onCancel && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, onCancel && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "btn btn-secondary btn-sm mr-2",
         onClick: onCancel,
         disabled: isSubmitting
-      }, cancelButtonText), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, cancelButtonText), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "btn btn-primary btn-sm",
         onClick: onSubmit,
@@ -3229,9 +3278,9 @@ function (modules) {
           label = props.label,
           width = props.width,
           className = props.className;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mb-3 ".concat(width ? "col-md-".concat(width) : 'col-md').concat(className ? " ".concat(className) : '')
-      }, type === 'heading' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, type === 'heading' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "border-bottom"
       }, label));
     };
@@ -3422,15 +3471,15 @@ function (modules) {
 
       var helpTextId = "id_".concat(name, "_helptext__").concat(idSuffix);
       var ariaDescribedBy = helpTextExtended ? helpTextId : null;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group ".concat(width ? "col-md-".concat(width) : 'col-md').concat(className ? " ".concat(className) : '')
       }, ['checkbox', 'hidden'].findIndex(function (x) {
         return x === type;
-      }) === -1 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }) === -1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         /* eslint-disable-line jsx-a11y/label-has-for */
         className: hideLabel === true ? 'sr-only' : '',
         htmlFor: "id_".concat(name, "__").concat(idSuffix)
-      }, "".concat(label).concat(required ? ' *' : '')), (type === 'text' || type === 'email' || type === 'hidden') && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "".concat(label).concat(required ? ' *' : '')), (type === 'text' || type === 'email' || type === 'hidden') && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "form-control form-control-sm".concat(invalid ? ' is-invalid' : ''),
         type: type,
         name: name,
@@ -3442,7 +3491,7 @@ function (modules) {
         onBlur: onBlur,
         disabled: disabled,
         "aria-describedby": ariaDescribedBy
-      }), type === 'textarea' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }), type === 'textarea' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "form-control form-control-sm".concat(invalid ? ' is-invalid' : ''),
         name: name,
         id: "id_".concat(name, "__").concat(idSuffix),
@@ -3454,7 +3503,7 @@ function (modules) {
         disabled: disabled,
         rows: "10",
         "aria-describedby": ariaDescribedBy
-      }), type === 'select' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }), type === 'select' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         className: "form-control form-control-sm".concat(invalid ? ' is-invalid' : ''),
         type: "select",
         name: name,
@@ -3466,14 +3515,14 @@ function (modules) {
         disabled: disabled,
         "aria-describedby": ariaDescribedBy
       }, selectOptions.map(function (option) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: option.value,
           disabled: option.disabled,
           key: option.value
         }, option.label);
-      })), type === 'checkbox' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), type === 'checkbox' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "custom-control custom-checkbox"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "custom-control-input".concat(invalid ? ' is-invalid' : ''),
         type: "checkbox",
         name: name,
@@ -3484,15 +3533,15 @@ function (modules) {
         onBlur: onBlur,
         disabled: disabled,
         "aria-describedby": ariaDescribedBy
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         /* eslint-disable-line jsx-a11y/label-has-for */
         className: "custom-control-label",
         htmlFor: "id_".concat(name, "__").concat(idSuffix)
-      }, label)), type === 'radio' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, options.map(function (option) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, label)), type === 'radio' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, options.map(function (option) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "custom-control custom-radio",
           key: option.value
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "custom-control-input".concat(invalid ? ' is-invalid' : ''),
           type: "radio",
           name: name,
@@ -3505,12 +3554,12 @@ function (modules) {
           onBlur: onBlur,
           disabled: disabled || option.disabled,
           "aria-describedby": ariaDescribedBy
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           /* eslint-disable-line jsx-a11y/label-has-for */
           className: "custom-control-label",
           htmlFor: "id_".concat(name, "_").concat(option.value, "__").concat(idSuffix)
         }, option.label));
-      })), type === 'multi-checkbox' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CustomFormInputMultiCheckbox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      })), type === 'multi-checkbox' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CustomFormInputMultiCheckbox__WEBPACK_IMPORTED_MODULE_4__["default"], {
         id: "id_".concat(name, "__").concat(idSuffix),
         name: name,
         options: options,
@@ -3519,7 +3568,7 @@ function (modules) {
         onChange: setFieldValue,
         onBlur: setFieldTouched,
         disabled: disabled
-      }), (type === 'datetime' || type === 'date') && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CustomFormInputDateTime__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), (type === 'datetime' || type === 'date') && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CustomFormInputDateTime__WEBPACK_IMPORTED_MODULE_2__["default"], {
         id: "id_".concat(name, "__").concat(idSuffix),
         type: type,
         name: name,
@@ -3528,7 +3577,7 @@ function (modules) {
         onChange: setFieldValue,
         onBlur: setFieldTouched,
         disabled: disabled
-      }), type === 'textarea-wysiwyg' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CustomFormInputTextAreaWYSIWYG__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), type === 'textarea-wysiwyg' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CustomFormInputTextAreaWYSIWYG__WEBPACK_IMPORTED_MODULE_5__["default"], {
         id: "id_".concat(name, "__").concat(idSuffix),
         name: name,
         placeholder: placeholder,
@@ -3536,7 +3585,7 @@ function (modules) {
         invalid: invalid,
         onChange: setFieldValue,
         onBlur: setFieldTouched
-      }), type === 'file' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CustomFormInputFile__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), type === 'file' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CustomFormInputFile__WEBPACK_IMPORTED_MODULE_3__["default"], {
         id: "id_".concat(name, "__").concat(idSuffix),
         name: name,
         initialValue: initialValue,
@@ -3546,9 +3595,9 @@ function (modules) {
         onBlur: setFieldTouched,
         required: required,
         disabled: disabled
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InvalidFeedback__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_InvalidFeedback__WEBPACK_IMPORTED_MODULE_6__["default"], {
         errors: errors
-      }), helpTextExtended && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+      }), helpTextExtended && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
         className: "form-text text-muted",
         id: helpTextId
       }, helpTextExtended));
@@ -3613,14 +3662,14 @@ function (modules) {
         the directly after requirement.
       */
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, errors && errors.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, errors && errors.length > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "text-danger mt-1"
       }, errors.map(function (error, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: i
           /* eslint-disable-line react/no-array-index-key */
 
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, error));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, error));
       })));
     };
 
@@ -3704,29 +3753,6 @@ function (modules) {
       return Constructor;
     }
 
-    function _possibleConstructorReturn(self, call) {
-      if (call && (_typeof(call) === "object" || typeof call === "function")) {
-        return call;
-      }
-
-      return _assertThisInitialized(self);
-    }
-
-    function _getPrototypeOf(o) {
-      _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-        return o.__proto__ || Object.getPrototypeOf(o);
-      };
-      return _getPrototypeOf(o);
-    }
-
-    function _assertThisInitialized(self) {
-      if (self === void 0) {
-        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-      }
-
-      return self;
-    }
-
     function _inherits(subClass, superClass) {
       if (typeof superClass !== "function" && superClass !== null) {
         throw new TypeError("Super expression must either be null or a function");
@@ -3749,6 +3775,59 @@ function (modules) {
       };
 
       return _setPrototypeOf(o, p);
+    }
+
+    function _createSuper(Derived) {
+      return function () {
+        var Super = _getPrototypeOf(Derived),
+            result;
+
+        if (_isNativeReflectConstruct()) {
+          var NewTarget = _getPrototypeOf(this).constructor;
+
+          result = Reflect.construct(Super, arguments, NewTarget);
+        } else {
+          result = Super.apply(this, arguments);
+        }
+
+        return _possibleConstructorReturn(this, result);
+      };
+    }
+
+    function _possibleConstructorReturn(self, call) {
+      if (call && (_typeof(call) === "object" || typeof call === "function")) {
+        return call;
+      }
+
+      return _assertThisInitialized(self);
+    }
+
+    function _assertThisInitialized(self) {
+      if (self === void 0) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+      }
+
+      return self;
+    }
+
+    function _isNativeReflectConstruct() {
+      if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+      if (Reflect.construct.sham) return false;
+      if (typeof Proxy === "function") return true;
+
+      try {
+        Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function _getPrototypeOf(o) {
+      _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+        return o.__proto__ || Object.getPrototypeOf(o);
+      };
+      return _getPrototypeOf(o);
     }
 
     function _defineProperty(obj, key, value) {
@@ -3777,12 +3856,14 @@ function (modules) {
     var ShowFormToggler = /*#__PURE__*/function (_React$Component) {
       _inherits(ShowFormToggler, _React$Component);
 
+      var _super = _createSuper(ShowFormToggler);
+
       function ShowFormToggler(props) {
         var _this;
 
         _classCallCheck(this, ShowFormToggler);
 
-        _this = _possibleConstructorReturn(this, _getPrototypeOf(ShowFormToggler).call(this, props));
+        _this = _super.call(this, props);
 
         _defineProperty(_assertThisInitialized(_this), "toggleForm", function () {
           var showForm = _this.state.showForm;
@@ -3803,7 +3884,7 @@ function (modules) {
         value: function render() {
           var children = this.props.children;
           var showForm = this.state.showForm;
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, children(showForm, this.toggleForm));
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, children(showForm, this.toggleForm));
         }
       }]);
 
@@ -4594,13 +4675,61 @@ function (modules) {
     !*** ./hooks/useReactVorm.js ***!
     \*******************************/
 
-  /*! exports provided: default */
+  /*! exports provided: areFieldNamesUnique, definitionToValues, definitionToErrors, definitionToValidations, definitionToDefaultEmptyValues, definitionToTouched, validate, valuesToData, default */
 
   /***/
   function hooksUseReactVormJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "areFieldNamesUnique", function () {
+      return areFieldNamesUnique;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "definitionToValues", function () {
+      return definitionToValues;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "definitionToErrors", function () {
+      return definitionToErrors;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "definitionToValidations", function () {
+      return definitionToValidations;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "definitionToDefaultEmptyValues", function () {
+      return definitionToDefaultEmptyValues;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "definitionToTouched", function () {
+      return definitionToTouched;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "validate", function () {
+      return validate;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "valuesToData", function () {
+      return valuesToData;
+    });
     /* harmony import */
 
 
@@ -4625,18 +4754,15 @@ function (modules) {
     "./constants.js");
 
     function _slicedToArray(arr, i) {
-      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
     }
 
     function _nonIterableRest() {
-      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
     }
 
     function _iterableToArrayLimit(arr, i) {
-      if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
-        return;
-      }
-
+      if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
       var _arr = [];
       var _n = true;
       var _d = false;
@@ -4716,34 +4842,47 @@ function (modules) {
     }
 
     function _toConsumableArray(arr) {
-      return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+      return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
     }
 
     function _nonIterableSpread() {
-      throw new TypeError("Invalid attempt to spread non-iterable instance");
+      throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o) return;
+      if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor) n = o.constructor.name;
+      if (n === "Map" || n === "Set") return Array.from(n);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
     }
 
     function _iterableToArray(iter) {
-      if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+      if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
     }
 
     function _arrayWithoutHoles(arr) {
-      if (Array.isArray(arr)) {
-        for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
-          arr2[i] = arr[i];
-        }
+      if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+    }
 
-        return arr2;
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length) len = arr.length;
+
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
       }
+
+      return arr2;
     }
     /*
      * Return true if all field names are unique.
      */
 
 
-    function areFieldNamesUnique(definition) {
+    var areFieldNamesUnique = function areFieldNamesUnique(flatDefinition) {
       // Filter out any headings and then check field names
-      var names = definition.filter(function (obj) {
+      var names = flatDefinition.filter(function (obj) {
         return obj.type !== 'heading';
       }).map(function (obj) {
         return obj.name;
@@ -4753,7 +4892,7 @@ function (modules) {
       if (!unique) {
         throw new Error('Form definition has duplicate field names, please ensure all field names are unique.');
       }
-    }
+    };
     /*
      * type=heading => skip, not form fields
      * type=file => skip, file URL is not valid formvalue, file is already on server so we do not want
@@ -4762,9 +4901,9 @@ function (modules) {
      */
 
 
-    function definitionToValues(definition) {
+    var definitionToValues = function definitionToValues(flatDefinition) {
       var values = {};
-      definition.forEach(function (obj) {
+      flatDefinition.forEach(function (obj) {
         if (obj.type === 'text' && obj.validation && obj.validation.number) {
           // Numbers have empty value of `null` out of the box
           if (obj.initialValue === '') {
@@ -4782,25 +4921,31 @@ function (modules) {
         }
       });
       return values;
-    }
+    };
+    /*
+     * It is currently possibel to spec an initial error in form definition. Do we want this to be
+     * correct behaviour, or should this always just return an empty object, bacause initially a form
+     * should have no errors?
+     */
 
-    function definitionToErrors(definition) {
+
+    var definitionToErrors = function definitionToErrors(flatDefinition) {
       var errors = {};
-      definition.forEach(function (obj) {
+      flatDefinition.forEach(function (obj) {
         if (obj.error) {
           errors[obj.name] = obj.error;
         }
       });
       return errors;
-    }
+    };
     /*
      * All files get a maxFileSize validation of 2MB built in. This can be overridden up to 20MB.
      */
 
 
-    function definitionToValidations(definition) {
+    var definitionToValidations = function definitionToValidations(flatDefinition) {
       var validations = {};
-      definition.forEach(function (obj) {
+      flatDefinition.forEach(function (obj) {
         if (obj.type === 'file') {
           var maxFileSize = _constants__WEBPACK_IMPORTED_MODULE_2__["MAX_FILE_SIZE"]; // 2 MB
 
@@ -4820,9 +4965,13 @@ function (modules) {
         }
       });
       return validations;
-    }
+    };
+    /*
+     *
+     */
 
-    function definitionToDefaultEmptyValues(definition) {
+
+    var definitionToDefaultEmptyValues = function definitionToDefaultEmptyValues(definition) {
       var emptyValues = {};
       definition.forEach(function (obj) {
         if (Object.prototype.hasOwnProperty.call(obj, 'emptyValue')) {
@@ -4830,7 +4979,7 @@ function (modules) {
         }
       });
       return emptyValues;
-    }
+    };
     /* e.g.
      * {
      *   first_name: false,
@@ -4839,7 +4988,7 @@ function (modules) {
      */
 
 
-    function definitionToTouched(definition, isTouched) {
+    var definitionToTouched = function definitionToTouched(definition, isTouched) {
       var touched = {};
       definition.forEach(function (obj) {
         if (obj.type !== 'heading') {
@@ -4847,9 +4996,9 @@ function (modules) {
         }
       });
       return touched;
-    }
+    };
 
-    function validate(value, validation) {
+    var validate = function validate(value, validation) {
       var errors = [];
       Object.keys(validation).forEach(function (key) {
         switch (key) {
@@ -5001,7 +5150,39 @@ function (modules) {
         }
       });
       return errors;
-    } // Custom hook
+    };
+    /*
+     * Translates the flat values to indented JSON for form submission.
+     */
+
+
+    var valuesToData = function valuesToData(values) {
+      function tmp(data, keys, value) {
+        if (keys.length === 1) {
+          var d = _objectSpread({}, data);
+
+          d[keys[0]] = value;
+          return d;
+        }
+
+        var d2 = _objectSpread({}, data);
+
+        if (d2[keys[0]] === undefined) {
+          d2[keys[0]] = tmp({}, keys.slice(1), value);
+        } else {
+          d2[keys[0]] = _objectSpread({}, d2[keys[0]], {}, tmp(d2[keys[0]], keys.slice(1), value));
+        }
+
+        return d2;
+      }
+
+      var finalData;
+      Object.keys(values).forEach(function (key) {
+        var keys = key.split('__');
+        finalData = tmp(finalData, keys, values[key]);
+      });
+      return finalData;
+    }; // Custom hook
 
 
     function useReactVorm(definition) {
@@ -5104,7 +5285,9 @@ function (modules) {
        */
 
 
-      function onSubmit() {
+      function onSubmit(e) {
+        // Prevent form submission when pressing enter on text input if ony 1 text input in form
+        e.preventDefault();
         setTouched(definitionToTouched(flatDefinition, true));
         setIsSubmitting(true);
         setSubmitCount(submitCount + 1);
@@ -5238,6 +5421,7 @@ function (modules) {
         values: values,
         errors: errors,
         touched: touched,
+        valuesToData: valuesToData(values),
         setErrors: setErrors,
         setValues: setValues,
         setTouched: setTouched,
@@ -18369,6 +18553,8 @@ var DraftEditorDragHandler = __webpack_require__(/*! ./DraftEditorDragHandler */
 
 var DraftEditorEditHandler = __webpack_require__(/*! ./DraftEditorEditHandler */ "./node_modules/draft-js/lib/DraftEditorEditHandler.js");
 
+var flushControlled = __webpack_require__(/*! ./DraftEditorFlushControlled */ "./node_modules/draft-js/lib/DraftEditorFlushControlled.js");
+
 var DraftEditorPlaceholder = __webpack_require__(/*! ./DraftEditorPlaceholder.react */ "./node_modules/draft-js/lib/DraftEditorPlaceholder.react.js");
 
 var DraftEffects = __webpack_require__(/*! ./DraftEffects */ "./node_modules/draft-js/lib/DraftEffects.js");
@@ -18376,8 +18562,6 @@ var DraftEffects = __webpack_require__(/*! ./DraftEffects */ "./node_modules/dra
 var EditorState = __webpack_require__(/*! ./EditorState */ "./node_modules/draft-js/lib/EditorState.js");
 
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 
 var Scroll = __webpack_require__(/*! fbjs/lib/Scroll */ "./node_modules/fbjs/lib/Scroll.js");
 
@@ -18599,6 +18783,14 @@ function (_React$Component2) {
 
     _defineProperty(_assertThisInitialized(_this), "onDragLeave", void 0);
 
+    _defineProperty(_assertThisInitialized(_this), "_handleEditorContainerRef", function (node) {
+      _this.editorContainer = node; // Instead of having a direct ref on the child, we'll grab it here.
+      // This is safe as long as the rendered structure is static (which it is).
+      // This lets the child support ref={props.editorRef} without merging refs.
+
+      _this.editor = node !== null ? node.firstChild : null;
+    });
+
     _defineProperty(_assertThisInitialized(_this), "focus", function (scrollPosition) {
       var editorState = _this.props.editorState;
       var alreadyHasFocus = editorState.getSelection().getHasFocus();
@@ -18654,9 +18846,9 @@ function (_React$Component2) {
       var editHandler = _objectSpread({}, handlerMap.edit);
 
       if (onPaste) {
-        /* $FlowFixMe(>=0.111.0) This comment suppresses an error found when Flow
-         * v0.111.0 was deployed. To see the error, delete this comment and run
-         * Flow. */
+        /* $FlowFixMe(>=0.117.0 site=www) This comment suppresses an error found
+         * when Flow v0.117 was deployed. To see the error delete this comment
+         * and run Flow. */
         editHandler.onPaste = onPaste;
       }
 
@@ -18750,7 +18942,7 @@ function (_React$Component2) {
       ['onDownArrow', 'onEscape', 'onLeftArrow', 'onRightArrow', 'onTab', 'onUpArrow'].forEach(function (propName) {
         if (props.hasOwnProperty(propName)) {
           // eslint-disable-next-line no-console
-          console.warn("Supplying an `".concat(propName, "` prop to `DraftEditor` has ") + 'been deprecated. If your handler needs access to the keyboard ' + 'event, supply a custom `keyBindingFn` prop that falls back to ' + 'the default one (eg. https://is.gd/RG31RJ).');
+          console.warn("Supplying an `".concat(propName, "` prop to `DraftEditor` has ") + 'been deprecated. If your handler needs access to the keyboard ' + 'event, supply a custom `keyBindingFn` prop that falls back to ' + 'the default one (eg. https://is.gd/wHKQ3W).');
         }
       });
     } // See `restoreEditorDOM()`.
@@ -18773,14 +18965,9 @@ function (_React$Component2) {
   _proto2._buildHandler = function _buildHandler(eventName) {
     var _this2 = this;
 
-    var flushControlled =
-    /* $FlowFixMe(>=0.79.1 site=www) This comment suppresses an error found
-     * when Flow v0.79 was deployed. To see the error delete this comment and
-     * run Flow. */
-    ReactDOM.unstable_flushControlled; // Wrap event handlers in `flushControlled`. In sync mode, this is
+    // Wrap event handlers in `flushControlled`. In sync mode, this is
     // effectively a no-op. In async mode, this ensures all updates scheduled
     // inside the handler are flushed before React yields to the browser.
-
     return function (e) {
       if (!_this2.props.readOnly) {
         var method = _this2._handler && _this2._handler[eventName];
@@ -18810,14 +18997,6 @@ function (_React$Component2) {
         textAlignment: this.props.textAlignment,
         accessibilityID: this._placeholderAccessibilityID
       };
-      /* $FlowFixMe(>=0.112.0 site=mobile) This comment suppresses an error
-       * found when Flow v0.112 was deployed. To see the error delete this
-       * comment and run Flow. */
-
-      /* $FlowFixMe(>=0.112.0 site=www) This comment suppresses an error found
-       * when Flow v0.112 was deployed. To see the error delete this comment
-       * and run Flow. */
-
       /* $FlowFixMe(>=0.112.0 site=www,mobile) This comment suppresses an error
        * found when Flow v0.112 was deployed. To see the error delete this
        * comment and run Flow. */
@@ -18829,8 +19008,6 @@ function (_React$Component2) {
   };
 
   _proto2.render = function render() {
-    var _this3 = this;
-
     var _this$props2 = this.props,
         blockRenderMap = _this$props2.blockRenderMap,
         blockRendererFn = _this$props2.blockRendererFn,
@@ -18838,6 +19015,7 @@ function (_React$Component2) {
         customStyleFn = _this$props2.customStyleFn,
         customStyleMap = _this$props2.customStyleMap,
         editorState = _this$props2.editorState,
+        preventScroll = _this$props2.preventScroll,
         readOnly = _this$props2.readOnly,
         textAlignment = _this$props2.textAlignment,
         textDirectionality = _this$props2.textDirectionality;
@@ -18871,15 +19049,14 @@ function (_React$Component2) {
       customStyleFn: customStyleFn,
       editorKey: this._editorKey,
       editorState: editorState,
+      preventScroll: preventScroll,
       textDirectionality: textDirectionality
     };
     return React.createElement("div", {
       className: rootClass
     }, this._renderPlaceholder(), React.createElement("div", {
       className: cx('DraftEditor/editorContainer'),
-      ref: function ref(_ref3) {
-        return _this3.editorContainer = _ref3;
-      }
+      ref: this._handleEditorContainerRef
     }, React.createElement("div", {
       "aria-activedescendant": readOnly ? null : this.props.ariaActiveDescendantID,
       "aria-autocomplete": readOnly ? null : this.props.ariaAutoComplete,
@@ -18923,9 +19100,7 @@ function (_React$Component2) {
       onMouseUp: this._onMouseUp,
       onPaste: this._onPaste,
       onSelect: this._onSelect,
-      ref: function ref(_ref2) {
-        return _this3.editor = _ref2;
-      },
+      ref: this.props.editorRef,
       role: readOnly ? null : ariaRole,
       spellCheck: allowSpellCheck && this.props.spellCheck,
       style: contentStyle,
@@ -19118,6 +19293,10 @@ function (_React$Component) {
   ;
 
   _proto.componentDidMount = function componentDidMount() {
+    if (this.props.preventScroll) {
+      return;
+    }
+
     var selection = this.props.selection;
     var endKey = selection.getEndKey();
 
@@ -19221,14 +19400,15 @@ function (_React$Component) {
         contentState: _this2.props.contentState,
         decoratedText: decoratedText,
         dir: dir,
-        key: decoratorOffsetKey,
         start: start,
         end: end,
         blockKey: blockKey,
         entityKey: entityKey,
         offsetKey: decoratorOffsetKey
       };
-      return React.createElement(DecoratorComponent, _extends({}, decoratorProps, commonProps), leaves);
+      return React.createElement(DecoratorComponent, _extends({}, decoratorProps, commonProps, {
+        key: decoratorOffsetKey
+      }), leaves);
     }).toArray();
   };
 
@@ -19288,6 +19468,8 @@ var _assign = __webpack_require__(/*! object-assign */ "./node_modules/object-as
 
 function _extends() { _extends = _assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -19299,8 +19481,6 @@ var DraftEditorNode = __webpack_require__(/*! ./DraftEditorNode.react */ "./node
 var DraftOffsetKey = __webpack_require__(/*! ./DraftOffsetKey */ "./node_modules/draft-js/lib/DraftOffsetKey.js");
 
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 
 var Scroll = __webpack_require__(/*! fbjs/lib/Scroll */ "./node_modules/fbjs/lib/Scroll.js");
 
@@ -19409,12 +19589,13 @@ var getCustomRenderConfig = function getCustomRenderConfig(block, blockRendererF
   };
 };
 
-var getElementPropsConfig = function getElementPropsConfig(block, editorKey, offsetKey, blockStyleFn, customConfig) {
+var getElementPropsConfig = function getElementPropsConfig(block, editorKey, offsetKey, blockStyleFn, customConfig, ref) {
   var elementProps = {
     'data-block': true,
     'data-editor': editorKey,
     'data-offset-key': offsetKey,
-    key: block.getKey()
+    key: block.getKey(),
+    ref: ref
   };
   var customClass = blockStyleFn(block);
 
@@ -19438,7 +19619,17 @@ function (_React$Component) {
   _inheritsLoose(DraftEditorBlockNode, _React$Component);
 
   function DraftEditorBlockNode() {
-    return _React$Component.apply(this, arguments) || this;
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_this), "wrapperRef", React.createRef());
+
+    return _this;
   }
 
   var _proto = DraftEditorBlockNode.prototype;
@@ -19476,7 +19667,13 @@ function (_React$Component) {
       return;
     }
 
-    var blockNode = ReactDOM.findDOMNode(this);
+    var blockNode = this.wrapperRef.current;
+
+    if (!blockNode) {
+      // This Block Node was rendered without a wrapper element.
+      return;
+    }
+
     var scrollParent = Style.getScrollParent(blockNode);
     var scrollPosition = getScrollPosition(scrollParent);
     var scrollDelta;
@@ -19504,7 +19701,7 @@ function (_React$Component) {
   };
 
   _proto.render = function render() {
-    var _this = this;
+    var _this2 = this;
 
     var _this$props2 = this.props,
         block = _this$props2.block,
@@ -19534,9 +19731,9 @@ function (_React$Component) {
             Element = _getDraftRenderConfig.Element,
             wrapperTemplate = _getDraftRenderConfig.wrapperTemplate;
 
-        var elementProps = getElementPropsConfig(child, editorKey, offsetKey, blockStyleFn, customConfig);
+        var elementProps = getElementPropsConfig(child, editorKey, offsetKey, blockStyleFn, customConfig, null);
 
-        var childProps = _objectSpread({}, _this.props, {
+        var childProps = _objectSpread({}, _this2.props, {
           tree: editorState.getBlockTree(key),
           blockProps: customConfig.customProps,
           offsetKey: offsetKey,
@@ -19587,7 +19784,7 @@ function (_React$Component) {
     var _getDraftRenderConfig2 = getDraftRenderConfig(block, blockRenderMap),
         Element = _getDraftRenderConfig2.Element;
 
-    var elementProps = getElementPropsConfig(block, editorKey, offsetKey, blockStyleFn, customConfig); // root block nodes needs to be wrapped
+    var elementProps = getElementPropsConfig(block, editorKey, offsetKey, blockStyleFn, customConfig, this.wrapperRef); // root block nodes needs to be wrapped
 
     return React.createElement(Element, elementProps, blockNode);
   };
@@ -19955,6 +20152,7 @@ function (_React$Component) {
         customStyleFn = _this$props.customStyleFn,
         editorState = _this$props.editorState,
         editorKey = _this$props.editorKey,
+        preventScroll = _this$props.preventScroll,
         textDirectionality = _this$props.textDirectionality;
     var content = editorState.getCurrentContent();
     var selection = editorState.getSelection();
@@ -19997,6 +20195,7 @@ function (_React$Component) {
         direction: direction,
         forceSelection: forceSelection,
         offsetKey: offsetKey,
+        preventScroll: preventScroll,
         selection: selection,
         tree: editorState.getBlockTree(key)
       };
@@ -20036,14 +20235,6 @@ function (_React$Component) {
       }
 
       var child = React.createElement(Element, childProps,
-      /* $FlowFixMe(>=0.112.0 site=mobile) This comment suppresses an error
-       * found when Flow v0.112 was deployed. To see the error delete this
-       * comment and run Flow. */
-
-      /* $FlowFixMe(>=0.112.0 site=www) This comment suppresses an error
-       * found when Flow v0.112 was deployed. To see the error delete this
-       * comment and run Flow. */
-
       /* $FlowFixMe(>=0.112.0 site=www,mobile) This comment suppresses an
        * error found when Flow v0.112 was deployed. To see the error delete
        * this comment and run Flow. */
@@ -20262,14 +20453,6 @@ function (_React$Component) {
       var configForType = blockRenderMap.get(nodeBlock.getType()) || blockRenderMap.get('unstyled');
       var wrapperTemplate = configForType.wrapper;
       processedBlocks.push({
-        /* $FlowFixMe(>=0.112.0 site=mobile) This comment suppresses an error
-         * found when Flow v0.112 was deployed. To see the error delete this
-         * comment and run Flow. */
-
-        /* $FlowFixMe(>=0.112.0 site=www) This comment suppresses an error
-         * found when Flow v0.112 was deployed. To see the error delete this
-         * comment and run Flow. */
-
         /* $FlowFixMe(>=0.112.0 site=www,mobile) This comment suppresses an
          * error found when Flow v0.112 was deployed. To see the error delete
          * this comment and run Flow. */
@@ -20431,8 +20614,6 @@ var DraftModifier = __webpack_require__(/*! ./DraftModifier */ "./node_modules/d
 
 var EditorState = __webpack_require__(/*! ./EditorState */ "./node_modules/draft-js/lib/EditorState.js");
 
-var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-
 var findAncestorOffsetKey = __webpack_require__(/*! ./findAncestorOffsetKey */ "./node_modules/draft-js/lib/findAncestorOffsetKey.js");
 
 var getCorrectDocumentFromNode = __webpack_require__(/*! ./getCorrectDocumentFromNode */ "./node_modules/draft-js/lib/getCorrectDocumentFromNode.js");
@@ -20460,6 +20641,9 @@ function getSelectionForEvent(event, editorState) {
    * and run Flow. */
 
   if (typeof eventTargetDocument.caretRangeFromPoint === 'function') {
+    /* $FlowFixMe(>=0.68.0 site=www,mobile) This comment suppresses an error
+     * found when Flow v0.68 was deployed. To see the error delete this comment
+     * and run Flow. */
     var dropRange = eventTargetDocument.caretRangeFromPoint(event.x, event.y);
     node = dropRange.startContainer;
     offset = dropRange.startOffset;
@@ -20499,9 +20683,6 @@ var DraftEditorDragHandler = {
     if (dropSelection == null) {
       return;
     }
-    /* $FlowFixMe This comment suppresses an error found DataTransfer was typed.
-     * getFiles() returns an array of <Files extends Blob>, not Blob */
-
 
     var files = data.getFiles();
 
@@ -20509,6 +20690,10 @@ var DraftEditorDragHandler = {
       if (editor.props.handleDroppedFiles && isEventHandled(editor.props.handleDroppedFiles(dropSelection, files))) {
         return;
       }
+      /* $FlowFixMe This comment suppresses an error found DataTransfer was
+       * typed. getFiles() returns an array of <Files extends Blob>, not Blob
+       */
+
 
       getTextContentFromFiles(files, function (fileText) {
         fileText && editor.update(insertTextAtSelection(editorState, dropSelection, fileText));
@@ -20535,7 +20720,7 @@ function endDrag(editor) {
   // https://github.com/facebook/react/issues/11379.
   // Dispatching a mouseup event on DOM node will make it go back to normal.
 
-  var editorNode = ReactDOM.findDOMNode(editor);
+  var editorNode = editor.editorContainer;
 
   if (editorNode) {
     var mouseUpEvent = new MouseEvent('mouseup', {
@@ -20634,6 +20819,33 @@ var DraftEditorEditHandler = {
   onKeyUp: selectionHandler
 };
 module.exports = DraftEditorEditHandler;
+
+/***/ }),
+
+/***/ "./node_modules/draft-js/lib/DraftEditorFlushControlled.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/draft-js/lib/DraftEditorFlushControlled.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @format
+ * 
+ * @emails oncall+draft_js
+ */
+var ReactDOMComet = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+var flushControlled = ReactDOMComet.unstable_flushControlled;
+module.exports = flushControlled;
 
 /***/ }),
 
@@ -22413,7 +22625,10 @@ var Immutable = __webpack_require__(/*! immutable */ "./node_modules/immutable/d
 
 var OrderedSet = Immutable.OrderedSet,
     Record = Immutable.Record,
-    Stack = Immutable.Stack;
+    Stack = Immutable.Stack; // When configuring an editor, the user can chose to provide or not provide
+// basically all keys. `currentContent` varies, so this type doesn't include it.
+// (See the types defined below.)
+
 var defaultRecord = {
   allowUndo: true,
   currentContent: null,
@@ -23608,7 +23823,8 @@ module.exports = adjustBlockDepthForContentState;
 
 var CharacterMetadata = __webpack_require__(/*! ./CharacterMetadata */ "./node_modules/draft-js/lib/CharacterMetadata.js");
 
-function applyEntityToContentBlock(contentBlock, start, end, entityKey) {
+function applyEntityToContentBlock(contentBlock, startArg, end, entityKey) {
+  var start = startArg;
   var characterList = contentBlock.getCharacterList();
 
   while (start < end) {
@@ -23884,7 +24100,7 @@ var REGEX_CARRIAGE = new RegExp('&#13;?', 'g');
 var REGEX_ZWS = new RegExp('&#8203;?', 'g'); // https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
 
 var boldValues = ['bold', 'bolder', '500', '600', '700', '800', '900'];
-var notBoldValues = ['light', 'lighter', '100', '200', '300', '400'];
+var notBoldValues = ['light', 'lighter', 'normal', '100', '200', '300', '400'];
 var anchorAttr = ['className', 'href', 'rel', 'target', 'title'];
 var imgAttr = ['alt', 'className', 'height', 'src', 'width'];
 var knownListItemDepthClasses = (_knownListItemDepthCl = {}, _defineProperty(_knownListItemDepthCl, cx('public/DraftStyleDefault/depth0'), 0), _defineProperty(_knownListItemDepthCl, cx('public/DraftStyleDefault/depth1'), 1), _defineProperty(_knownListItemDepthCl, cx('public/DraftStyleDefault/depth2'), 2), _defineProperty(_knownListItemDepthCl, cx('public/DraftStyleDefault/depth3'), 3), _defineProperty(_knownListItemDepthCl, cx('public/DraftStyleDefault/depth4'), 4), _knownListItemDepthCl);
@@ -23991,9 +24207,7 @@ var isValidImage = function isValidImage(node) {
  */
 
 
-var styleFromNodeAttributes = function styleFromNodeAttributes(node) {
-  var style = OrderedSet();
-
+var styleFromNodeAttributes = function styleFromNodeAttributes(node, style) {
   if (!isHTMLElement(node)) {
     return style;
   }
@@ -24084,8 +24298,6 @@ function () {
 
     _defineProperty(this, "currentEntity", null);
 
-    _defineProperty(this, "currentStyle", OrderedSet());
-
     _defineProperty(this, "currentText", '');
 
     _defineProperty(this, "wrapper", null);
@@ -24117,7 +24329,6 @@ function () {
     this.currentBlockType = 'unstyled';
     this.currentDepth = 0;
     this.currentEntity = null;
-    this.currentStyle = OrderedSet();
     this.currentText = '';
     this.entityMap = DraftEntity;
     this.wrapper = null;
@@ -24134,7 +24345,7 @@ function () {
     this.contentBlocks = [];
     this.currentDepth = 0; // Converts the HTML node to block config
 
-    (_this$blockConfigs = this.blockConfigs).push.apply(_this$blockConfigs, this._toBlockConfigs([node])); // There might be some left over text in the builder's
+    (_this$blockConfigs = this.blockConfigs).push.apply(_this$blockConfigs, this._toBlockConfigs([node], OrderedSet())); // There might be some left over text in the builder's
     // internal state, if so make a ContentBlock out of it.
 
 
@@ -24166,22 +24377,6 @@ function () {
       contentBlocks: this.contentBlocks,
       entityMap: this.entityMap
     };
-  }
-  /**
-   * Add a new inline style to the upcoming nodes.
-   */
-  ;
-
-  _proto.addStyle = function addStyle(inlineStyle) {
-    this.currentStyle = this.currentStyle.union(inlineStyle);
-  }
-  /**
-   * Remove a currently applied inline style.
-   */
-  ;
-
-  _proto.removeStyle = function removeStyle(inlineStyle) {
-    this.currentStyle = this.currentStyle.subtract(inlineStyle);
   } // ***********************************WARNING******************************
   // The methods below this line are private - don't call them directly.
 
@@ -24220,7 +24415,7 @@ function () {
    */
   ;
 
-  _proto._toBlockConfigs = function _toBlockConfigs(nodes) {
+  _proto._toBlockConfigs = function _toBlockConfigs(nodes, style) {
     var blockConfigs = [];
 
     for (var i = 0; i < nodes.length; i++) {
@@ -24249,7 +24444,7 @@ function () {
           }
         }
 
-        blockConfigs.push.apply(blockConfigs, this._toBlockConfigs(Array.from(node.childNodes)));
+        blockConfigs.push.apply(blockConfigs, this._toBlockConfigs(Array.from(node.childNodes), style));
         this.currentDepth = wasCurrentDepth;
         this.wrapper = wasWrapper;
         continue;
@@ -24281,7 +24476,7 @@ function () {
 
         var key = generateRandomKey();
 
-        var childConfigs = this._toBlockConfigs(Array.from(node.childNodes));
+        var childConfigs = this._toBlockConfigs(Array.from(node.childNodes), style);
 
         this._trimCurrentText();
 
@@ -24296,36 +24491,37 @@ function () {
       }
 
       if (nodeName === '#text') {
-        this._addTextNode(node);
+        this._addTextNode(node, style);
 
         continue;
       }
 
       if (nodeName === 'br') {
-        this._addBreakNode(node);
+        this._addBreakNode(node, style);
 
         continue;
       }
 
       if (isValidImage(node)) {
-        this._addImgNode(node);
+        this._addImgNode(node, style);
 
         continue;
       }
 
       if (isValidAnchor(node)) {
-        this._addAnchorNode(node, blockConfigs);
+        this._addAnchorNode(node, blockConfigs, style);
 
         continue;
       }
 
-      var inlineStyle = HTMLTagToRawInlineStyleMap.has(nodeName) ? OrderedSet.of(HTMLTagToRawInlineStyleMap.get(nodeName)) : OrderedSet();
-      var attributesStyle = styleFromNodeAttributes(node);
-      this.addStyle(inlineStyle);
-      this.addStyle(attributesStyle);
-      blockConfigs.push.apply(blockConfigs, this._toBlockConfigs(Array.from(node.childNodes)));
-      this.removeStyle(attributesStyle);
-      this.removeStyle(inlineStyle);
+      var newStyle = style;
+
+      if (HTMLTagToRawInlineStyleMap.has(nodeName)) {
+        newStyle = newStyle.add(HTMLTagToRawInlineStyleMap.get(nodeName));
+      }
+
+      newStyle = styleFromNodeAttributes(node, newStyle);
+      blockConfigs.push.apply(blockConfigs, this._toBlockConfigs(Array.from(node.childNodes), newStyle));
     }
 
     return blockConfigs;
@@ -24335,12 +24531,12 @@ function () {
    */
   ;
 
-  _proto._appendText = function _appendText(text) {
+  _proto._appendText = function _appendText(text, style) {
     var _this$characterList;
 
     this.currentText += text;
     var characterMetadata = CharacterMetadata.create({
-      style: this.currentStyle,
+      style: style,
       entity: this.currentEntity
     });
     this.characterList = (_this$characterList = this.characterList).push.apply(_this$characterList, Array(text.length).fill(characterMetadata));
@@ -24377,7 +24573,7 @@ function () {
    */
   ;
 
-  _proto._addTextNode = function _addTextNode(node) {
+  _proto._addTextNode = function _addTextNode(node, style) {
     var text = node.textContent;
     var trimmedText = text.trim(); // If we are not in a pre block and the trimmed content is empty,
     // normalize to a single space.
@@ -24393,22 +24589,22 @@ function () {
       text = text.replace(REGEX_LF, SPACE);
     }
 
-    this._appendText(text);
+    this._appendText(text, style);
   };
 
-  _proto._addBreakNode = function _addBreakNode(node) {
+  _proto._addBreakNode = function _addBreakNode(node, style) {
     if (!isHTMLBRElement(node)) {
       return;
     }
 
-    this._appendText('\n');
+    this._appendText('\n', style);
   }
   /**
    * Add the content of an HTML img node to the internal state
    */
   ;
 
-  _proto._addImgNode = function _addImgNode(node) {
+  _proto._addImgNode = function _addImgNode(node, style) {
     if (!isHTMLImageElement(node)) {
       return;
     }
@@ -24429,10 +24625,10 @@ function () {
 
     if (gkx('draftjs_fix_paste_for_img')) {
       if (image.getAttribute('role') !== 'presentation') {
-        this._appendText("\uD83D\uDCF7");
+        this._appendText("\uD83D\uDCF7", style);
       }
     } else {
-      this._appendText("\uD83D\uDCF7");
+      this._appendText("\uD83D\uDCF7", style);
     }
 
     this.currentEntity = null;
@@ -24444,7 +24640,7 @@ function () {
    */
   ;
 
-  _proto._addAnchorNode = function _addAnchorNode(node, blockConfigs) {
+  _proto._addAnchorNode = function _addAnchorNode(node, blockConfigs, style) {
     // The check has already been made by isValidAnchor but
     // we have to do it again to keep flow happy.
     if (!isHTMLAnchorElement(node)) {
@@ -24463,7 +24659,7 @@ function () {
     entityConfig.url = new URI(anchor.href).toString(); // TODO: T15530363 update this when we remove DraftEntity completely
 
     this.currentEntity = this.entityMap.__create('LINK', 'MUTABLE', entityConfig || {});
-    blockConfigs.push.apply(blockConfigs, this._toBlockConfigs(Array.from(node.childNodes)));
+    blockConfigs.push.apply(blockConfigs, this._toBlockConfigs(Array.from(node.childNodes), style));
     this.currentEntity = null;
   }
   /**
@@ -25271,7 +25467,9 @@ function editOnBlur(editor, e) {
   // opposed to clicking to another tab or window).
   var ownerDocument = e.currentTarget.ownerDocument;
 
-  if (!Boolean(editor.props.preserveSelectionOnBlur) && getActiveElement(ownerDocument) === ownerDocument.body) {
+  if ( // This ESLint rule conflicts with `sketchy-null-bool` flow check
+  // eslint-disable-next-line no-extra-boolean-cast
+  !Boolean(editor.props.preserveSelectionOnBlur) && getActiveElement(ownerDocument) === ownerDocument.body) {
     var _selection = ownerDocument.defaultView.getSelection();
 
     var editorNode = editor.editor;
@@ -25665,7 +25863,7 @@ function editOnInput(editor, e) {
   var domSelection = castedEditorElement.ownerDocument.defaultView.getSelection();
   var anchorNode = domSelection.anchorNode,
       isCollapsed = domSelection.isCollapsed;
-  var isNotTextOrElementNode = anchorNode.nodeType !== Node.TEXT_NODE && anchorNode.nodeType !== Node.ELEMENT_NODE;
+  var isNotTextOrElementNode = (anchorNode === null || anchorNode === void 0 ? void 0 : anchorNode.nodeType) !== Node.TEXT_NODE && (anchorNode === null || anchorNode === void 0 ? void 0 : anchorNode.nodeType) !== Node.ELEMENT_NODE;
 
   if (isNotTextOrElementNode) {
     // TODO: (t16149272) figure out context for this change
@@ -26077,8 +26275,6 @@ function editOnPaste(editor, e) {
   var data = new DataTransfer(e.clipboardData); // Get files, unless this is likely to be a string the user wants inline.
 
   if (!data.isRichText()) {
-    /* $FlowFixMe This comment suppresses an error found DataTransfer was typed.
-     * getFiles() returns an array of <Files extends Blob>, not Blob */
     var files = data.getFiles();
     var defaultFileText = data.getText();
 
@@ -26088,6 +26284,10 @@ function editOnPaste(editor, e) {
       if (editor.props.handlePastedFiles && isEventHandled(editor.props.handlePastedFiles(files))) {
         return;
       }
+      /* $FlowFixMe This comment suppresses an error found DataTransfer was
+       * typed. getFiles() returns an array of <Files extends Blob>, not Blob
+       */
+
 
       getTextContentFromFiles(files, function (
       /*string*/
@@ -26897,14 +27097,12 @@ module.exports = getCharacterRemovalRange;
  */
 
 
-var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-
 var invariant = __webpack_require__(/*! fbjs/lib/invariant */ "./node_modules/fbjs/lib/invariant.js");
 
 var isHTMLElement = __webpack_require__(/*! ./isHTMLElement */ "./node_modules/draft-js/lib/isHTMLElement.js");
 
 function getContentEditableContainer(editor) {
-  var editorNode = ReactDOM.findDOMNode(editor.editorContainer);
+  var editorNode = editor.editorContainer;
   !editorNode ?  true ? invariant(false, 'Missing editorNode') : undefined : void 0;
   !isHTMLElement(editorNode.firstChild) ?  true ? invariant(false, 'editorNode.firstChild is not an HTMLElement') : undefined : void 0;
   var htmlElement = editorNode.firstChild;
@@ -28029,10 +28227,12 @@ function getUpdatedSelectionState(editorState, anchorKey, anchorOffset, focusKey
 
   var anchorPath = DraftOffsetKey.decode(anchorKey);
   var anchorBlockKey = anchorPath.blockKey;
-  var anchorLeaf = editorState.getBlockTree(anchorBlockKey).getIn([anchorPath.decoratorKey, 'leaves', anchorPath.leafKey]);
+  var anchorLeafBlockTree = editorState.getBlockTree(anchorBlockKey);
+  var anchorLeaf = anchorLeafBlockTree && anchorLeafBlockTree.getIn([anchorPath.decoratorKey, 'leaves', anchorPath.leafKey]);
   var focusPath = DraftOffsetKey.decode(focusKey);
   var focusBlockKey = focusPath.blockKey;
-  var focusLeaf = editorState.getBlockTree(focusBlockKey).getIn([focusPath.decoratorKey, 'leaves', focusPath.leafKey]);
+  var focusLeafBlockTree = editorState.getBlockTree(focusBlockKey);
+  var focusLeaf = focusLeafBlockTree && focusLeafBlockTree.getIn([focusPath.decoratorKey, 'leaves', focusPath.leafKey]);
 
   if (!anchorLeaf || !focusLeaf) {
     // If we cannot make sense of the updated selection state, stick to the current one.
@@ -28809,8 +29009,7 @@ function isInstanceOfNode(target) {
 
     if (!node.ownerDocument.defaultView) {
       return node instanceof Node;
-    } // $FlowFixMe https://github.com/DefinitelyTyped/DefinitelyTyped/issues/11508#issuecomment-256045682
-
+    }
 
     if (node instanceof node.ownerDocument.defaultView.Node) {
       return true;
@@ -70218,7 +70417,7 @@ module.exports = exported;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v16.13.0
+/** @license React v16.13.1
  * react-dom.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -70664,271 +70863,6 @@ var SuspenseListComponent = 19;
 var FundamentalComponent = 20;
 var ScopeComponent = 21;
 var Block = 22;
-
-var BEFORE_SLASH_RE = /^(.*)[\\\/]/;
-function describeComponentFrame (name, source, ownerName) {
-  var sourceInfo = '';
-
-  if (source) {
-    var path = source.fileName;
-    var fileName = path.replace(BEFORE_SLASH_RE, '');
-
-    {
-      // In DEV, include code for a common special case:
-      // prefer "folder/index.js" instead of just "index.js".
-      if (/^index\./.test(fileName)) {
-        var match = path.match(BEFORE_SLASH_RE);
-
-        if (match) {
-          var pathBeforeSlash = match[1];
-
-          if (pathBeforeSlash) {
-            var folderName = pathBeforeSlash.replace(BEFORE_SLASH_RE, '');
-            fileName = folderName + '/' + fileName;
-          }
-        }
-      }
-    }
-
-    sourceInfo = ' (at ' + fileName + ':' + source.lineNumber + ')';
-  } else if (ownerName) {
-    sourceInfo = ' (created by ' + ownerName + ')';
-  }
-
-  return '\n    in ' + (name || 'Unknown') + sourceInfo;
-}
-
-// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-// nor polyfill, then a plain number is used for performance.
-var hasSymbol = typeof Symbol === 'function' && Symbol.for;
-var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
-var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
-var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
-var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
-var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
-var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
-var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
-var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
-var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
-var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
-var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
-var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
-var FAUX_ITERATOR_SYMBOL = '@@iterator';
-function getIteratorFn(maybeIterable) {
-  if (maybeIterable === null || typeof maybeIterable !== 'object') {
-    return null;
-  }
-
-  var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
-
-  if (typeof maybeIterator === 'function') {
-    return maybeIterator;
-  }
-
-  return null;
-}
-
-var Uninitialized = -1;
-var Pending = 0;
-var Resolved = 1;
-var Rejected = 2;
-function refineResolvedLazyComponent(lazyComponent) {
-  return lazyComponent._status === Resolved ? lazyComponent._result : null;
-}
-function initializeLazyComponentType(lazyComponent) {
-  if (lazyComponent._status === Uninitialized) {
-    lazyComponent._status = Pending;
-    var ctor = lazyComponent._ctor;
-    var thenable = ctor();
-    lazyComponent._result = thenable;
-    thenable.then(function (moduleObject) {
-      if (lazyComponent._status === Pending) {
-        var defaultExport = moduleObject.default;
-
-        {
-          if (defaultExport === undefined) {
-            error('lazy: Expected the result of a dynamic import() call. ' + 'Instead received: %s\n\nYour code should look like: \n  ' + "const MyComponent = lazy(() => import('./MyComponent'))", moduleObject);
-          }
-        }
-
-        lazyComponent._status = Resolved;
-        lazyComponent._result = defaultExport;
-      }
-    }, function (error) {
-      if (lazyComponent._status === Pending) {
-        lazyComponent._status = Rejected;
-        lazyComponent._result = error;
-      }
-    });
-  }
-}
-
-function getWrappedName(outerType, innerType, wrapperName) {
-  var functionName = innerType.displayName || innerType.name || '';
-  return outerType.displayName || (functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName);
-}
-
-function getComponentName(type) {
-  if (type == null) {
-    // Host root, text node or just invalid type.
-    return null;
-  }
-
-  {
-    if (typeof type.tag === 'number') {
-      error('Received an unexpected object in getComponentName(). ' + 'This is likely a bug in React. Please file an issue.');
-    }
-  }
-
-  if (typeof type === 'function') {
-    return type.displayName || type.name || null;
-  }
-
-  if (typeof type === 'string') {
-    return type;
-  }
-
-  switch (type) {
-    case REACT_FRAGMENT_TYPE:
-      return 'Fragment';
-
-    case REACT_PORTAL_TYPE:
-      return 'Portal';
-
-    case REACT_PROFILER_TYPE:
-      return "Profiler";
-
-    case REACT_STRICT_MODE_TYPE:
-      return 'StrictMode';
-
-    case REACT_SUSPENSE_TYPE:
-      return 'Suspense';
-
-    case REACT_SUSPENSE_LIST_TYPE:
-      return 'SuspenseList';
-  }
-
-  if (typeof type === 'object') {
-    switch (type.$$typeof) {
-      case REACT_CONTEXT_TYPE:
-        return 'Context.Consumer';
-
-      case REACT_PROVIDER_TYPE:
-        return 'Context.Provider';
-
-      case REACT_FORWARD_REF_TYPE:
-        return getWrappedName(type, type.render, 'ForwardRef');
-
-      case REACT_MEMO_TYPE:
-        return getComponentName(type.type);
-
-      case REACT_BLOCK_TYPE:
-        return getComponentName(type.render);
-
-      case REACT_LAZY_TYPE:
-        {
-          var thenable = type;
-          var resolvedThenable = refineResolvedLazyComponent(thenable);
-
-          if (resolvedThenable) {
-            return getComponentName(resolvedThenable);
-          }
-
-          break;
-        }
-    }
-  }
-
-  return null;
-}
-
-var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
-
-function describeFiber(fiber) {
-  switch (fiber.tag) {
-    case HostRoot:
-    case HostPortal:
-    case HostText:
-    case Fragment:
-    case ContextProvider:
-    case ContextConsumer:
-      return '';
-
-    default:
-      var owner = fiber._debugOwner;
-      var source = fiber._debugSource;
-      var name = getComponentName(fiber.type);
-      var ownerName = null;
-
-      if (owner) {
-        ownerName = getComponentName(owner.type);
-      }
-
-      return describeComponentFrame(name, source, ownerName);
-  }
-}
-
-function getStackByFiberInDevAndProd(workInProgress) {
-  var info = '';
-  var node = workInProgress;
-
-  do {
-    info += describeFiber(node);
-    node = node.return;
-  } while (node);
-
-  return info;
-}
-var current = null;
-var phase = null;
-function getCurrentFiberOwnerNameInDevOrNull() {
-  {
-    if (current === null) {
-      return null;
-    }
-
-    var owner = current._debugOwner;
-
-    if (owner !== null && typeof owner !== 'undefined') {
-      return getComponentName(owner.type);
-    }
-  }
-
-  return null;
-}
-function getCurrentFiberStackInDev() {
-  {
-    if (current === null) {
-      return '';
-    } // Safe because if current fiber exists, we are reconciling,
-    // and it is guaranteed to be the work-in-progress version.
-
-
-    return getStackByFiberInDevAndProd(current);
-  }
-}
-function resetCurrentFiber() {
-  {
-    ReactDebugCurrentFrame.getCurrentStack = null;
-    current = null;
-    phase = null;
-  }
-}
-function setCurrentFiber(fiber) {
-  {
-    ReactDebugCurrentFrame.getCurrentStack = getCurrentFiberStackInDev;
-    current = fiber;
-    phase = null;
-  }
-}
-function setCurrentPhase(lifeCyclePhase) {
-  {
-    phase = lifeCyclePhase;
-  }
-}
 
 /**
  * Injectable ordering of event plugins.
@@ -71629,10 +71563,10 @@ properties[xlinkHref] = new PropertyInfoRecord('xlinkHref', STRING, false, // mu
   true);
 });
 
-var ReactDebugCurrentFrame$1 = null;
+var ReactDebugCurrentFrame = null;
 
 {
-  ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
+  ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
 } // A javascript: URL can contain leading C0 control or \u0020 SPACE,
 // and any newline or tab are filtered out as if they're not part of the URL.
 // https://url.spec.whatwg.org/#url-parsing
@@ -71834,6 +71768,271 @@ function setValueForProperty(node, name, value, isCustomComponentTag) {
     } else {
       node.setAttribute(attributeName, attributeValue);
     }
+  }
+}
+
+var BEFORE_SLASH_RE = /^(.*)[\\\/]/;
+function describeComponentFrame (name, source, ownerName) {
+  var sourceInfo = '';
+
+  if (source) {
+    var path = source.fileName;
+    var fileName = path.replace(BEFORE_SLASH_RE, '');
+
+    {
+      // In DEV, include code for a common special case:
+      // prefer "folder/index.js" instead of just "index.js".
+      if (/^index\./.test(fileName)) {
+        var match = path.match(BEFORE_SLASH_RE);
+
+        if (match) {
+          var pathBeforeSlash = match[1];
+
+          if (pathBeforeSlash) {
+            var folderName = pathBeforeSlash.replace(BEFORE_SLASH_RE, '');
+            fileName = folderName + '/' + fileName;
+          }
+        }
+      }
+    }
+
+    sourceInfo = ' (at ' + fileName + ':' + source.lineNumber + ')';
+  } else if (ownerName) {
+    sourceInfo = ' (created by ' + ownerName + ')';
+  }
+
+  return '\n    in ' + (name || 'Unknown') + sourceInfo;
+}
+
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
+var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+var FAUX_ITERATOR_SYMBOL = '@@iterator';
+function getIteratorFn(maybeIterable) {
+  if (maybeIterable === null || typeof maybeIterable !== 'object') {
+    return null;
+  }
+
+  var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+
+  if (typeof maybeIterator === 'function') {
+    return maybeIterator;
+  }
+
+  return null;
+}
+
+var Uninitialized = -1;
+var Pending = 0;
+var Resolved = 1;
+var Rejected = 2;
+function refineResolvedLazyComponent(lazyComponent) {
+  return lazyComponent._status === Resolved ? lazyComponent._result : null;
+}
+function initializeLazyComponentType(lazyComponent) {
+  if (lazyComponent._status === Uninitialized) {
+    lazyComponent._status = Pending;
+    var ctor = lazyComponent._ctor;
+    var thenable = ctor();
+    lazyComponent._result = thenable;
+    thenable.then(function (moduleObject) {
+      if (lazyComponent._status === Pending) {
+        var defaultExport = moduleObject.default;
+
+        {
+          if (defaultExport === undefined) {
+            error('lazy: Expected the result of a dynamic import() call. ' + 'Instead received: %s\n\nYour code should look like: \n  ' + "const MyComponent = lazy(() => import('./MyComponent'))", moduleObject);
+          }
+        }
+
+        lazyComponent._status = Resolved;
+        lazyComponent._result = defaultExport;
+      }
+    }, function (error) {
+      if (lazyComponent._status === Pending) {
+        lazyComponent._status = Rejected;
+        lazyComponent._result = error;
+      }
+    });
+  }
+}
+
+function getWrappedName(outerType, innerType, wrapperName) {
+  var functionName = innerType.displayName || innerType.name || '';
+  return outerType.displayName || (functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName);
+}
+
+function getComponentName(type) {
+  if (type == null) {
+    // Host root, text node or just invalid type.
+    return null;
+  }
+
+  {
+    if (typeof type.tag === 'number') {
+      error('Received an unexpected object in getComponentName(). ' + 'This is likely a bug in React. Please file an issue.');
+    }
+  }
+
+  if (typeof type === 'function') {
+    return type.displayName || type.name || null;
+  }
+
+  if (typeof type === 'string') {
+    return type;
+  }
+
+  switch (type) {
+    case REACT_FRAGMENT_TYPE:
+      return 'Fragment';
+
+    case REACT_PORTAL_TYPE:
+      return 'Portal';
+
+    case REACT_PROFILER_TYPE:
+      return "Profiler";
+
+    case REACT_STRICT_MODE_TYPE:
+      return 'StrictMode';
+
+    case REACT_SUSPENSE_TYPE:
+      return 'Suspense';
+
+    case REACT_SUSPENSE_LIST_TYPE:
+      return 'SuspenseList';
+  }
+
+  if (typeof type === 'object') {
+    switch (type.$$typeof) {
+      case REACT_CONTEXT_TYPE:
+        return 'Context.Consumer';
+
+      case REACT_PROVIDER_TYPE:
+        return 'Context.Provider';
+
+      case REACT_FORWARD_REF_TYPE:
+        return getWrappedName(type, type.render, 'ForwardRef');
+
+      case REACT_MEMO_TYPE:
+        return getComponentName(type.type);
+
+      case REACT_BLOCK_TYPE:
+        return getComponentName(type.render);
+
+      case REACT_LAZY_TYPE:
+        {
+          var thenable = type;
+          var resolvedThenable = refineResolvedLazyComponent(thenable);
+
+          if (resolvedThenable) {
+            return getComponentName(resolvedThenable);
+          }
+
+          break;
+        }
+    }
+  }
+
+  return null;
+}
+
+var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
+
+function describeFiber(fiber) {
+  switch (fiber.tag) {
+    case HostRoot:
+    case HostPortal:
+    case HostText:
+    case Fragment:
+    case ContextProvider:
+    case ContextConsumer:
+      return '';
+
+    default:
+      var owner = fiber._debugOwner;
+      var source = fiber._debugSource;
+      var name = getComponentName(fiber.type);
+      var ownerName = null;
+
+      if (owner) {
+        ownerName = getComponentName(owner.type);
+      }
+
+      return describeComponentFrame(name, source, ownerName);
+  }
+}
+
+function getStackByFiberInDevAndProd(workInProgress) {
+  var info = '';
+  var node = workInProgress;
+
+  do {
+    info += describeFiber(node);
+    node = node.return;
+  } while (node);
+
+  return info;
+}
+var current = null;
+var isRendering = false;
+function getCurrentFiberOwnerNameInDevOrNull() {
+  {
+    if (current === null) {
+      return null;
+    }
+
+    var owner = current._debugOwner;
+
+    if (owner !== null && typeof owner !== 'undefined') {
+      return getComponentName(owner.type);
+    }
+  }
+
+  return null;
+}
+function getCurrentFiberStackInDev() {
+  {
+    if (current === null) {
+      return '';
+    } // Safe because if current fiber exists, we are reconciling,
+    // and it is guaranteed to be the work-in-progress version.
+
+
+    return getStackByFiberInDevAndProd(current);
+  }
+}
+function resetCurrentFiber() {
+  {
+    ReactDebugCurrentFrame$1.getCurrentStack = null;
+    current = null;
+    isRendering = false;
+  }
+}
+function setCurrentFiber(fiber) {
+  {
+    ReactDebugCurrentFrame$1.getCurrentStack = getCurrentFiberStackInDev;
+    current = fiber;
+    isRendering = false;
+  }
+}
+function setIsRendering(rendering) {
+  {
+    isRendering = rendering;
   }
 }
 
@@ -75840,7 +76039,6 @@ function validateProperties$2(type, props, canUseEventSystem) {
 }
 
 var didWarnInvalidHydration = false;
-var didWarnShadyDOM = false;
 var DANGEROUSLY_SET_INNER_HTML = 'dangerouslySetInnerHTML';
 var SUPPRESS_CONTENT_EDITABLE_WARNING = 'suppressContentEditableWarning';
 var SUPPRESS_HYDRATION_WARNING = 'suppressHydrationWarning';
@@ -76160,12 +76358,6 @@ function setInitialProperties(domElement, tag, rawProps, rootContainerElement) {
 
   {
     validatePropertiesInDevelopment(tag, rawProps);
-
-    if (isCustomComponentTag && !didWarnShadyDOM && domElement.shadyRoot) {
-      error('%s is using shady DOM. Using shady DOM with React can ' + 'cause things to break subtly.', getCurrentFiberOwnerNameInDevOrNull() || 'A component');
-
-      didWarnShadyDOM = true;
-    }
   } // TODO: Make sure that we check isMounted before firing any of these events.
 
 
@@ -76519,12 +76711,6 @@ function diffHydratedProperties(domElement, tag, rawProps, parentNamespace, root
     suppressHydrationWarning = rawProps[SUPPRESS_HYDRATION_WARNING] === true;
     isCustomComponentTag = isCustomComponent(tag, rawProps);
     validatePropertiesInDevelopment(tag, rawProps);
-
-    if (isCustomComponentTag && !didWarnShadyDOM && domElement.shadyRoot) {
-      error('%s is using shady DOM. Using shady DOM with React can ' + 'cause things to break subtly.', getCurrentFiberOwnerNameInDevOrNull() || 'A component');
-
-      didWarnShadyDOM = true;
-    }
   } // TODO: Make sure that we check isMounted before firing any of these events.
 
 
@@ -81045,18 +81231,9 @@ function processChildContext(fiber, type, parentContext) {
     }
 
     var childContext;
-
-    {
-      setCurrentPhase('getChildContext');
-    }
-
     startPhaseTimer(fiber, 'getChildContext');
     childContext = instance.getChildContext();
     stopPhaseTimer();
-
-    {
-      setCurrentPhase(null);
-    }
 
     for (var contextKey in childContext) {
       if (!(contextKey in childContextTypes)) {
@@ -86981,7 +87158,6 @@ var didWarnAboutContextTypeOnFunctionComponent;
 var didWarnAboutGetDerivedStateOnFunctionComponent;
 var didWarnAboutFunctionRefs;
 var didWarnAboutReassigningProps;
-var didWarnAboutMaxDuration;
 var didWarnAboutRevealOrder;
 var didWarnAboutTailOptions;
 
@@ -86992,7 +87168,6 @@ var didWarnAboutTailOptions;
   didWarnAboutGetDerivedStateOnFunctionComponent = {};
   didWarnAboutFunctionRefs = {};
   didWarnAboutReassigningProps = false;
-  didWarnAboutMaxDuration = false;
   didWarnAboutRevealOrder = {};
   didWarnAboutTailOptions = {};
 }
@@ -87056,7 +87231,7 @@ function updateForwardRef(current, workInProgress, Component, nextProps, renderE
 
   {
     ReactCurrentOwner$1.current = workInProgress;
-    setCurrentPhase('render');
+    setIsRendering(true);
     nextChildren = renderWithHooks(current, workInProgress, render, nextProps, ref, renderExpirationTime);
 
     if ( workInProgress.mode & StrictMode) {
@@ -87066,7 +87241,7 @@ function updateForwardRef(current, workInProgress, Component, nextProps, renderE
       }
     }
 
-    setCurrentPhase(null);
+    setIsRendering(false);
   }
 
   if (current !== null && !didReceiveUpdate) {
@@ -87274,7 +87449,7 @@ function updateFunctionComponent(current, workInProgress, Component, nextProps, 
 
   {
     ReactCurrentOwner$1.current = workInProgress;
-    setCurrentPhase('render');
+    setIsRendering(true);
     nextChildren = renderWithHooks(current, workInProgress, Component, nextProps, context, renderExpirationTime);
 
     if ( workInProgress.mode & StrictMode) {
@@ -87284,7 +87459,7 @@ function updateFunctionComponent(current, workInProgress, Component, nextProps, 
       }
     }
 
-    setCurrentPhase(null);
+    setIsRendering(false);
   }
 
   if (current !== null && !didReceiveUpdate) {
@@ -87400,14 +87575,14 @@ function finishClassComponent(current, workInProgress, Component, shouldUpdate, 
     }
   } else {
     {
-      setCurrentPhase('render');
+      setIsRendering(true);
       nextChildren = instance.render();
 
       if ( workInProgress.mode & StrictMode) {
         instance.render();
       }
 
-      setCurrentPhase(null);
+      setIsRendering(false);
     }
   } // React DevTools reads this flag.
 
@@ -87721,8 +87896,10 @@ function mountIndeterminateComponent(_current, workInProgress, Component, render
       ReactStrictModeWarnings.recordLegacyContextWarning(workInProgress, null);
     }
 
+    setIsRendering(true);
     ReactCurrentOwner$1.current = workInProgress;
     value = renderWithHooks(null, workInProgress, Component, props, context, renderExpirationTime);
+    setIsRendering(false);
   } // React DevTools reads this flag.
 
 
@@ -87888,17 +88065,7 @@ function updateSuspenseComponent(current, workInProgress, renderExpirationTime) 
   }
 
   suspenseContext = setDefaultShallowSuspenseContext(suspenseContext);
-  pushSuspenseContext(workInProgress, suspenseContext);
-
-  {
-    if ('maxDuration' in nextProps) {
-      if (!didWarnAboutMaxDuration) {
-        didWarnAboutMaxDuration = true;
-
-        error('maxDuration has been removed from React. ' + 'Remove the maxDuration prop.');
-      }
-    }
-  } // This next part is a bit confusing. If the children timeout, we switch to
+  pushSuspenseContext(workInProgress, suspenseContext); // This next part is a bit confusing. If the children timeout, we switch to
   // showing the fallback children in place of the "primary" children.
   // However, we don't want to delete the primary children because then their
   // state will be lost (both the React state and the host state, e.g.
@@ -87919,7 +88086,6 @@ function updateSuspenseComponent(current, workInProgress, renderExpirationTime) 
   // Otherwise, we render the primary children directly. This requires some
   // custom reconciliation logic to preserve the state of the primary
   // children. It's essentially a very basic form of re-parenting.
-
 
   if (current === null) {
     // If we're currently hydrating, try to hydrate this boundary.
@@ -88553,9 +88719,9 @@ function updateContextConsumer(current, workInProgress, renderExpirationTime) {
 
   {
     ReactCurrentOwner$1.current = workInProgress;
-    setCurrentPhase('render');
+    setIsRendering(true);
     newChildren = render(newValue);
-    setCurrentPhase(null);
+    setIsRendering(false);
   } // React DevTools reads this flag.
 
 
@@ -91067,9 +91233,11 @@ function throwException(root, returnFiber, sourceFiber, value, renderExpirationT
       var currentSource = sourceFiber.alternate;
 
       if (currentSource) {
+        sourceFiber.updateQueue = currentSource.updateQueue;
         sourceFiber.memoizedState = currentSource.memoizedState;
         sourceFiber.expirationTime = currentSource.expirationTime;
       } else {
+        sourceFiber.updateQueue = null;
         sourceFiber.memoizedState = null;
       }
     }
@@ -93467,43 +93635,40 @@ var beginWork$1;
 }
 
 var didWarnAboutUpdateInRender = false;
-var didWarnAboutUpdateInGetChildContext = false;
+var didWarnAboutUpdateInRenderForAnotherComponent;
+
+{
+  didWarnAboutUpdateInRenderForAnotherComponent = new Set();
+}
 
 function warnAboutRenderPhaseUpdatesInDEV(fiber) {
   {
-    if ((executionContext & RenderContext) !== NoContext) {
+    if (isRendering && (executionContext & RenderContext) !== NoContext) {
       switch (fiber.tag) {
         case FunctionComponent:
         case ForwardRef:
         case SimpleMemoComponent:
           {
-            error('Cannot update a component from inside the function body of a ' + 'different component.');
+            var renderingComponentName = workInProgress && getComponentName(workInProgress.type) || 'Unknown'; // Dedupe by the rendering component because it's the one that needs to be fixed.
+
+            var dedupeKey = renderingComponentName;
+
+            if (!didWarnAboutUpdateInRenderForAnotherComponent.has(dedupeKey)) {
+              didWarnAboutUpdateInRenderForAnotherComponent.add(dedupeKey);
+              var setStateComponentName = getComponentName(fiber.type) || 'Unknown';
+
+              error('Cannot update a component (`%s`) while rendering a ' + 'different component (`%s`). To locate the bad setState() call inside `%s`, ' + 'follow the stack trace as described in https://fb.me/setstate-in-render', setStateComponentName, renderingComponentName, renderingComponentName);
+            }
 
             break;
           }
 
         case ClassComponent:
           {
-            switch (phase) {
-              case 'getChildContext':
-                if (didWarnAboutUpdateInGetChildContext) {
-                  return;
-                }
+            if (!didWarnAboutUpdateInRender) {
+              error('Cannot update during an existing state transition (such as ' + 'within `render`). Render methods should be a pure ' + 'function of props and state.');
 
-                error('setState(...): Cannot call setState() inside getChildContext()');
-
-                didWarnAboutUpdateInGetChildContext = true;
-                break;
-
-              case 'render':
-                if (didWarnAboutUpdateInRender) {
-                  return;
-                }
-
-                error('Cannot update during an existing state transition (such as ' + 'within `render`). Render methods should be a pure ' + 'function of props and state.');
-
-                didWarnAboutUpdateInRender = true;
-                break;
+              didWarnAboutUpdateInRender = true;
             }
 
             break;
@@ -94598,7 +94763,7 @@ function updateContainer(element, container, parentComponent, callback) {
   }
 
   {
-    if (phase === 'render' && current !== null && !didWarnAboutNestedUpdates) {
+    if (isRendering && current !== null && !didWarnAboutNestedUpdates) {
       didWarnAboutNestedUpdates = true;
 
       error('Render methods should be a pure function of props and state; ' + 'triggering nested component updates from render is not allowed. ' + 'If necessary, trigger nested updates in componentDidUpdate.\n\n' + 'Check the render method of %s.', getComponentName(current.type) || 'Unknown');
@@ -95174,7 +95339,7 @@ implementation) {
   };
 }
 
-var ReactVersion = '16.13.0';
+var ReactVersion = '16.13.1';
 
 setAttemptUserBlockingHydration(attemptUserBlockingHydration$1);
 setAttemptContinuousHydration(attemptContinuousHydration$1);
@@ -98157,7 +98322,7 @@ function pathToRegexp (path, keys, options) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v16.13.0
+/** @license React v16.13.1
  * react.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -98177,7 +98342,7 @@ if (true) {
 var _assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
 var checkPropTypes = __webpack_require__(/*! prop-types/checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
 
-var ReactVersion = '16.13.0';
+var ReactVersion = '16.13.1';
 
 // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
 // nor polyfill, then a plain number is used for performance.
@@ -100328,7 +100493,7 @@ function resolvePathname(to, from) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v0.19.0
+/** @license React v0.19.1
  * scheduler-tracing.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -100689,7 +100854,7 @@ exports.unstable_wrap = unstable_wrap;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v0.19.0
+/** @license React v0.19.1
  * scheduler.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
