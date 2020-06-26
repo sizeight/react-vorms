@@ -6627,10 +6627,10 @@ rc@^1.0.1, rc@^1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-datepicker@^2.15.0:
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-2.15.0.tgz#1e182699f1fd96b96080d0b6c294c6dc383117a0"
-  integrity sha512-IZU3izNcP7UFFsaKGpPW1bej6CVF0oL/wgisjDiuy8FZk9wdcFDcrk1/FFY2UinrYSGzgafc4jdOmgVj/7YrJA==
+react-datepicker@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-3.0.0.tgz#a6fba3aa2738656fbadebce9a3c8e34ad6cde83b"
+  integrity sha512-Yrxan1tERAiWS0EzitpiaiXOIz0APTUtV75uWbaS+jSaKoGCR6wUN2FDwr1ACGlnEoGhR9QQ2Vq3odnWtgJsOA==
   dependencies:
     classnames "^2.2.6"
     date-fns "^2.0.1"
