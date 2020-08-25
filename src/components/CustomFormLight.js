@@ -73,6 +73,7 @@ const CustomForm = (props) => {
   /*
    * Generate a unique id suffix for field id`s to ensure more than one form can be used on same
    * page with unique id`s.`
+   * IE 11 fix => needs msCrypto
    */
   const array = new Uint32Array(1);
   const cryptoObj = window.crypto || window.msCrypto; // for IE 11
