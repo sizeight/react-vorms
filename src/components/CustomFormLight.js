@@ -76,7 +76,7 @@ const CustomForm = (props) => {
    * IE 11 fix => needs msCrypto
    */
   const array = new Uint32Array(1);
-  const crypto = window.crypto || window.msCrypto;
+  const cryptoObj = window.crypto || window.msCrypto; // for IE 11
   crypto.getRandomValues(array);
   const idSuffix = array[0];
 
