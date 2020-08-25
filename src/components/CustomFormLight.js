@@ -15,7 +15,11 @@ const propTypes = {
         type: PropTypes.string.isRequired,
         name: PropTypes.string,
         label: PropTypes.string.isRequired,
-        initialValue: PropTypes.any,
+        initialValue: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.number,
+          PropTypes.bool,
+        ]),
         hideLabel: PropTypes.bool,
         placeholder: PropTypes.string,
         validation: PropTypes.shape({
@@ -30,9 +34,9 @@ const propTypes = {
     ),
   ).isRequired,
   withReactVorm: PropTypes.shape({
-    values: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired,
-    touched: PropTypes.object.isRequired,
+    values: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    errors: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+    touched: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     onSubmit: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     onBlur: PropTypes.func.isRequired,
