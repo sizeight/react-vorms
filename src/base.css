@@ -8,6 +8,10 @@
 .react-datepicker__input-container {
   width: 100%;
 }
+/* Display bug fix, Bootstrap .custom-control has z-index: 1 displaying over datepicker popup */
+.react-datepicker-popper {
+  z-index: 2;
+}
 .react-datepicker__close-icon::after {
   background-color: transparent;
   color: #000;
