@@ -51,7 +51,7 @@ const FilterForm = (props) => {
       <div className="input-group">
         <input
           type="text"
-          className="form-control form-control-sm"
+          className="form-control form-control-sm shadow-none"
           value={value}
           placeholder={placeHolderText}
           onChange={handleChange}
@@ -59,7 +59,7 @@ const FilterForm = (props) => {
         <div className="input-group-append">
           <button
             type="button"
-            className={`btn ${value === '' ? 'btn-secondary' : 'btn-primary'} btn-sm ${value === '' ? 'btn-outline-secondary' : ''}`}
+            className={`btn ${value === '' ? 'btn-outline-secondary' : 'btn-primary'} btn-sm shadow-none`}
             disabled={value === ''}
             onClick={handleReset}
           >

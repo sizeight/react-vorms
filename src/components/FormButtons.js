@@ -28,7 +28,7 @@ const FormButtons = (props) => {
       {onCancel && (
         <button
           type="button"
-          className="btn btn-secondary btn-sm mr-2"
+          className="btn btn-secondary btn-sm shadow-none mr-2"
           onClick={onCancel}
           disabled={isSubmitting}
         >
@@ -37,7 +37,7 @@ const FormButtons = (props) => {
       )}
       <button
         type="button"
-        className="btn btn-primary btn-sm"
+        className="btn btn-primary shadow-none btn-sm"
         onClick={onSubmit}
         disabled={isSubmitting}
       >
