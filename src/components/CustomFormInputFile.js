@@ -100,9 +100,7 @@ const CustomFormInputFile = (props) => {
           type="file"
           name={name}
           id={id}
-
           disabled={disabled}
-
           onChange={handleChange}
           onBlur={handleBlur}
         />
@@ -131,11 +129,8 @@ const CustomFormInputFile = (props) => {
                 className="custom-control-input"
                 type="checkbox"
                 id={`clearFile__${id}`}
-
                 disabled={disabled}
-
                 onClick={handleClear}
-
                 ref={clearCheckBox}
               />
               <label /* eslint-disable-line */

@@ -114,15 +114,12 @@ const CustomForm = (props) => {
                   width={field.width || undefined}
                   disabled={field.disabled || false}
                   className={field.className || ''}
-
                   key={field.name}
-
                   value={values[field.name]}
                   errors={errors[field.name]}
                   touched={touched[field.name]}
                   onChange={onChange}
                   onBlur={onBlur}
-
                   setFieldValue={setFieldValue}
                   setFieldTouched={setFieldTouched}
                 />

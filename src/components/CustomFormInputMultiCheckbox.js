@@ -82,9 +82,7 @@ const CustomFormInputMultiCheckbox = (props) => {
             name={`${name}:${i}`} // e.g. tags:2
             id={`${id}__${i}`} // e.g. id-tags-2
             checked={value.findIndex((val) => val === option.value) > -1}
-
             disabled={disabled || option.disabled}
-
             onChange={handleChange}
             onBlur={handleBlur}
           />

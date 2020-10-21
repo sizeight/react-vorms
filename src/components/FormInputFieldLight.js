@@ -147,14 +147,12 @@ const FormInputField = (props) => {
           type={type}
           name={name}
           id={`id_${name}__${idSuffix}`}
-
           placeholder={placeholder}
           required={required}
           value={value === null ? '' : value}
           onChange={onChange}
           onBlur={onBlur}
           disabled={disabled}
-
           aria-describedby={ariaDescribedBy}
         />
       )}
@@ -165,14 +163,12 @@ const FormInputField = (props) => {
           className={`form-control form-control-sm${invalid ? ' is-invalid' : ''}`}
           name={name}
           id={`id_${name}__${idSuffix}`}
-
           placeholder={placeholder}
           required={required}
           value={value}
           onChange={onChange}
           onBlur={onBlur}
           disabled={disabled}
-
           rows="10"
           aria-describedby={ariaDescribedBy}
         />
@@ -185,7 +181,6 @@ const FormInputField = (props) => {
           type="select"
           name={name}
           id={`id_${name}__${idSuffix}`}
-
           required={required}
           value={value}
           onChange={onChange}
@@ -213,13 +208,11 @@ const FormInputField = (props) => {
             type="checkbox"
             name={name}
             id={`id_${name}__${idSuffix}`}
-
             required={required}
             checked={value}
             onChange={onChange}
             onBlur={onBlur}
             disabled={disabled}
-
             aria-describedby={ariaDescribedBy}
           />
           <label /* eslint-disable-line jsx-a11y/label-has-for */
@@ -244,16 +237,13 @@ const FormInputField = (props) => {
                 type="radio"
                 name={name}
                 id={`id_${name}_${option.value}__${idSuffix}`}
-
                 value={option.value}
                 key={option.value}
-
                 required={required}
                 checked={value === option.value}
                 onChange={onChange}
                 onBlur={onBlur}
                 disabled={disabled || option.disabled}
-
                 aria-describedby={ariaDescribedBy}
               />
               <label /* eslint-disable-line jsx-a11y/label-has-for */
@@ -277,7 +267,6 @@ const FormInputField = (props) => {
           invalid={invalid}
           onChange={setFieldValue}
           onBlur={setFieldTouched}
-
           disabled={disabled}
         />
       )}
@@ -320,7 +309,6 @@ const FormInputField = (props) => {
           invalid={invalid}
           onChange={setFieldValue}
           onBlur={setFieldTouched}
-
           required={required}
           disabled={disabled}
         />

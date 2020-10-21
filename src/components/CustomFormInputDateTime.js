@@ -83,23 +83,19 @@ const CustomFormInputDateTime = (props) => {
   return (
     <DatePicker
       className={`form-control-sm form-control${invalid ? ' is-invalid' : ''}`}
-
       type={type}
       name={name}
       id={id}
-
       selected={value ? new Date(value) : null}
       disabled={disabled}
       onChange={handleChange}
       onChangeRaw={handleRawChange}
       onBlur={handleBlur}
-
       autoComplete="off"
       todayButton="Today"
       isClearable
       clearButtonTitle="Clear"
       shouldCloseOnSelect
-
       dateFormat={showTime ? 'dd MMMM yyyy HH:mm' : 'dd MMMM yyyy'}
       showTimeSelect={showTime}
       timeFormat={showTime ? 'HH:mm' : null}

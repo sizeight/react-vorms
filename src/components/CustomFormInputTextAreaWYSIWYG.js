@@ -204,7 +204,6 @@ const CustomFormInputTextAreaWYSIWYG = (props) => {
             onChange={handleEditorChange}
             onBlur={() => handleBlur('editor')}
             placeholder={placeholder}
-
             ref={editorRef}
             spellCheck
           />
@@ -216,13 +215,11 @@ const CustomFormInputTextAreaWYSIWYG = (props) => {
             type="textarea"
             // name={name}
             // id={`id-${name}`}
-
             placeholder="Editor source"
             // required={required}
             value={markupState}
             onChange={handleHTMLEditorChange}
             onBlur={() => handleBlur('markup')}
-
             ref={markupEditorRef}
             // invalid={hasError}
           />
