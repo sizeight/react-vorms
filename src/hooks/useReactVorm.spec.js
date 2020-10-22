@@ -37,8 +37,8 @@ describe('useReactVorm', () => {
         name: 'first_name',
       },
     ];
-    const expectedOutput = undefined;
-    expect(areFieldNamesUnique(flatDefinition)).toEqual(expectedOutput);
+    expect(() => areFieldNamesUnique(flatDefinition))
+      .toThrow(new Error('Form definition has duplicate field names, please ensure all field names are unique.'));
   });
 
 
