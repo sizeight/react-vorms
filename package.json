@@ -1,6 +1,6 @@
 {
   "name": "react-vorms",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "Batteries included, minimal setup reusable forms for React & Bootstrap apps",
   "license": "MIT",
   "repository": "sizeight/react-vorms",
@@ -36,7 +36,6 @@
     "test": "jest --config ./jest.config.json",
     "test:watch": "yarn test --watch"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
