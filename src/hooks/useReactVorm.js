@@ -528,7 +528,7 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
     touched,
     valuesToData: valuesToData(values),
 
-    setErrors: (resp) => respToErrors(resp),
+    setErrors: (resp) => setErrors(respToErrors(resp)),
     setValues,
     setTouched,
 
