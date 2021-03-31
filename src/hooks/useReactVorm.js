@@ -239,7 +239,7 @@ export const validate = (value, validation) => {
  * Translates the flat values to indented JSON for form submission.
  */
 export const valuesToData = (values) => {
-  function tmp(data, keys, value) {
+  function unflattenJSON(data, keys, value) {
     if (keys.length === 1) {
       const d = { ...data };
       d[keys[0]] = value;
@@ -249,11 +249,11 @@ export const valuesToData = (values) => {
 
     const d2 = { ...data };
     if (d2[keys[0]] === undefined) {
-      d2[keys[0]] = tmp({}, keys.slice(1), value);
+      d2[keys[0]] = unflattenJSON({}, keys.slice(1), value);
     } else {
       d2[keys[0]] = {
         ...d2[keys[0]],
-        ...tmp(d2[keys[0]], keys.slice(1), value),
+        ...unflattenJSON(d2[keys[0]], keys.slice(1), value),
       };
     }
     return d2;
@@ -262,10 +262,40 @@ export const valuesToData = (values) => {
   let finalData;
   Object.keys(values).forEach((key) => {
     const keys = key.split('__');
-    finalData = tmp(finalData, keys, values[key]);
+    finalData = unflattenJSON(finalData, keys, values[key]);
   });
 
   return finalData;
+};
+
+
+/*
+ * Translate the indented JSON resp to flat errors.
+ */
+export const respToErrors = (resp) => {
+  function flattenJSON(data) {
+    const result = {};
+    function recurse(cur, prop) {
+      if (Object(cur) !== cur) {
+        result[prop] = cur;
+      } else if (Array.isArray(cur)) {
+        result[prop] = cur;
+      } else {
+        let isEmpty = true;
+        Object.keys(cur).forEach((key) => {
+          isEmpty = false;
+          recurse(cur[key], prop ? `${prop}__${key}` : `${key}`);
+        });
+        if (isEmpty) {
+          result[prop] = {};
+        }
+      }
+    }
+    recurse(data, '');
+    return result;
+  }
+
+  return flattenJSON(resp);
 };
 
 

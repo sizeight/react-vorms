@@ -7,6 +7,7 @@ import {
   definitionToTouched,
   validate,
   valuesToData,
+  respToErrors,
 } from './useReactVorm';
 
 
@@ -343,5 +344,162 @@ describe('useReactVorm', () => {
       },
     };
     expect(valuesToData(values)).toEqual(expectedData);
+  });
+
+
+  it('responseToErrors() -> Depth of 1, 1 value', () => {
+    const resp = {
+      department: [
+        'Required',
+      ],
+    };
+    const expectedData = {
+      department: [
+        'Required',
+      ],
+    };
+    expect(respToErrors(resp)).toEqual(expectedData);
+  });
+
+  it('responseToErrors() -> Depth of 1, 1 values', () => {
+    const resp = {
+      department: [
+        'Required',
+      ],
+    };
+    const expectedData = {
+      department: [
+        'Required',
+      ],
+    };
+    expect(respToErrors(resp)).toEqual(expectedData);
+  });
+
+  it('responseToErrors() -> Depth of 1, 2 values', () => {
+    const resp = {
+      department: [
+        'Required',
+      ],
+      phone: [
+        'Ensure this field has no more than 20 characters.',
+      ],
+    };
+    const expectedData = {
+      department: [
+        'Required',
+      ],
+      phone: [
+        'Ensure this field has no more than 20 characters.',
+      ],
+    };
+    expect(respToErrors(resp)).toEqual(expectedData);
+  });
+
+  it('responseToErrors() -> Depth of 2, 2 values', () => {
+    const resp = {
+      department: [
+        'Required',
+      ],
+      profile: {
+        phone2: [
+          'Ensure this field has no more than 20 characters.',
+        ],
+      },
+    };
+    const expectedData = {
+      department: [
+        'Required',
+      ],
+      profile__phone2: [
+        'Ensure this field has no more than 20 characters.',
+      ],
+    };
+    expect(respToErrors(resp)).toEqual(expectedData);
+  });
+
+  it('responseToErrors() -> Depth of 2, 2 values', () => {
+    const resp = {
+      department: [
+        'Required',
+      ],
+      profile: {
+        phone2: [
+          'Ensure this field has no more than 20 characters.',
+          'No numbers.',
+        ],
+      },
+    };
+    const expectedData = {
+      department: [
+        'Required',
+      ],
+      profile__phone2: [
+        'Ensure this field has no more than 20 characters.',
+        'No numbers.',
+      ],
+    };
+    expect(respToErrors(resp)).toEqual(expectedData);
+  });
+
+  it('responseToErrors() -> Depth of 2, 3 values', () => {
+    const resp = {
+      department: [
+        'Required',
+      ],
+      profile: {
+        phone2: [
+          'Ensure this field has no more than 20 characters.',
+          'No numbers.',
+        ],
+        phone1: [
+          'Ensure this field has no more than 20 characters.',
+        ],
+      },
+    };
+    const expectedData = {
+      department: [
+        'Required',
+      ],
+      profile__phone2: [
+        'Ensure this field has no more than 20 characters.',
+        'No numbers.',
+      ],
+      profile__phone1: [
+        'Ensure this field has no more than 20 characters.',
+      ],
+    };
+    expect(respToErrors(resp)).toEqual(expectedData);
+  });
+
+  it('responseToErrors() -> Depth of 3, 3 values', () => {
+    const resp = {
+      department: [
+        'Required',
+      ],
+      profile: {
+        phones: {
+          phone2: [
+            'Ensure this field has no more than 20 characters.',
+            'No numbers.',
+          ],
+          phone1: [
+            'Ensure this field has no more than 20 characters.',
+          ],
+        },
+      },
+    };
+    const expectedData = {
+      department: [
+        'Required',
+      ],
+      profile__phones__phone2: [
+        'Ensure this field has no more than 20 characters.',
+        'No numbers.',
+      ],
+      profile__phones__phone1: [
+        'Ensure this field has no more than 20 characters.',
+      ],
+    };
+    expect(respToErrors(resp)).toEqual(expectedData);
   });
 });
