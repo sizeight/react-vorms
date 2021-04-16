@@ -256,6 +256,15 @@ describe('useReactVorm', () => {
     expect(validate(value, validation)).toEqual(expectedReturn);
   });
 
+  it('validate() => required with value of zero (0), no error', () => {
+    const value = 0;
+    const validation = {
+      required: true,
+    };
+    const expectedReturn = [];
+    expect(validate(value, validation)).toEqual(expectedReturn);
+  });
+
   it('validate() -> required, error', () => {
     const value = '';
     const validation = {

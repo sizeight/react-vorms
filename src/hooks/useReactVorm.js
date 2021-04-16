@@ -125,7 +125,9 @@ export const validate = (value, validation) => {
     switch (key) {
       case 'required':
         if (validation[key] && !value) {
-          errors.push('Required');
+          if (value !== 0) { // 0 is a valid value
+            errors.push('Required');
+          }
         }
         break;
       case 'number': {
