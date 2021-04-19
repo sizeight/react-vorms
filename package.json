@@ -1,6 +1,6 @@
 {
   "name": "react-vorms",
-  "version": "1.7.12",
+  "version": "1.7.13",
   "description": "Batteries included, minimal setup reusable forms for React & Bootstrap apps",
   "license": "MIT",
   "repository": "sizeight/react-vorms",
