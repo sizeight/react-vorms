@@ -35,7 +35,7 @@ const CustomFormInputDateTime = (props) => {
    * If a valid Date object is available, set the state to the string representation, otherwise
    * set to null.
    */
-  function handleChange(date) {
+  const handleChange = (date) => {
     let newValue = null;
     if (date instanceof Date) {
       try {
@@ -45,16 +45,16 @@ const CustomFormInputDateTime = (props) => {
       }
     }
     onChange(name, newValue);
-  }
+  };
 
 
-  function handleRawChange(e) {
+  const handleRawChange = (e) => {
     const newValue = e.target.value;
     onChange(name, newValue);
-  }
+  };
 
 
-  function handleBlur(e) {
+  const handleBlur = (e) => {
     let date;
     try {
       date = new Date(e.target.value);
@@ -75,7 +75,7 @@ const CustomFormInputDateTime = (props) => {
     }
 
     onBlur(name, true);
-  }
+  };
 
   // datetime field needs extra props to display time picker
   const showTime = type === 'datetime';

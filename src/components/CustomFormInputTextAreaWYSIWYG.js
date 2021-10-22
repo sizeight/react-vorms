@@ -56,19 +56,19 @@ const CustomFormInputTextAreaWYSIWYG = (props) => {
   const markupEditorRef = useRef(null);
 
 
-  function handleEditorChange(newEditorState) {
+  const handleEditorChange = (newEditorState) => {
     const newMarkupState = stateToHTML(newEditorState.getCurrentContent());
     setEditorState(newEditorState);
     setMarkupState(newMarkupState);
-  }
+  };
 
-  function handleHTMLEditorChange(e) {
+  const handleHTMLEditorChange = (e) => {
     const newMarkupState = e.target.value;
     const contentState = stateFromHTML(newMarkupState);
     const newEditorState = EditorState.createWithContent(contentState);
     setEditorState(newEditorState);
     setMarkupState(newMarkupState);
-  }
+  };
 
   /*
    * When value changes on a reset, set editor and markup state to value.
@@ -87,21 +87,21 @@ const CustomFormInputTextAreaWYSIWYG = (props) => {
    * On blur update the useForm hook state.
    */
   const { name, onChange, onBlur } = props;
-  function handleBlur() {
+  const handleBlur = () => {
     onBlur(name, true); // Set touched to true
     onChange(name, markupState); // Set value to markup
-  }
+  };
 
-  function handleKeyCommand(command, newEditorState) {
+  const handleKeyCommand = (command, newEditorState) => {
     const newState = RichUtils.handleKeyCommand(newEditorState, command);
     if (newState) {
       handleEditorChange(newState);
       return true;
     }
     return false;
-  }
+  };
 
-  function mapKeyToEditorCommand(e) {
+  const mapKeyToEditorCommand = (e) => {
     if (e.keyCode === 9 /* TAB */) {
       const newEditorState = RichUtils.onTab(
         e,
@@ -114,33 +114,33 @@ const CustomFormInputTextAreaWYSIWYG = (props) => {
       return;
     }
     return getDefaultKeyBinding(e); /* eslint-disable-line consistent-return */
-  }
+  };
 
-  function toggleUndo() {
+  const toggleUndo = () => {
     const newEditorState = EditorState.undo(editorState);
     const newMarkupState = stateToHTML(newEditorState.getCurrentContent());
     setEditorState(newEditorState);
     setMarkupState(newMarkupState);
-  }
+  };
 
-  function toggleRedo() {
+  const toggleRedo = () => {
     const newEditorState = EditorState.redo(editorState);
     const newMarkupState = stateToHTML(newEditorState.getCurrentContent());
     setEditorState(newEditorState);
     setMarkupState(newMarkupState);
-  }
+  };
 
-  function toggleBlockType(blockType) {
+  const toggleBlockType = (blockType) => {
     handleEditorChange(RichUtils.toggleBlockType(editorState, blockType));
-  }
+  };
 
-  function toggleInlineStyle(inlineStyle) {
+  const toggleInlineStyle = (inlineStyle) => {
     handleEditorChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
-  }
+  };
 
-  function focusOnEditor() {
+  const focusOnEditor = () => {
     editorRef.current.focus();
-  }
+  };
 
   /*
    * When preview changes, set correct focus.
@@ -156,9 +156,9 @@ const CustomFormInputTextAreaWYSIWYG = (props) => {
     [preview],
   );
 
-  function togglePreview() {
+  const togglePreview = () => {
     setPreview(!preview);
-  }
+  };
 
 
   const { placeholder } = props;
