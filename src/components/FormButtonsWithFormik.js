@@ -35,7 +35,7 @@ const FormButtons = (props) => {
       {onCancel && (
         <button
           type="button"
-          className="btn btn-secondary btn-sm shadow-none mr-2"
+          className="btn btn-secondary btn-sm shadow-none mr-2 me-2" // Bootstrap 4 & 5
           onClick={onCancel}
           disabled={isSubmitting}
         >

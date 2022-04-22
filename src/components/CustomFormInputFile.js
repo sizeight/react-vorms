@@ -113,7 +113,9 @@ const CustomFormInputFile = (props) => {
       </div>
       {checkedInitialValue && (
         <small>
-          <span className="mr-1">
+          <span
+            className="mr-1 me-1" // Bootstrap 4 & 5
+          >
             Currently:
           </span>
           <a
@@ -124,7 +126,7 @@ const CustomFormInputFile = (props) => {
             {checkedInitialValue}
           </a>
           {!required && (
-            <div className="custom-control custom-control-inline custom-checkbox clear-file ml-1 mr-1 ">
+            <div className="custom-control custom-control-inline custom-checkbox clear-file mx-1">
               <input
                 className="custom-control-input"
                 type="checkbox"
