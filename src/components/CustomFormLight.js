@@ -85,7 +85,7 @@ const CustomForm = (props) => {
     <form onSubmit={onSubmit} noValidate>
       {definition.map((formRow, i) => (
         <div
-          className="form-row"
+          className="row"
           key={i} /* eslint-disable-line react/no-array-index-key */
         >
           {formRow.map((field, j) => (
