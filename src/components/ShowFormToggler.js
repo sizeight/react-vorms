@@ -23,7 +23,7 @@ class ShowFormToggler extends React.Component {
   toggleForm = () => {
     const { showForm } = this.state;
     this.setState({ showForm: !showForm });
-  }
+  };
 
   render() {
     const { children } = this.props;
