@@ -130,7 +130,7 @@ const FormInputField = (props) => {
 
 
   return (
-    <div className={`form-group ${width ? `col-md-${width}` : 'col-md'}${className ? ` ${className}` : ''}`}>
+    <div className={`mb-1 ${width ? `col-md-${width}` : 'col-md'}${className ? ` ${className}` : ''}`}>
       {(['checkbox', 'hidden'].findIndex((x) => x === type) === -1) && (
         <label /* eslint-disable-line jsx-a11y/label-has-for */
           className={hideLabel === true ? 'sr-only' : ''}
