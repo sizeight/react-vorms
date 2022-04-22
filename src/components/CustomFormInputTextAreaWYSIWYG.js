@@ -176,58 +176,56 @@ const CustomFormInputTextAreaWYSIWYG = (props) => {
   }
 
   return (
-    <>
-      <div className="RichEditor-root">
-        <div className="RichEditor-controls">
-          <StyleControls
-            preview={preview}
-            editorState={editorState}
-            onTogglePreview={togglePreview}
-            onToggleBlockType={toggleBlockType}
-            onToggleInlineStyle={toggleInlineStyle}
-            onToggleUndo={toggleUndo}
-            onToggleRedo={toggleRedo}
-          />
-        </div>
-
-
-        <div // eslint-disable-line
-          className={editorClassName}
-          onClick={focusOnEditor}
-        >
-          <Editor
-            blockStyleFn={getBlockStyle}
-            customStyleMap={styleMap}
-            editorState={editorState}
-            handleKeyCommand={handleKeyCommand}
-            keyBindingFn={mapKeyToEditorCommand}
-            onChange={handleEditorChange}
-            onBlur={() => handleBlur('editor')}
-            placeholder={placeholder}
-            ref={editorRef}
-            spellCheck
-          />
-        </div>
-
-
-        <div className={`MarkupEditor-editor${!preview ? ' noshow' : ''}`}>
-          <textarea
-            type="textarea"
-            // name={name}
-            // id={`id-${name}`}
-            placeholder="Editor source"
-            // required={required}
-            value={markupState}
-            onChange={handleHTMLEditorChange}
-            onBlur={() => handleBlur('markup')}
-            ref={markupEditorRef}
-            // invalid={hasError}
-          />
-        </div>
-
-
+    <div className="RichEditor-root">
+      <div className="RichEditor-controls">
+        <StyleControls
+          preview={preview}
+          editorState={editorState}
+          onTogglePreview={togglePreview}
+          onToggleBlockType={toggleBlockType}
+          onToggleInlineStyle={toggleInlineStyle}
+          onToggleUndo={toggleUndo}
+          onToggleRedo={toggleRedo}
+        />
       </div>
-    </>
+
+
+      <div // eslint-disable-line
+        className={editorClassName}
+        onClick={focusOnEditor}
+      >
+        <Editor
+          blockStyleFn={getBlockStyle}
+          customStyleMap={styleMap}
+          editorState={editorState}
+          handleKeyCommand={handleKeyCommand}
+          keyBindingFn={mapKeyToEditorCommand}
+          onChange={handleEditorChange}
+          onBlur={() => handleBlur('editor')}
+          placeholder={placeholder}
+          ref={editorRef}
+          spellCheck
+        />
+      </div>
+
+
+      <div className={`MarkupEditor-editor${!preview ? ' noshow' : ''}`}>
+        <textarea
+          type="textarea"
+          // name={name}
+          // id={`id-${name}`}
+          placeholder="Editor source"
+          // required={required}
+          value={markupState}
+          onChange={handleHTMLEditorChange}
+          onBlur={() => handleBlur('markup')}
+          ref={markupEditorRef}
+          // invalid={hasError}
+        />
+      </div>
+
+
+    </div>
   );
 };
 

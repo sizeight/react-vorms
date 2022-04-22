@@ -5,7 +5,7 @@ import { connect, getIn } from 'formik';
 
 const propTypes = {
   submitButtonText: PropTypes.string,
-  buttonPosition: PropTypes.oneOf(['left', 'center', 'right']),
+  buttonsPosition: PropTypes.oneOf(['left', 'center', 'right']),
   onCancel: PropTypes.func,
 
   formik: PropTypes.object.isRequired, /* eslint-disable-line react/forbid-prop-types */
@@ -13,13 +13,17 @@ const propTypes = {
 
 const defaultProps = {
   submitButtonText: 'Submit',
-  buttonPosition: 'left',
+  buttonsPosition: 'left',
   onCancel: undefined,
 };
 
 
 const FormButtons = (props) => {
-  const { submitButtonText, buttonPosition, onCancel } = props;
+  const {
+    submitButtonText,
+    buttonPosition,
+    onCancel,
+  } = props;
 
   const { formik } = props;
 
@@ -30,8 +34,16 @@ const FormButtons = (props) => {
   const onSubmit = getIn(formik.handleSubmit); // eslint-disable-line react/prop-types
   const isSubmitting = getIn(formik.isSubmitting); // eslint-disable-line react/prop-types
 
+  // Bootstrap 4 & 5
+  let positionClass = 'text-left text-start';
+  if (buttonsPosition === 'center') {
+    positionClass = 'text-center';
+  } else if (buttonsPosition === 'right') {
+    positionClass = 'text-right text-end';
+  }
+
   return (
-    <div className={`text-${buttonPosition} mb-2`}>
+    <div className={`${positionClass} mb-2`}>
       {onCancel && (
         <button
           type="button"

@@ -20,19 +20,18 @@ const InvalidFeedback = (props) => {
     the directly after requirement.
   */
 
-  return (
-    <>
-      {errors && errors.length > 0 && (
-        <div className="text-danger mt-1">
-          {errors.map((error, i) => (
-            <div key={i}/* eslint-disable-line react/no-array-index-key */>
-              <small>{error}</small>
-            </div>
-          ))}
-        </div>
-      )}
-    </>
-  );
+  if (errors && errors.length > 0) {
+    return (
+      <div className="text-danger mt-1">
+        {errors.map((error, i) => (
+          <div key={i}/* eslint-disable-line react/no-array-index-key */>
+            <small>{error}</small>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return null;
 };
 
 InvalidFeedback.propTypes = propTypes;

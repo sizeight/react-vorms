@@ -20,11 +20,24 @@ const defaultProps = {
 
 const FormButtons = (props) => {
   const {
-    submitButtonText, cancelButtonText, buttonsPosition, isSubmitting, onSubmit, onCancel,
+    submitButtonText,
+    cancelButtonText,
+    buttonsPosition,
+    isSubmitting,
+    onSubmit,
+    onCancel,
   } = props;
 
+  // Bootstrap 4 & 5
+  let positionClass = 'text-left text-start';
+  if (buttonsPosition === 'center') {
+    positionClass = 'text-center';
+  } else if (buttonsPosition === 'right') {
+    positionClass = 'text-right text-end';
+  }
+
   return (
-    <div className={`text-${buttonsPosition} mb-2`}>
+    <div className={`${positionClass} mb-2`}>
       {onCancel && (
         <button
           type="button"
