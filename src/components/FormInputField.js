@@ -202,9 +202,9 @@ const FormInputField = (props) => {
 
 
       {type === 'checkbox' && (
-        <div className="custom-control custom-checkbox">
+        <div className="custom-control custom-checkbox    bs5 form-check">
           <input
-            className={`custom-control-input${invalid ? ' is-invalid' : ''}`}
+            className={`custom-control-input    bs5 form-check-input${invalid ? ' is-invalid' : ''}`}
             type="checkbox"
             name={name}
             id={`id_${name}__${idSuffix}`}
@@ -216,7 +216,7 @@ const FormInputField = (props) => {
             aria-describedby={ariaDescribedBy}
           />
           <label /* eslint-disable-line jsx-a11y/label-has-for */
-            className="custom-control-label"
+            className="custom-control-label    bs5 form-check-label"
             htmlFor={`id_${name}__${idSuffix}`}
           >
             {label}
@@ -229,11 +229,11 @@ const FormInputField = (props) => {
         <>
           {options.map((option) => (
             <div
-              className="custom-control custom-radio"
+              className="custom-control custom-radio    bs5 form-check"
               key={option.value}
             >
               <input
-                className={`custom-control-input${invalid ? ' is-invalid' : ''}`}
+                className={`custom-control-input    bs5 form-check-input${invalid ? ' is-invalid' : ''}`}
                 type="radio"
                 name={name}
                 id={`id_${name}_${option.value}__${idSuffix}`}
@@ -247,7 +247,7 @@ const FormInputField = (props) => {
                 aria-describedby={ariaDescribedBy}
               />
               <label /* eslint-disable-line jsx-a11y/label-has-for */
-                className="custom-control-label"
+                className="custom-control-label    bs5 form-check-label"
                 htmlFor={`id_${name}_${option.value}__${idSuffix}`}
               >
                 {option.label}
