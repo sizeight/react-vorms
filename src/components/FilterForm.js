@@ -56,16 +56,14 @@ const FilterForm = (props) => {
           placeholder={placeHolderText}
           onChange={handleChange}
         />
-        <div className="input-group-append">
-          <button
-            type="button"
-            className={`btn ${value === '' ? 'btn-outline-secondary' : 'btn-primary'} btn-sm shadow-none`}
-            disabled={value === ''}
-            onClick={handleReset}
-          >
-            &#215;
-          </button>
-        </div>
+        <button
+          type="button"
+          className={`btn ${value === '' ? 'btn-outline-secondary' : 'btn-primary'} btn-sm shadow-none`}
+          disabled={value === ''}
+          onClick={handleReset}
+        >
+          &#215;
+        </button>
       </div>
     </form>
   );
