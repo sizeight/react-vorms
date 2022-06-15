@@ -132,7 +132,7 @@ const MyComponent = () => {
           </Highlight>
         </div>
         <div className="col-6">
-          <div style={{ border: '1px solid #eee', padding: '10px' }}>
+          <div className="border rounded-top p-3">
             <CustomForm
               definition={definitionState}
               withReactVorm={reactVorm}
@@ -150,7 +150,7 @@ const MyComponent = () => {
 
             <button
               type="button"
-              className="btn btn-success btn-sm mr-2"
+              className="btn btn-success btn-sm me-2"
               disabled={reactVorm.isSubmitting}
               onClick={reactVorm.onSubmit}
             >
@@ -158,7 +158,7 @@ const MyComponent = () => {
             </button>
             <button
               type="button"
-              className="btn btn-success btn-sm mr-2"
+              className="btn btn-success btn-sm me-2"
               disabled={reactVorm.isSubmitting}
               onClick={reactVorm.onReset}
             >
@@ -166,7 +166,7 @@ const MyComponent = () => {
             </button>
             <button
               type="button"
-              className="btn btn-success btn-sm mr-2"
+              className="btn btn-success btn-sm me-2"
               disabled={reactVorm.isSubmitting}
               onClick={reactVorm.onValidate}
             >
