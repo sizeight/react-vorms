@@ -14,7 +14,7 @@ const InvalidFeedback = (props) => {
 
   /*
     Bootstrap class `invalid-feedback`` will only display if it is positioned directly after
-    a `form-control is-invalid` or a `custom-control-inut is-invalid`. This causes dificulty with
+    a `form-control is-invalid` or a `custom-control-ipnut is-invalid`. This causes dificulty with
     CustomFormInputMultiCheckbox and radio buttons.
     Using `text-danger mt-1` and <small> we get exactly the same lookas `invalid-feedback` without
     the directly after requirement.
