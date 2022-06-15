@@ -73,11 +73,11 @@ const CustomFormInputMultiCheckbox = (props) => {
     <div>
       {options.map((option, i) => (
         <div
-          className="custom-control custom-control-inline custom-checkbox"
+          className="custom-control custom-control-inline custom-checkbox    bs5 form-check"
           key={option.value}
         >
           <input
-            className={`custom-control-input${invalid ? ' is-invalid' : ''}`}
+            className={`custom-control-input    bs5 form-check-input${invalid ? ' is-invalid' : ''}`}
             type="checkbox"
             name={`${name}:${i}`} // e.g. tags:2
             id={`${id}__${i}`} // e.g. id-tags-2
