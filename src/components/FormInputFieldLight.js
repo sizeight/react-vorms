@@ -177,7 +177,7 @@ const FormInputField = (props) => {
 
       {type === 'select' && (
         <select
-          className={`form-control form-control-sm form-select${invalid ? ' is-invalid' : ''}`}
+          className={`form-select form-select-sm${invalid ? ' is-invalid' : ''}`}
           type="select"
           name={name}
           id={`id_${name}__${idSuffix}`}
