@@ -23,6 +23,10 @@ const inputs = [
     title: 'Text',
   },
   {
+    path: '/text-solo/',
+    title: 'Text solo',
+  },
+  {
     path: '/email/',
     title: 'Email',
   },
@@ -562,6 +566,33 @@ const Demo = () => {
               ]}
             >
               <p>Text input field</p>
+            </InputExample>
+          )}
+        />
+
+
+        <Route
+          path="/text-solo/"
+          exact
+          component={() => (
+            <InputExample
+              heading="Text Input"
+              definition={[
+                [
+                  {
+                    type: 'text',
+                    name: 'text_string',
+                    label: 'Any string',
+                    initialValue: 'Oertendahlii',
+                    validation: {
+                      required: true,
+                    },
+                    width: 3,
+                  },
+                ],
+              ]}
+            >
+              <p>A single text input field should NOT submit on pressing of ENTER</p>
             </InputExample>
           )}
         />

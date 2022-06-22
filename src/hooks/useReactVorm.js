@@ -369,14 +369,14 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
    */
   function onSubmit(e) {
     // Prevent form submission when pressing enter on text input if ony 1 text input in form
-    if (e) {
+    if (e._reactName === 'onSubmit') { // eslint-disable-line
       e.preventDefault();
+    } else {
+      setTouched(definitionToTouched(flatDefinition, true));
+      setIsSubmitting(true);
+      setSubmitCount(submitCount + 1);
+      onValidate();
     }
-
-    setTouched(definitionToTouched(flatDefinition, true));
-    setIsSubmitting(true);
-    setSubmitCount(submitCount + 1);
-    onValidate();
   }
 
 
