@@ -345,18 +345,23 @@ function useReactVorm(definition, { validateOnChange = false, validateOnBlur = f
    * - Has errors? (happens in useEffect below)
    *   - Yes: Set isValidating to false, set errors, set isSubmitting to false
    *   - No: Set isValidating to false
+   *
+   * Return true/false if the form has errors.
    */
   function onValidate() {
     setIsValidating(true);
     const newErrors = {};
+    let hasErrors = false;
     Object.keys(validations).forEach((key) => {
       const fieldErrorsArr = validate(values[key], validations[key]);
       if (fieldErrorsArr.length > 0) {
         newErrors[key] = fieldErrorsArr;
+        hasErrors = true;
       }
     });
     setErrors(newErrors);
     setIsValidating(false);
+    return hasErrors;
   }
 
 
